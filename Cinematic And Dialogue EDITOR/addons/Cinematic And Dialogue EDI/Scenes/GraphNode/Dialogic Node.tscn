@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://6h3cpkr1amas"]
+
+[ext_resource type="Script" uid="uid://beaxfln0pm5av" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Graph Node CaD.gd" id="1_q4lq4"]
+
+[node name="Dialogic Node" type="GraphNode"]
+offset_right = 9.0
+offset_bottom = 55.0
+title = "Dialogic Node"
+script = ExtResource("1_q4lq4")
+metadata/_custom_type_script = "uid://beaxfln0pm5av"

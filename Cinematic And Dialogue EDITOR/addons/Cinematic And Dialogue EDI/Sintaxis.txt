@@ -1,0 +1,20 @@
+
+||/////////////////////////////////////////////////////////////////||
+||                                                                 ||
+||    ####   ###   ##   #  #######  ###    #     #   ###   ####    ||
+||   #        #    #  # #     #    #   #    #   #     #   #        ||
+||    ####    #    #   ##     #    #####     ###      #    ####    ||
+||        #   #    #    #     #   #     #   #   #     #        #   ||
+||    ####   ###   #    #     #   #     #  #     #   ###   ####    ||
+||                                                                 ||
+||/////////////////////////////////////////////////////////////////|| 
+
+Funtion:func FuntionName()
+Funtion callde of signal:func _SignalName_Funtion()
+
+Variant: var variantName
+Variant list = listVariant
+Variant dicionary = var dicVariant
+auxiliar Variant (into the funtion): var auxVariant
+
+Signal: signal SigName

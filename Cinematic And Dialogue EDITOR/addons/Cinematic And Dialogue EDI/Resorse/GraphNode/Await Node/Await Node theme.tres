@@ -1,0 +1,94 @@
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://1ccxpnjpmttu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c04t"]
+bg_color = Color(0, 0.0117647, 0.0392157, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.227451, 0.290196, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4135"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.952941, 0, 0.207843, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lu0e0"]
+bg_color = Color(1, 0.227451, 0.290196, 1)
+border_width_left = 65
+border_color = Color(1, 0.227451, 0.290196, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_top = 6.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nf57a"]
+bg_color = Color(0.951531, 0, 0.207853, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4135"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1c04t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lu0e0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2ag2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r5ocv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1c04t"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lu0e0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r4135"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nf57a"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f2ag2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r5ocv"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k7324"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0bxbt"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a6ll3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nf57a"]
+
+[resource]
+GraphNode/styles/panel = SubResource("StyleBoxFlat_1c04t")
+GraphNode/styles/panel_selected = SubResource("StyleBoxFlat_r4135")
+GraphNode/styles/titlebar = SubResource("StyleBoxFlat_lu0e0")
+GraphNode/styles/titlebar_selected = SubResource("StyleBoxFlat_nf57a")
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_r4135")
+RichTextLabel/styles/background = SubResource("StyleBoxEmpty_1c04t")
+RichTextLabel/styles/fill = SubResource("StyleBoxEmpty_lu0e0")
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_f2ag2")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_r5ocv")
+SpinBox/icons/down = SubResource("PlaceholderTexture2D_1c04t")
+SpinBox/icons/down_disabled = SubResource("PlaceholderTexture2D_lu0e0")
+SpinBox/icons/down_hover = SubResource("PlaceholderTexture2D_r4135")
+SpinBox/icons/down_pressed = SubResource("PlaceholderTexture2D_nf57a")
+SpinBox/icons/up = SubResource("PlaceholderTexture2D_f2ag2")
+SpinBox/icons/up_disabled = SubResource("PlaceholderTexture2D_r5ocv")
+SpinBox/icons/up_hover = SubResource("PlaceholderTexture2D_k7324")
+SpinBox/icons/up_pressed = SubResource("PlaceholderTexture2D_0bxbt")
+SpinBox/icons/updown = SubResource("PlaceholderTexture2D_a6ll3")
+SpinBox/styles/down_background_hovered = null
+SpinBox/styles/down_background_pressed = null
+SpinBox/styles/up_background_hovered = null
+SpinBox/styles/up_background_pressed = null
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_nf57a")

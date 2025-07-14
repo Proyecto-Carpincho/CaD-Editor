@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://buf6b7al6vknk"]
+
+[ext_resource type="Script" uid="uid://beaxfln0pm5av" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Graph Node CaD.gd" id="1_mnqrt"]
+
+[node name="Import Data" type="GraphNode"]
+offset_right = 9.0
+offset_bottom = 55.0
+title = "Import Data"
+script = ExtResource("1_mnqrt")
+metadata/_custom_type_script = "uid://beaxfln0pm5av"

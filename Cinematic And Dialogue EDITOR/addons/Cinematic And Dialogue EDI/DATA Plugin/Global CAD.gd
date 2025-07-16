@@ -40,6 +40,7 @@ func SelfSelected(emisor:Node) ->bool:
 		return pluginEditor.Interface().find(emisor) != -1
 	return false
 
+
 func _input(event: InputEvent) -> void:
 	if EditorGraph:
 		var auxLisNode:Array[CinematicNode]=EditorGraph.NodeIsSelected()

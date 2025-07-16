@@ -128,12 +128,12 @@ var errorPushed:bool
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint() and CinematicResorse:
 		errorPushed = false
-		if CinematicEditor.SelfSelected(self) and isCredible:
+		if isCredible and CinematicEditor.SelfSelected(self):
 			EditorGraph=CinematicEditor.OnPanel(self) as Control
 			NodeEditor=EditorGraph.get_node("GraphEdit")
 			isCredible = false
 			LoadData() 
-		if not CinematicEditor.SelfSelected(self) and not isCredible:
+		if not isCredible and not CinematicEditor.SelfSelected(self):
 			SaveData()
 			CinematicEditor.OffPanel()
 			isCredible = true
@@ -148,18 +148,18 @@ func _exit_tree() -> void:
 		isCredible = true
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_EDITOR_PRE_SAVE and CinematicEditor.SelfSelected(self):
+	if what == NOTIFICATION_EDITOR_POST_SAVE and  CinematicEditor.SelfSelected(self):
 		SaveData()
 		CinematicEditor.SetTextInEditor("Save!")
 
 func SaveData() -> void:
 	print("SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE")
 	if EditorGraph:
-		var auxListNode:Array
+		var auxListNode:Array[Node]
 		for node in NodeEditor.get_children():
 			if node is GraphNode or node is CinematicNode:
 				var dupNode=node.duplicate()
-				auxListNode.append([dupNode,dupNode.name])
+				auxListNode.append(dupNode)
 			
 		var auxConnections:Array = NodeEditor.get_connection_list() as Array
 		CinematicResorse.SaveNodes(auxListNode,auxConnections,dicImportVar,dicImportTypeVar)
@@ -173,6 +173,7 @@ func LoadData() -> void:
 		else:
 			if node.get_parent():
 				node.get_parent().remove_child(node)
+				NodeEditor.add_child(node)
 			if not node.is_inside_tree():
 				NodeEditor.add_child(node)
 			else:

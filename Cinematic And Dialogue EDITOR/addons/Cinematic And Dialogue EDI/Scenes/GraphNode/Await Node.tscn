@@ -62,3 +62,5 @@ max_value = 9.22337e+18
 step = 0.001
 alignment = 1
 suffix = "sec"
+
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/SpinBox" to="." method="_SpinTime_ValueChange"]

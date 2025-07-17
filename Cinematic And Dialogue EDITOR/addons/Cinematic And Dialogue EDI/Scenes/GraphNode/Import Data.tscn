@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://buf6b7al6vknk"]
 
-[ext_resource type="Script" uid="uid://beaxfln0pm5av" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Graph Node CaD.gd" id="1_mnqrt"]
+[ext_resource type="Script" uid="uid://dts3d3f24f12c" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Import Data.gd" id="1_mnqrt"]
 
 [node name="Import Data" type="GraphNode"]
 offset_right = 9.0

@@ -1,5 +1,6 @@
+@tool
 extends CinematicNode
-
+class_name ImportData
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

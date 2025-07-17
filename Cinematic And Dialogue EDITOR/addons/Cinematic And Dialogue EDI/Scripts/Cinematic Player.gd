@@ -3,7 +3,8 @@ extends Node
 class_name CinematicPlayer
 
 
-#region Variables
+#region Variables and Signals
+signal CinematicEnd
 @export var CinematicResorse:Cinematic
 @export_group("Paths")
 @export var NodePaths: Array[NodePath]:
@@ -37,13 +38,16 @@ var SignalName:String:
 		SetCinematicData()
 var listAutoload:Array[Node]
 var methodName:String
-#endregion
+
 
 func SetCinematicData():
 	if is_inside_tree() and listAutoload != []:
 		var auxAutoload= listAutoload[autoloadDialog]
 		CinematicEditor.SetDataNode(AnimationPlayers,NodePaths,SignalName,auxAutoload,methodName)
+		OneTime=true
 
+var OneTime:bool
+var MetholdEnum:String
 func _get_property_list() -> Array[Dictionary]:
 	var property:Array[Dictionary]
 	#region Create a group (All Data)
@@ -85,14 +89,16 @@ func _get_property_list() -> Array[Dictionary]:
 			"hint":PROPERTY_HINT_ENUM,
 			"hint_string":AutoloadENUM})
 		
-		var MetholdEnum:String
-		var auxSize:int =lisRoot[autoloadDialog].get_method_list().size()
-		var auxload:Node=lisRoot[autoloadDialog]
-		methodName=auxload.get_method_list()[dialogMethold]["name"]
-		for method:Dictionary in lisRoot[autoloadDialog].get_method_list():
-			MetholdEnum+=method["name"]
-			if auxSize  -1 > auxload.get_method_list().find(method):
-				MetholdEnum+=","
+		if OneTime:
+			MetholdEnum=""
+			var auxSize:int =lisRoot[autoloadDialog].get_method_list().size()
+			var auxload:Node=lisRoot[autoloadDialog]
+			methodName=auxload.get_method_list()[dialogMethold]["name"]
+			for method:Dictionary in lisRoot[autoloadDialog].get_method_list():
+				MetholdEnum+=method["name"]
+				if auxSize  -1 > auxload.get_method_list().find(method):
+					MetholdEnum+=","
+			OneTime=false
 		property.append({
 			"name":"dialogMethold",
 			"type": TYPE_INT,
@@ -117,14 +123,13 @@ func _set(property, value) -> bool:
 		dicImportVar[property] = value
 		return true
 	return false
-
+#endregion
 var EditorGraph:Control
 var NodeEditor:GraphEdit
-
 var isCredible:bool = true 
+var errorPushed:bool
 #endregion
 
-var errorPushed:bool
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint() and CinematicResorse:
 		errorPushed = false
@@ -135,37 +140,28 @@ func _process(delta: float) -> void:
 			LoadData() 
 		if not isCredible and not CinematicEditor.SelfSelected(self):
 			SaveData()
+			OneTime = true
 			CinematicEditor.OffPanel()
 			isCredible = true
 	elif not CinematicResorse and not errorPushed:
 		errorPushed = true
 		push_error("no existe el recuso porfa crealo, nodo ", name)
 
-func _exit_tree() -> void:
-	if not isCredible and Engine.is_editor_hint() and CinematicResorse:
-		SaveData()
-		CinematicEditor.OffPanel()
-		isCredible = true
-
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_EDITOR_POST_SAVE and  CinematicEditor.SelfSelected(self):
-		SaveData()
-		CinematicEditor.SetTextInEditor("Save!")
-
+#region Save And Load
 func SaveData() -> void:
-	print("SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE")
+	#print("SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE")
 	if EditorGraph:
 		var auxListNode:Array[Node]
 		for node in NodeEditor.get_children():
 			if node is GraphNode or node is CinematicNode:
-				var dupNode=node.duplicate()
+				var dupNode=node
 				auxListNode.append(dupNode)
 			
 		var auxConnections:Array = NodeEditor.get_connection_list() as Array
 		CinematicResorse.SaveNodes(auxListNode,auxConnections,dicImportVar,dicImportTypeVar)
 
 func LoadData() -> void:
-	print("LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD")
+	#print("LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD")
 	var auxlistNode = CinematicResorse.LoadNode()
 	for node:Node in auxlistNode:
 		if NodeEditor.find_child(node.name) != null:
@@ -178,6 +174,55 @@ func LoadData() -> void:
 				NodeEditor.add_child(node)
 			else:
 				push_error("esta dentro del arbol guebon")
+	await get_tree().process_frame
 	NodeEditor.connections = CinematicResorse.allConecction
 	dicImportVar = CinematicResorse.dicVarData
 	dicImportTypeVar = CinematicResorse.dicVarType
+
+func _exit_tree() -> void:
+	if not isCredible and Engine.is_editor_hint() and CinematicResorse:
+		SaveData()
+		CinematicEditor.OffPanel()
+		isCredible = true
+		OneTime=true
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_EDITOR_POST_SAVE and  CinematicEditor.SelfSelected(self):
+		SaveData()
+		CinematicEditor.SetTextInEditor("Save!")
+#endregion
+
+
+func StartCinematic() -> void:
+	#Step 1 Import Data
+	StartImport()
+	ExecutionLine("Start Node",1)
+
+func ExecutionLine(from:String,step:int) -> void:
+	prints(step, from)
+	var allNodeToExe:Array[String]=GetListConection(from)
+	var listNameNode:Array[String]=CinematicResorse.allNameNode
+	for nodeName in allNodeToExe:
+		if nodeName == "End Node":
+			emit_signal("CinematicEnd")
+		else:
+			var index = listNameNode.find(nodeName)
+			var packedNode:PackedScene=CinematicResorse.allNodes[index]
+			var node=packedNode.instantiate()
+			ExeNode(node,step+1)
+
+func ExeNode(node:CinematicNode,step:int) -> void:
+	node.StartAction()
+	await node.NextNode
+	ExecutionLine(node.name,step)
+
+func GetListConection(from:String) -> Array[String]:
+	var auxConecctions:Array[Dictionary] = CinematicResorse.allConecction
+	var allToNodes:Array[String]
+	for conecction:Dictionary in auxConecctions:
+		if conecction["from_node"] == from:
+			allToNodes.append(conecction["to_node"])
+	return allToNodes
+
+func StartImport():
+	pass

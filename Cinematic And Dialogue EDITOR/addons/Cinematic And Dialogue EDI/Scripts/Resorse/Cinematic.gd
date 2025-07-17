@@ -3,6 +3,7 @@ extends Resource
 class_name Cinematic
 
 var allNodes:Array[PackedScene]
+var allNameNode:Array[String]
 var allConecction:Array[Dictionary]
 
 #region var to ImportData
@@ -38,18 +39,24 @@ func _get_property_list():
 
 func SaveNodes(nodesToSave:Array[Node],Conections:Array[Dictionary],varData:Dictionary[String,Variant],varType:Dictionary[String,int]):
 	allNodes.clear()
+	allNameNode.clear()
 	for node:Node in nodesToSave:
-		var auxPack = PackedScene.new()
+		SetNameList(node)
 		SetChildOwner(node, node)
-		var error = auxPack.pack(node)
+		
+		var auxPack = PackedScene.new()
+		var error:Error = auxPack.pack(node)
 		allNodes.append(auxPack)
-		if node.get_child_count() == 0:
-			push_error("aqui esta el error señores")
-		if auxPack.instantiate(3).get_child_count() == 0:
-			push_error("error en el guardado de ", node.name)
+
+		if error != OK:
+			push_error("Error in packed of node: ",node.name)
 	allConecction=Conections
 	dicVarData=varData
 	dicVarType=varType
+
+func SetNameList(node:Node) -> void:
+	var auxName:StringName = node.name
+	allNameNode.append(auxName)
 
 func LoadNode() -> Array[Node]:
 	return LoadChildNodes()

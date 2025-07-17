@@ -44,3 +44,12 @@ func _WaitPre_toggled(toggled_on: bool) -> void:
 
 func _WaitAni_toggled(toggled_on: bool) -> void:
 	waitNextAnimation=toggled_on
+
+func StartAction():
+	CinematicEditor.connect("Timeout",Timeout)
+	CinematicEditor.AwaitTime(0.1,name)
+	
+
+func Timeout(TimerCreator:String):
+	if TimerCreator == name:
+		emit_signal("NextNode")

@@ -39,8 +39,7 @@ func SelfSelected(emisor:Node) ->bool:
 	if pluginEditor:
 		return pluginEditor.Interface().find(emisor) != -1
 	return false
-
-
+#region
 func _input(event: InputEvent) -> void:
 	if EditorGraph:
 		var auxLisNode:Array[CinematicNode]=EditorGraph.NodeIsSelected()
@@ -72,10 +71,19 @@ func Delente(auxLisNode) -> void:
 	SetTextInEditor("Delente!")
 
 func Paste(auxLisNode) -> void:
+	var newClipboard:Array[CinematicNode]
 	for node:CinematicNode in auxLisNode:
-		var dupNode=node.duplicate()
+		var dupNode:=node.duplicate()
 		EditorGraph.get_node("GraphEdit").add_child(dupNode)
+		dupNode.position_offset += Vector2(25,10)
+		newClipboard.append(dupNode.duplicate())
+	Clipboard=newClipboard
 	SetTextInEditor("Paste!")
 
 func SetTextInEditor(text):
 	EditorGraph.setText(text)
+#endregion
+signal Timeout(creator:String)
+func AwaitTime(time:float,creator:String):
+	await get_tree().create_timer(time).timeout
+	emit_signal("Timeout",creator)

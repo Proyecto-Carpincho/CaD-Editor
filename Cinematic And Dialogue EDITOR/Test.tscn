@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://f87k4l0swq45"]
+[gd_scene load_steps=31 format=3 uid="uid://f87k4l0swq45"]
 
 [ext_resource type="Script" uid="uid://gtbcpq6kgg1m" path="res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd" id="1_myinc"]
 [ext_resource type="Script" uid="uid://cccm0ewpn34bo" path="res://test.gd" id="1_q1uvj"]
@@ -9,20 +9,49 @@
 [ext_resource type="Theme" uid="uid://4n06vdth0cl3" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Rich text Checkbox.tres" id="6_vwb7u"]
 [ext_resource type="Theme" uid="uid://1ccxpnjpmttu" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Await Node/Await Node theme.tres" id="7_c4vo5"]
 [ext_resource type="Script" uid="uid://d25qx5m3m7wd1" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Await Node.gd" id="8_vwb7u"]
+[ext_resource type="Texture2D" uid="uid://b6lv3bye4gn2x" path="res://icon.svg" id="10_vwb7u"]
 
 [sub_resource type="Animation" id="Animation_2au82"]
 resource_name = "new_animation"
 
 [sub_resource type="Animation" id="Animation_njov2"]
 resource_name = "test animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(12, 11), Vector2(821, 195)]
+}
+
+[sub_resource type="Animation" id="Animation_cqdos"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 11)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2au82"]
 _data = {
+&"RESET": SubResource("Animation_cqdos"),
 &"new_animation": SubResource("Animation_2au82"),
 &"test animation": SubResource("Animation_njov2")
 }
 
-[sub_resource type="PackedScene" id="PackedScene_c4vo5"]
+[sub_resource type="PackedScene" id="PackedScene_vwb7u"]
 _bundled = {
 "conn_count": 0,
 "conns": PackedInt32Array(),
@@ -31,61 +60,11 @@ _bundled = {
 "node_count": 2,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 19, 0, -1, 18, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 1, 12, 10, 13, 11, 14, 12, 15, 1, 16, 13, 17, 11, 18, 12, 0, 0, 0, 20, 20, -1, 1, 2, 14, 0),
-"variants": [Color(1, 0, 0.160784, 1), 0, -122.33, 216.178, -66.3303, 273.178, 1, Vector2(200, 200), "Start", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), 2],
-"version": 3
-}
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f7uy8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5okd8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqry5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4bq2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_baawb"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_baawb"]
-bg_color = Color(0.167451, 0.167451, 0.167451, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7uy8"]
-bg_color = Color(0.0980986, 0.0980985, 0.0980985, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nb3lu"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3o282"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmb2q"]
-
-[sub_resource type="PackedScene" id="PackedScene_vwb7u"]
-_bundled = {
-"conn_count": 3,
-"conns": PackedInt32Array(8, 0, 80, 79, 2, 0, 0, 22, 0, 82, 81, 2, 0, 0, 25, 0, 82, 83, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("Animation Node", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "script", "aniPlayer", "metadata/_custom_type_script", "GraphNode", "HSeparator", "TabContainer", "size_flags_vertical", "size_flags_stretch_ratio", "tab_alignment", "current_tab", "Node", "visible", "metadata/_tab_index", "VBoxContainer", "Text AniPlayer", "size_flags_horizontal", "theme_override_styles/fill", "theme_override_styles/background", "theme_override_styles/focus", "theme_override_styles/normal", "bbcode_enabled", "text", "horizontal_alignment", "RichTextLabel", "OptionMenu", "HBoxContainer", "VSeparator2", "theme_override_styles/separator", "VSeparator", "OptionNode", "theme_override_constants/outline_size", "theme_override_styles/hover", "selected", "item_count", "popup/item_0/text", "popup/item_0/id", "OptionButton", "HSeparator2", "Animation", "Text AniName", "OptionAnimation", "popup/item_1/text", "popup/item_1/id", "Awaits", "Wait Ani", "Await", "CheckBox", "Wait PreAnimation", "Timer", "one_shot", "_NodeOption_Selected", "item_selected", "_WaitAni_toggled", "toggled", "_WaitPre_toggled"),
-"node_count": 28,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 32, 0, -1, 31, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 12, 1, 13, 11, 14, 12, 15, 10, 16, 1, 17, 11, 18, 12, 19, 13, 20, 13, 21, 1, 22, 14, 23, 12, 24, 13, 25, 1, 26, 14, 27, 12, 28, 13, 29, 15, 1073741854, 16, 31, 17, 0, 0, 0, 33, 33, -1, 3, 1, 18, 2, 19, 8, 7, 0, 0, 0, 34, 34, -1, 7, 1, 20, 2, 19, 35, 21, 36, 22, 8, 7, 37, 6, 38, 6, 0, 2, 0, 42, 39, -1, 3, 40, 10, 2, 19, 41, 1, 0, 3, 0, 33, 33, -1, 3, 1, 18, 2, 19, 8, 7, 0, 3, 0, 52, 43, -1, 11, 1, 23, 2, 19, 44, 21, 8, 24, 45, 25, 46, 26, 47, 27, 48, 28, 49, 13, 50, 29, 51, 6, 0, 3, 0, 54, 53, -1, 1, 2, 19, 0, 6, 0, 57, 55, -1, 3, 2, 19, 8, 7, 56, 30, 0, 6, 0, 65, 58, -1, 11, 1, 31, 2, 19, 44, 21, 8, 7, 59, 1, 60, 32, 48, 33, 61, 1, 62, 6, 63, 34, 64, 1, 0, 6, 0, 57, 57, -1, 2, 2, 19, 8, 7, 0, 3, 0, 33, 66, -1, 3, 1, 35, 2, 19, 8, 7, 0, 2, 0, 42, 67, -1, 2, 2, 19, 41, 6, 0, 11, 0, 33, 33, -1, 4, 1, 18, 2, 19, 8, 7, 56, 36, 0, 11, 0, 52, 68, -1, 11, 1, 23, 2, 19, 44, 21, 8, 24, 45, 25, 46, 26, 47, 27, 48, 28, 49, 13, 50, 37, 51, 6, 0, 11, 0, 54, 53, -1, 1, 2, 19, 0, 14, 0, 57, 55, -1, 3, 2, 19, 8, 7, 56, 30, 0, 14, 0, 65, 69, -1, 13, 1, 31, 2, 19, 44, 21, 8, 7, 59, 1, 60, 32, 48, 33, 61, 1, 62, 19, 63, 38, 64, 1, 70, 39, 71, 6, 0, 14, 0, 57, 57, -1, 3, 2, 19, 8, 7, 56, 40, 0, 11, 0, 33, 66, -1, 4, 1, 35, 2, 19, 8, 7, 56, 41, 0, 2, 0, 42, 72, -1, 3, 40, 10, 2, 19, 41, 19, 0, 19, 0, 33, 33, -1, 3, 1, 18, 2, 19, 8, 7, 0, 19, 0, 54, 73, -1, 2, 1, 42, 2, 19, 0, 21, 0, 75, 74, -1, 1, 2, 19, 0, 21, 0, 52, 52, -1, 4, 2, 19, 44, 21, 8, 43, 50, 44, 0, 19, 0, 54, 76, -1, 2, 1, 42, 2, 19, 0, 24, 0, 75, 74, -1, 1, 2, 19, 0, 24, 0, 52, 52, -1, 4, 2, 19, 44, 21, 8, 43, 50, 45, 0, 0, 0, 77, 77, -1, 1, 78, 13, 0),
-"variants": [Vector2(215, 150), 0, 217.67, 436.178, 432.67, 655.178, 1, ExtResource("3_q1uvj"), Vector2(540, 420), "Animation Node", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), ExtResource("4_qs82m"), NodePath("../../../../../@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Node2D/AnimationPlayer"), "uid://beaxfln0pm5av", Vector2(0, 20), 2, Vector2(0, 140), 3, 0.0, Vector2(0, 30), ExtResource("5_c4vo5"), SubResource("StyleBoxEmpty_f7uy8"), SubResource("StyleBoxEmpty_5okd8"), SubResource("StyleBoxEmpty_gqry5"), SubResource("StyleBoxEmpty_r4bq2"), "[wave]AnimationPlayer[/wave]", SubResource("StyleBoxEmpty_baawb"), Vector2(0, 40), SubResource("StyleBoxFlat_baawb"), SubResource("StyleBoxFlat_f7uy8"), "AnimationPlayer", Vector2(0, 8), SubResource("StyleBoxEmpty_nb3lu"), "[wave]  Select Animation[/wave]", "new_animation", "test animation", SubResource("StyleBoxEmpty_3o282"), SubResource("StyleBoxEmpty_jmb2q"), Vector2(0, 38), ExtResource("6_vwb7u"), "wait for the 
-animation", "wait for previous 
-animation"],
+"variants": [Color(1, 0, 0.160784, 1), 0, -591.817, 191.917, -535.817, 248.917, 1, Vector2(200, 200), "Start", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), 2],
 "version": 3
 }
 
 [sub_resource type="PackedScene" id="PackedScene_cqdos"]
-_bundled = {
-"conn_count": 1,
-"conns": PackedInt32Array(6, 0, 48, 47, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("Await Node", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "script", "WaitTime", "metadata/_custom_type_script", "GraphNode", "HSeparator", "VBoxContainer", "RichTextLabel", "bbcode_enabled", "text", "horizontal_alignment", "HBoxContainer", "VSeparator", "SpinBox", "max_value", "step", "value", "alignment", "suffix", "_SpinTime_ValueChange", "value_changed"),
-"node_count": 7,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 32, 0, -1, 31, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 12, 1, 13, 11, 14, 12, 15, 10, 16, 1, 17, 11, 18, 12, 19, 13, 20, 13, 21, 1, 22, 14, 23, 12, 24, 13, 25, 1, 26, 14, 27, 12, 28, 13, 29, 15, 30, 16, 31, 17, 0, 0, 0, 33, 33, -1, 3, 1, 18, 2, 19, 8, 7, 0, 0, 0, 34, 34, -1, 1, 2, 19, 0, 2, 0, 35, 35, -1, 6, 1, 20, 2, 19, 8, 7, 36, 13, 37, 21, 38, 6, 0, 2, 0, 39, 39, -1, 1, 2, 19, 0, 4, 0, 40, 40, -1, 3, 1, 22, 2, 19, 8, 7, 0, 4, 0, 41, 41, -1, 8, 1, 23, 2, 19, 8, 7, 42, 24, 43, 25, 44, 16, 45, 6, 46, 26, 0),
-"variants": [Vector2(190, 0), 0, 257.67, 116.178, 466.67, 254.178, 1, ExtResource("7_c4vo5"), Vector2(580, 100), "Await Node", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), ExtResource("8_vwb7u"), 1.0, "uid://beaxfln0pm5av", Vector2(0, 17), 2, Vector2(0, 29), "[wave ]Time to wait", Vector2(22, 0), Vector2(150, 0), 9.22337e+18, 0.001, "sec"],
-"version": 3
-}
-
-[sub_resource type="PackedScene" id="PackedScene_r6p7k"]
 _bundled = {
 "conn_count": 0,
 "conns": PackedInt32Array(),
@@ -94,33 +73,70 @@ _bundled = {
 "node_count": 2,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 20, 0, -1, 19, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 9, 12, 1, 13, 10, 14, 11, 15, 12, 16, 1, 17, 13, 18, 11, 19, 9, 0, 0, 0, 21, 21, -1, 1, 2, 14, 0),
-"variants": [Color(1, 0, 0.160784, 1), 0, 1077.67, 156.178, 1127.67, 211.178, 1, Vector2(1400, 140), "End", true, Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), 2],
+"variants": [Color(1, 0, 0.160784, 1), 0, 1188.18, 31.9174, 1238.18, 86.9174, 1, Vector2(1980, 40), "End", true, Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), 2],
 "version": 3
 }
 
-[sub_resource type="PackedScene" id="PackedScene_rc7cs"]
+[sub_resource type="PackedScene" id="PackedScene_r6p7k"]
 _bundled = {
 "conn_count": 1,
 "conns": PackedInt32Array(6, 0, 48, 47, 2, 0, 0),
 "editable_instances": [],
-"names": PackedStringArray("@GraphNode@37045", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "script", "WaitTime", "metadata/_custom_type_script", "GraphNode", "HSeparator", "VBoxContainer", "RichTextLabel", "bbcode_enabled", "text", "horizontal_alignment", "HBoxContainer", "VSeparator", "SpinBox", "max_value", "step", "value", "alignment", "suffix", "_SpinTime_ValueChange", "value_changed"),
+"names": PackedStringArray("Await Node", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "script", "WaitTime", "metadata/_custom_type_script", "GraphNode", "HSeparator", "VBoxContainer", "RichTextLabel", "bbcode_enabled", "text", "horizontal_alignment", "HBoxContainer", "VSeparator", "SpinBox", "max_value", "step", "value", "alignment", "suffix", "_SpinTime_ValueChange", "value_changed"),
 "node_count": 7,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 32, 0, -1, 31, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 12, 1, 13, 11, 14, 12, 15, 10, 16, 1, 17, 11, 18, 12, 19, 13, 20, 13, 21, 1, 22, 14, 23, 12, 24, 13, 25, 1, 26, 14, 27, 12, 28, 13, 29, 15, 30, 16, 31, 17, 0, 0, 0, 33, 33, -1, 3, 1, 18, 2, 19, 8, 7, 0, 0, 0, 34, 34, -1, 1, 2, 19, 0, 2, 0, 35, 35, -1, 6, 1, 20, 2, 19, 8, 7, 36, 13, 37, 21, 38, 6, 0, 2, 0, 39, 39, -1, 1, 2, 19, 0, 4, 0, 40, 40, -1, 3, 1, 22, 2, 19, 8, 7, 0, 4, 0, 41, 41, -1, 8, 1, 23, 2, 19, 8, 7, 42, 24, 43, 25, 44, 16, 45, 6, 46, 26, 0),
-"variants": [Vector2(190, 0), 0, 517.67, 176.178, 726.67, 314.178, 1, ExtResource("7_c4vo5"), Vector2(840, 160), "Await Node", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), ExtResource("8_vwb7u"), 2.0, "uid://beaxfln0pm5av", Vector2(0, 17), 2, Vector2(0, 29), "[wave ]Time to wait", Vector2(22, 0), Vector2(150, 0), 9.22337e+18, 0.001, "sec"],
+"variants": [Vector2(190, 0), 0, -211.817, 91.9174, -2.81738, 229.917, 1, ExtResource("7_c4vo5"), Vector2(580, 100), "Await Node", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), ExtResource("8_vwb7u"), 1.0, "uid://beaxfln0pm5av", Vector2(0, 17), 2, Vector2(0, 29), "[wave ]Time to wait", Vector2(22, 0), Vector2(150, 0), 9.22337e+18, 0.001, "sec"],
+"version": 3
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1b21"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilduj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2xbw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdfvj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iw7q2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8vq6"]
+bg_color = Color(0.167451, 0.167451, 0.167451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctmup"]
+bg_color = Color(0.0980986, 0.0980985, 0.0980985, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm833"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyx0r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixknr"]
+
+[sub_resource type="PackedScene" id="PackedScene_rc7cs"]
+_bundled = {
+"conn_count": 4,
+"conns": PackedInt32Array(8, 0, 83, 82, 2, 0, 0, 16, 0, 83, 84, 2, 0, 0, 22, 0, 86, 85, 2, 0, 0, 25, 0, 86, 87, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Animation Node", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "script", "aniPlayer", "aniPlayerPath", "animationName", "lisAnimationPlayer", "metadata/_custom_type_script", "GraphNode", "HSeparator", "TabContainer", "size_flags_vertical", "size_flags_stretch_ratio", "tab_alignment", "current_tab", "Node", "visible", "metadata/_tab_index", "VBoxContainer", "Text AniPlayer", "size_flags_horizontal", "theme_override_styles/fill", "theme_override_styles/background", "theme_override_styles/focus", "theme_override_styles/normal", "bbcode_enabled", "text", "horizontal_alignment", "RichTextLabel", "OptionMenu", "HBoxContainer", "VSeparator2", "theme_override_styles/separator", "VSeparator", "OptionNode", "theme_override_constants/outline_size", "theme_override_styles/hover", "item_count", "popup/item_0/text", "popup/item_0/id", "popup/item_1/text", "popup/item_1/id", "OptionButton", "HSeparator2", "Animation", "Text AniName", "OptionAnimation", "selected", "popup/item_2/text", "popup/item_2/id", "Awaits", "Wait Ani", "Await", "CheckBox", "Wait PreAnimation", "_NodeOption_Selected", "item_selected", "_Animation_Selected", "_WaitAni_toggled", "toggled", "_WaitPre_toggled"),
+"node_count": 27,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 35, 0, -1, 34, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 12, 1, 13, 11, 14, 12, 15, 10, 16, 1, 17, 11, 18, 12, 19, 13, 20, 13, 21, 1, 22, 14, 23, 12, 24, 13, 25, 1, 26, 14, 27, 12, 28, 13, 29, 15, 1073741854, 16, 31, 17, 32, 18, 33, 19, 34, 20, 0, 0, 0, 36, 36, -1, 3, 1, 21, 2, 22, 8, 7, 0, 0, 0, 37, 37, -1, 7, 1, 23, 2, 22, 38, 24, 39, 25, 8, 7, 40, 6, 41, 6, 0, 2, 0, 45, 42, -1, 3, 43, 10, 2, 22, 44, 1, 0, 3, 0, 36, 36, -1, 3, 1, 21, 2, 22, 8, 7, 0, 3, 0, 55, 46, -1, 11, 1, 26, 2, 22, 47, 24, 8, 27, 48, 28, 49, 29, 50, 30, 51, 31, 52, 13, 53, 32, 54, 6, 0, 3, 0, 57, 56, -1, 1, 2, 22, 0, 6, 0, 60, 58, -1, 3, 2, 22, 8, 7, 59, 33, 0, 6, 0, 69, 61, -1, 12, 1, 34, 2, 22, 47, 24, 8, 7, 62, 1, 63, 35, 51, 36, 64, 22, 65, 37, 66, 1, 67, 38, 68, 6, 0, 6, 0, 60, 60, -1, 2, 2, 22, 8, 7, 0, 3, 0, 36, 70, -1, 3, 1, 39, 2, 22, 8, 7, 0, 2, 0, 45, 71, -1, 2, 2, 22, 44, 6, 0, 11, 0, 36, 36, -1, 4, 1, 21, 2, 22, 8, 7, 59, 40, 0, 11, 0, 55, 72, -1, 11, 1, 26, 2, 22, 47, 24, 8, 27, 48, 28, 49, 29, 50, 30, 51, 31, 52, 13, 53, 41, 54, 6, 0, 11, 0, 57, 56, -1, 1, 2, 22, 0, 14, 0, 60, 58, -1, 3, 2, 22, 8, 7, 59, 33, 0, 14, 0, 69, 73, -1, 15, 1, 34, 2, 22, 47, 24, 8, 7, 62, 1, 63, 35, 51, 36, 74, 22, 64, 24, 65, 42, 66, 1, 67, 43, 68, 6, 75, 18, 76, 22, 0, 14, 0, 60, 60, -1, 3, 2, 22, 8, 7, 59, 44, 0, 11, 0, 36, 70, -1, 4, 1, 39, 2, 22, 8, 7, 59, 45, 0, 2, 0, 45, 77, -1, 3, 43, 10, 2, 22, 44, 22, 0, 19, 0, 36, 36, -1, 3, 1, 21, 2, 22, 8, 7, 0, 19, 0, 57, 78, -1, 2, 1, 46, 2, 22, 0, 21, 0, 80, 79, -1, 1, 2, 22, 0, 21, 0, 55, 55, -1, 4, 2, 22, 47, 24, 8, 47, 53, 48, 0, 19, 0, 57, 81, -1, 2, 1, 46, 2, 22, 0, 24, 0, 80, 79, -1, 1, 2, 22, 0, 24, 0, 55, 55, -1, 4, 2, 22, 47, 24, 8, 47, 53, 49, 0),
+"variants": [Vector2(215, 150), 0, 248.183, 11.9174, 463.183, 230.917, 1, ExtResource("3_q1uvj"), Vector2(1040, 20), "Animation Node", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), ExtResource("4_qs82m"), NodePath("../../../../../@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Node2D/AnimationPlayer2"), NodePath("/root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Node2D/AnimationPlayer2"), "test animation", Array[NodePath]([NodePath("/root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Node2D/AnimationPlayer"), NodePath("/root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Node2D/AnimationPlayer2")]), "uid://beaxfln0pm5av", Vector2(0, 20), 2, Vector2(0, 140), 3, 0.0, Vector2(0, 30), ExtResource("5_c4vo5"), SubResource("StyleBoxEmpty_d1b21"), SubResource("StyleBoxEmpty_ilduj"), SubResource("StyleBoxEmpty_s2xbw"), SubResource("StyleBoxEmpty_rdfvj"), "[wave]AnimationPlayer[/wave]", SubResource("StyleBoxEmpty_iw7q2"), Vector2(0, 40), SubResource("StyleBoxFlat_q8vq6"), SubResource("StyleBoxFlat_ctmup"), "AnimationPlayer", "AnimationPlayer2", Vector2(0, 8), SubResource("StyleBoxEmpty_nm833"), "[wave]  Select Animation[/wave]", "RESET", "new_animation", SubResource("StyleBoxEmpty_xyx0r"), SubResource("StyleBoxEmpty_ixknr"), Vector2(0, 38), ExtResource("6_vwb7u"), "wait for the 
+animation", "wait for previous 
+animation"],
 "version": 3
 }
 
 [sub_resource type="PackedScene" id="PackedScene_d1b21"]
 _bundled = {
-"conn_count": 3,
-"conns": PackedInt32Array(8, 0, 78, 77, 2, 0, 0, 22, 0, 80, 79, 2, 0, 0, 25, 0, 80, 81, 2, 0, 0),
+"conn_count": 4,
+"conns": PackedInt32Array(8, 0, 85, 84, 2, 0, 0, 16, 0, 85, 86, 2, 0, 0, 22, 0, 88, 87, 2, 0, 0, 25, 0, 88, 89, 2, 0, 0),
 "editable_instances": [],
-"names": PackedStringArray("@GraphNode@37066", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "script", "aniPlayer", "metadata/_custom_type_script", "GraphNode", "HSeparator", "TabContainer", "size_flags_vertical", "size_flags_stretch_ratio", "tab_alignment", "current_tab", "Node", "visible", "metadata/_tab_index", "VBoxContainer", "Text AniPlayer", "size_flags_horizontal", "theme_override_styles/fill", "theme_override_styles/background", "theme_override_styles/focus", "theme_override_styles/normal", "bbcode_enabled", "text", "horizontal_alignment", "RichTextLabel", "OptionMenu", "HBoxContainer", "VSeparator2", "theme_override_styles/separator", "VSeparator", "OptionNode", "theme_override_constants/outline_size", "theme_override_styles/hover", "selected", "item_count", "popup/item_0/text", "popup/item_0/id", "OptionButton", "HSeparator2", "Animation", "Text AniName", "OptionAnimation", "popup/item_1/text", "popup/item_1/id", "Awaits", "Wait Ani", "Await", "CheckBox", "Wait PreAnimation", "_NodeOption_Selected", "item_selected", "_WaitAni_toggled", "toggled", "_WaitPre_toggled"),
+"names": PackedStringArray("_GraphNode_36271", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "script", "aniPlayer", "aniPlayerPath", "animationName", "waitPreAnimation", "lisAnimationPlayer", "metadata/_custom_type_script", "GraphNode", "HSeparator", "TabContainer", "size_flags_vertical", "size_flags_stretch_ratio", "tab_alignment", "current_tab", "Node", "visible", "metadata/_tab_index", "VBoxContainer", "Text AniPlayer", "size_flags_horizontal", "theme_override_styles/fill", "theme_override_styles/background", "theme_override_styles/focus", "theme_override_styles/normal", "bbcode_enabled", "text", "horizontal_alignment", "RichTextLabel", "OptionMenu", "HBoxContainer", "VSeparator2", "theme_override_styles/separator", "VSeparator", "OptionNode", "theme_override_constants/outline_size", "theme_override_styles/hover", "selected", "item_count", "popup/item_0/text", "popup/item_0/id", "popup/item_1/text", "popup/item_1/id", "OptionButton", "HSeparator2", "Animation", "Text AniName", "OptionAnimation", "popup/item_2/text", "popup/item_2/id", "Awaits", "Wait Ani", "Await", "CheckBox", "Wait PreAnimation", "button_pressed", "_NodeOption_Selected", "item_selected", "_Animation_Selected", "_WaitAni_toggled", "toggled", "_WaitPre_toggled"),
 "node_count": 27,
 "node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 32, 0, -1, 31, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 12, 1, 13, 11, 14, 12, 15, 10, 16, 1, 17, 11, 18, 12, 19, 13, 20, 13, 21, 1, 22, 14, 23, 12, 24, 13, 25, 1, 26, 14, 27, 12, 28, 13, 29, 15, 1073741854, 16, 31, 17, 0, 0, 0, 33, 33, -1, 3, 1, 18, 2, 19, 8, 7, 0, 0, 0, 34, 34, -1, 7, 1, 20, 2, 19, 35, 21, 36, 22, 8, 7, 37, 6, 38, 6, 0, 2, 0, 42, 39, -1, 3, 40, 10, 2, 19, 41, 1, 0, 3, 0, 33, 33, -1, 3, 1, 18, 2, 19, 8, 7, 0, 3, 0, 52, 43, -1, 11, 1, 23, 2, 19, 44, 21, 8, 24, 45, 25, 46, 26, 47, 27, 48, 28, 49, 13, 50, 29, 51, 6, 0, 3, 0, 54, 53, -1, 1, 2, 19, 0, 6, 0, 57, 55, -1, 3, 2, 19, 8, 7, 56, 30, 0, 6, 0, 65, 58, -1, 11, 1, 31, 2, 19, 44, 21, 8, 7, 59, 1, 60, 32, 48, 33, 61, 1, 62, 6, 63, 34, 64, 1, 0, 6, 0, 57, 57, -1, 2, 2, 19, 8, 7, 0, 3, 0, 33, 66, -1, 3, 1, 35, 2, 19, 8, 7, 0, 2, 0, 42, 67, -1, 2, 2, 19, 41, 6, 0, 11, 0, 33, 33, -1, 4, 1, 18, 2, 19, 8, 7, 56, 36, 0, 11, 0, 52, 68, -1, 11, 1, 23, 2, 19, 44, 21, 8, 24, 45, 25, 46, 26, 47, 27, 48, 28, 49, 13, 50, 37, 51, 6, 0, 11, 0, 54, 53, -1, 1, 2, 19, 0, 14, 0, 57, 55, -1, 3, 2, 19, 8, 7, 56, 30, 0, 14, 0, 65, 69, -1, 13, 1, 31, 2, 19, 44, 21, 8, 7, 59, 1, 60, 32, 48, 33, 61, 1, 62, 19, 63, 38, 64, 1, 70, 39, 71, 6, 0, 14, 0, 57, 57, -1, 3, 2, 19, 8, 7, 56, 40, 0, 11, 0, 33, 66, -1, 4, 1, 35, 2, 19, 8, 7, 56, 41, 0, 2, 0, 42, 72, -1, 3, 40, 10, 2, 19, 41, 19, 0, 19, 0, 33, 33, -1, 3, 1, 18, 2, 19, 8, 7, 0, 19, 0, 54, 73, -1, 2, 1, 42, 2, 19, 0, 21, 0, 75, 74, -1, 1, 2, 19, 0, 21, 0, 52, 52, -1, 4, 2, 19, 44, 21, 8, 43, 50, 44, 0, 19, 0, 54, 76, -1, 2, 1, 42, 2, 19, 0, 24, 0, 75, 74, -1, 1, 2, 19, 0, 24, 0, 52, 52, -1, 4, 2, 19, 44, 21, 8, 43, 50, 45, 0),
-"variants": [Vector2(215, 150), 0, 817.67, 156.178, 1032.67, 375.178, 1, ExtResource("3_q1uvj"), Vector2(1140, 140), "Animation Node", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), ExtResource("4_qs82m"), NodePath("../../../../../@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Node2D/AnimationPlayer"), "uid://beaxfln0pm5av", Vector2(0, 20), 2, Vector2(0, 140), 3, 0.0, Vector2(0, 30), ExtResource("5_c4vo5"), SubResource("StyleBoxEmpty_f7uy8"), SubResource("StyleBoxEmpty_5okd8"), SubResource("StyleBoxEmpty_gqry5"), SubResource("StyleBoxEmpty_r4bq2"), "[wave]AnimationPlayer[/wave]", SubResource("StyleBoxEmpty_baawb"), Vector2(0, 40), SubResource("StyleBoxFlat_baawb"), SubResource("StyleBoxFlat_f7uy8"), "AnimationPlayer", Vector2(0, 8), SubResource("StyleBoxEmpty_nb3lu"), "[wave]  Select Animation[/wave]", "new_animation", "test animation", SubResource("StyleBoxEmpty_3o282"), SubResource("StyleBoxEmpty_jmb2q"), Vector2(0, 38), ExtResource("6_vwb7u"), "wait for the 
+"nodes": PackedInt32Array(-1, -1, 36, 0, -1, 35, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 12, 1, 13, 11, 14, 12, 15, 10, 16, 1, 17, 11, 18, 12, 19, 13, 20, 13, 21, 1, 22, 14, 23, 12, 24, 13, 25, 1, 26, 14, 27, 12, 28, 13, 29, 15, 1073741854, 16, 31, 17, 32, 18, 33, 13, 34, 19, 35, 20, 0, 0, 0, 37, 37, -1, 3, 1, 21, 2, 22, 8, 7, 0, 0, 0, 38, 38, -1, 7, 1, 23, 2, 22, 39, 24, 40, 25, 8, 7, 41, 6, 42, 22, 0, 2, 0, 46, 43, -1, 3, 44, 10, 2, 22, 45, 1, 0, 3, 0, 37, 37, -1, 3, 1, 21, 2, 22, 8, 7, 0, 3, 0, 56, 47, -1, 11, 1, 26, 2, 22, 48, 24, 8, 27, 49, 28, 50, 29, 51, 30, 52, 31, 53, 13, 54, 32, 55, 6, 0, 3, 0, 58, 57, -1, 1, 2, 22, 0, 6, 0, 61, 59, -1, 3, 2, 22, 8, 7, 60, 33, 0, 6, 0, 71, 62, -1, 13, 1, 34, 2, 22, 48, 24, 8, 7, 63, 1, 64, 35, 52, 36, 65, 6, 66, 22, 67, 37, 68, 1, 69, 38, 70, 6, 0, 6, 0, 61, 61, -1, 2, 2, 22, 8, 7, 0, 3, 0, 37, 72, -1, 3, 1, 39, 2, 22, 8, 7, 0, 2, 0, 46, 73, -1, 3, 44, 10, 2, 22, 45, 6, 0, 11, 0, 37, 37, -1, 4, 1, 21, 2, 22, 8, 7, 60, 40, 0, 11, 0, 56, 74, -1, 11, 1, 26, 2, 22, 48, 24, 8, 27, 49, 28, 50, 29, 51, 30, 52, 31, 53, 13, 54, 41, 55, 6, 0, 11, 0, 58, 57, -1, 1, 2, 22, 0, 14, 0, 61, 59, -1, 3, 2, 22, 8, 7, 60, 33, 0, 14, 0, 71, 75, -1, 15, 1, 34, 2, 22, 48, 24, 8, 7, 63, 1, 64, 35, 52, 36, 65, 22, 66, 24, 67, 42, 68, 1, 69, 43, 70, 6, 76, 18, 77, 22, 0, 14, 0, 61, 61, -1, 3, 2, 22, 8, 7, 60, 44, 0, 11, 0, 37, 72, -1, 4, 1, 39, 2, 22, 8, 7, 60, 45, 0, 2, 0, 46, 78, -1, 2, 2, 22, 45, 22, 0, 19, 0, 37, 37, -1, 3, 1, 21, 2, 22, 8, 7, 0, 19, 0, 58, 79, -1, 2, 1, 46, 2, 22, 0, 21, 0, 81, 80, -1, 1, 2, 22, 0, 21, 0, 56, 56, -1, 4, 2, 22, 48, 24, 8, 47, 54, 48, 0, 19, 0, 58, 82, -1, 2, 1, 46, 2, 22, 0, 24, 0, 81, 80, -1, 2, 2, 22, 83, 13, 0, 24, 0, 56, 56, -1, 4, 2, 22, 48, 24, 8, 47, 54, 49, 0),
+"variants": [Vector2(215, 150), 0, 608.183, -48.0826, 823.183, 170.917, 1, ExtResource("3_q1uvj"), Vector2(1400, -40), "Animation Node", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), ExtResource("4_qs82m"), NodePath("../../../../../@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Node2D/AnimationPlayer2"), NodePath("/root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Node2D/AnimationPlayer2"), "test animation", Array[NodePath]([NodePath("/root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Node2D/AnimationPlayer"), NodePath("/root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Node2D/AnimationPlayer2")]), "uid://beaxfln0pm5av", Vector2(0, 20), 2, Vector2(0, 140), 3, 0.0, Vector2(0, 30), ExtResource("5_c4vo5"), SubResource("StyleBoxEmpty_d1b21"), SubResource("StyleBoxEmpty_ilduj"), SubResource("StyleBoxEmpty_s2xbw"), SubResource("StyleBoxEmpty_rdfvj"), "[wave]AnimationPlayer[/wave]", SubResource("StyleBoxEmpty_iw7q2"), Vector2(0, 40), SubResource("StyleBoxFlat_q8vq6"), SubResource("StyleBoxFlat_ctmup"), "AnimationPlayer", "AnimationPlayer2", Vector2(0, 8), SubResource("StyleBoxEmpty_nm833"), "[wave]  Select Animation[/wave]", "RESET", "new_animation", SubResource("StyleBoxEmpty_xyx0r"), SubResource("StyleBoxEmpty_ixknr"), Vector2(0, 38), ExtResource("6_vwb7u"), "wait for the 
 animation", "wait for previous 
 animation"],
 "version": 3
@@ -128,14 +144,8 @@ animation"],
 
 [sub_resource type="Resource" id="Resource_njov2"]
 script = ExtResource("2_njov2")
-allNodes = Array[PackedScene]([SubResource("PackedScene_c4vo5"), SubResource("PackedScene_vwb7u"), SubResource("PackedScene_cqdos"), SubResource("PackedScene_r6p7k"), SubResource("PackedScene_rc7cs"), SubResource("PackedScene_d1b21")])
+allNodes = Array[PackedScene]([SubResource("PackedScene_vwb7u"), SubResource("PackedScene_cqdos"), SubResource("PackedScene_r6p7k"), SubResource("PackedScene_rc7cs"), SubResource("PackedScene_d1b21")])
 allConecction = Array[Dictionary]([{
-"from_node": &"Start Node",
-"from_port": 0,
-"keep_alive": false,
-"to_node": &"Animation Node",
-"to_port": 0
-}, {
 "from_node": &"Start Node",
 "from_port": 0,
 "keep_alive": false,
@@ -145,19 +155,19 @@ allConecction = Array[Dictionary]([{
 "from_node": &"Await Node",
 "from_port": 0,
 "keep_alive": false,
-"to_node": &"@GraphNode@37045",
+"to_node": &"Animation Node",
 "to_port": 0
 }, {
-"from_node": &"@GraphNode@37066",
+"from_node": &"_GraphNode_36271",
 "from_port": 0,
 "keep_alive": false,
 "to_node": &"End Node",
 "to_port": 0
 }, {
-"from_node": &"@GraphNode@37045",
+"from_node": &"Animation Node",
 "from_port": 0,
 "keep_alive": false,
-"to_node": &"@GraphNode@37066",
+"to_node": &"_GraphNode_36271",
 "to_port": 0
 }])
 dicVarData = Dictionary[String, Variant]({})
@@ -182,8 +192,12 @@ libraries = {
 [node name="CinematicPlayer" type="Node" parent="." node_paths=PackedStringArray("AnimationPlayers")]
 script = ExtResource("1_myinc")
 CinematicResorse = SubResource("Resource_njov2")
-AnimationPlayers = [NodePath("../AnimationPlayer")]
+AnimationPlayers = [NodePath("../AnimationPlayer"), NodePath("../AnimationPlayer2")]
 autoloadDialog = 0
 dialogMethold = 0
 SignalName = ""
 metadata/_custom_type_script = "uid://gtbcpq6kgg1m"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(12, 11)
+texture = ExtResource("10_vwb7u")

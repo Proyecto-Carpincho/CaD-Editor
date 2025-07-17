@@ -175,9 +175,11 @@ func LoadData() -> void:
 			else:
 				push_error("esta dentro del arbol guebon")
 	await get_tree().process_frame
-	NodeEditor.connections = CinematicResorse.allConecction
 	dicImportVar = CinematicResorse.dicVarData
 	dicImportTypeVar = CinematicResorse.dicVarType
+	while  NodeEditor.connections != CinematicResorse.allConecction:
+		await get_tree().process_frame
+		NodeEditor.connections = CinematicResorse.allConecction
 
 func _exit_tree() -> void:
 	if not isCredible and Engine.is_editor_hint() and CinematicResorse:
@@ -199,7 +201,6 @@ func StartCinematic() -> void:
 	ExecutionLine("Start Node",1)
 
 func ExecutionLine(from:String,step:int) -> void:
-	prints(step, from)
 	var allNodeToExe:Array[String]=GetListConection(from)
 	var listNameNode:Array[String]=CinematicResorse.allNameNode
 	for nodeName in allNodeToExe:
@@ -213,6 +214,7 @@ func ExecutionLine(from:String,step:int) -> void:
 
 func ExeNode(node:CinematicNode,step:int) -> void:
 	node.StartAction()
+	print(node.name)
 	await node.NextNode
 	ExecutionLine(node.name,step)
 

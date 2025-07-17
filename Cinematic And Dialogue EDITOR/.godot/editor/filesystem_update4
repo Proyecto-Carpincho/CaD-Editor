@@ -1,10 +1,9 @@
-res://Test.tscn
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Animation Node.tscn
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Animation Node Theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Await Node/Await Node theme.tres
-res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd
-res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Animation Node.tscn
 res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Animation Node.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd
-res://addons/Cinematic And Dialogue EDI/DATA Plugin/Global CAD.gd
 res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Await Node.tscn
 res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Await Node.gd
+res://Test.tscn
+res://addons/Cinematic And Dialogue EDI/DATA Plugin/Global CAD.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd

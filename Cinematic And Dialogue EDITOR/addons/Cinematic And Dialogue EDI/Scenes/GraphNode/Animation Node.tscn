@@ -5,27 +5,27 @@
 [ext_resource type="Theme" uid="uid://dybbmpbjt03lu" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Rich text Titile.tres" id="5_3o282"]
 [ext_resource type="Theme" uid="uid://4n06vdth0cl3" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Rich text Checkbox.tres" id="6_baawb"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f7uy8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1b21"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5okd8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilduj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqry5"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2xbw"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4bq2"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdfvj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_baawb"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iw7q2"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_baawb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8vq6"]
 bg_color = Color(0.167451, 0.167451, 0.167451, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7uy8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctmup"]
 bg_color = Color(0.0980986, 0.0980985, 0.0980985, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nb3lu"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm833"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3o282"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyx0r"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmb2q"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixknr"]
 
 [node name="Animation Node" type="GraphNode"]
 custom_minimum_size = Vector2(215, 150)
@@ -66,7 +66,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("1_nb3lu")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="Node" type="VBoxContainer" parent="TabContainer"]
 visible = false
@@ -83,10 +83,10 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("5_3o282")
-theme_override_styles/fill = SubResource("StyleBoxEmpty_f7uy8")
-theme_override_styles/background = SubResource("StyleBoxEmpty_5okd8")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_gqry5")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_r4bq2")
+theme_override_styles/fill = SubResource("StyleBoxEmpty_d1b21")
+theme_override_styles/background = SubResource("StyleBoxEmpty_ilduj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s2xbw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rdfvj")
 bbcode_enabled = true
 text = "[wave]AnimationPlayer[/wave]"
 horizontal_alignment = 1
@@ -97,7 +97,7 @@ layout_mode = 2
 [node name="VSeparator2" type="VSeparator" parent="TabContainer/Node/OptionMenu"]
 layout_mode = 2
 theme = ExtResource("1_nb3lu")
-theme_override_styles/separator = SubResource("StyleBoxEmpty_baawb")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_iw7q2")
 
 [node name="OptionNode" type="OptionButton" parent="TabContainer/Node/OptionMenu"]
 custom_minimum_size = Vector2(0, 40)
@@ -105,8 +105,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_nb3lu")
 theme_override_constants/outline_size = 0
-theme_override_styles/hover = SubResource("StyleBoxFlat_baawb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_f7uy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q8vq6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ctmup")
 item_count = 1
 popup/item_0/id = 0
 popup/item_0/separator = true
@@ -121,6 +121,7 @@ layout_mode = 2
 theme = ExtResource("1_nb3lu")
 
 [node name="Animation" type="VBoxContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -128,17 +129,17 @@ metadata/_tab_index = 1
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme = ExtResource("1_nb3lu")
-theme_override_styles/separator = SubResource("StyleBoxEmpty_nb3lu")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nm833")
 
 [node name="Text AniName" type="RichTextLabel" parent="TabContainer/Animation"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("5_3o282")
-theme_override_styles/fill = SubResource("StyleBoxEmpty_f7uy8")
-theme_override_styles/background = SubResource("StyleBoxEmpty_5okd8")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_gqry5")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_r4bq2")
+theme_override_styles/fill = SubResource("StyleBoxEmpty_d1b21")
+theme_override_styles/background = SubResource("StyleBoxEmpty_ilduj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s2xbw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rdfvj")
 bbcode_enabled = true
 text = "[wave]  Select Animation[/wave]"
 horizontal_alignment = 1
@@ -149,7 +150,7 @@ layout_mode = 2
 [node name="VSeparator2" type="VSeparator" parent="TabContainer/Animation/OptionMenu"]
 layout_mode = 2
 theme = ExtResource("1_nb3lu")
-theme_override_styles/separator = SubResource("StyleBoxEmpty_baawb")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_iw7q2")
 
 [node name="OptionAnimation" type="OptionButton" parent="TabContainer/Animation/OptionMenu"]
 custom_minimum_size = Vector2(0, 40)
@@ -157,8 +158,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_nb3lu")
 theme_override_constants/outline_size = 0
-theme_override_styles/hover = SubResource("StyleBoxFlat_baawb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_f7uy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q8vq6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ctmup")
 item_count = 1
 popup/item_0/id = 0
 popup/item_0/separator = true
@@ -166,16 +167,15 @@ popup/item_0/separator = true
 [node name="VSeparator" type="VSeparator" parent="TabContainer/Animation/OptionMenu"]
 layout_mode = 2
 theme = ExtResource("1_nb3lu")
-theme_override_styles/separator = SubResource("StyleBoxEmpty_3o282")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xyx0r")
 
 [node name="HSeparator2" type="HSeparator" parent="TabContainer/Animation"]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 theme = ExtResource("1_nb3lu")
-theme_override_styles/separator = SubResource("StyleBoxEmpty_jmb2q")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ixknr")
 
 [node name="Awaits" type="VBoxContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -213,5 +213,6 @@ text = "wait for previous
 animation"
 
 [connection signal="item_selected" from="TabContainer/Node/OptionMenu/OptionNode" to="." method="_NodeOption_Selected"]
+[connection signal="item_selected" from="TabContainer/Animation/OptionMenu/OptionAnimation" to="." method="_Animation_Selected"]
 [connection signal="toggled" from="TabContainer/Awaits/Wait Ani/Await" to="." method="_WaitAni_toggled"]
 [connection signal="toggled" from="TabContainer/Awaits/Wait PreAnimation/Await" to="." method="_WaitPre_toggled"]

@@ -22,6 +22,8 @@ func SetDataNode(AniPlayers:Array[AnimationPlayer],NodePaths:Array[NodePath],Dia
 	DialogAutoload=Autoload
 	DialogMethod=DiaMethod
 
+func GetNode(path:NodePath) -> Node:
+	return get_node(path)
 
 func OnPanel(emisor:Node) -> Control:
 	if not creatorOfUi and pluginEditor:

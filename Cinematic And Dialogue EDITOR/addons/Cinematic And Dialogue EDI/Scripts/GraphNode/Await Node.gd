@@ -12,7 +12,6 @@ func _ready() -> void:
 func StartAction():
 	CinematicEditor.connect("Timeout",Timeout)
 	CinematicEditor.AwaitTime(WaitTime,name)
-	
 
 func Timeout(TimerCreator:String):
 	if TimerCreator == name:

@@ -1,1 +1,9 @@
+VSeparator
+VBoxContainer
+HSeparator
+RichTextLabel
+HBoxContainer
+SpinBox
+OptionButton
+LineEdit
 Timer

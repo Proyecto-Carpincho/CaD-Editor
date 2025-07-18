@@ -32,6 +32,7 @@ custom_minimum_size = Vector2(215, 150)
 offset_right = 215.0
 offset_bottom = 219.0
 theme = ExtResource("1_nb3lu")
+selected = true
 title = "Animation Node"
 slot/0/left_enabled = false
 slot/0/left_type = 0

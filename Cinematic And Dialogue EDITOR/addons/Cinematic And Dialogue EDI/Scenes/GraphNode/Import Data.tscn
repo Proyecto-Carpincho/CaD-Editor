@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://dle2o11meervh" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Rich Normal Text.tres" id="3_srk3a"]
 
 [node name="Import Data" type="GraphNode"]
-custom_minimum_size = Vector2(270, 200)
+custom_minimum_size = Vector2(270, 177)
 offset_right = 177.0
 offset_bottom = 86.0
 theme = ExtResource("1_v32hl")
@@ -38,6 +38,8 @@ slot/2/right_color = Color(1, 1, 1, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 script = ExtResource("1_mnqrt")
+numType = null
+varName = null
 metadata/_custom_type_script = "uid://beaxfln0pm5av"
 
 [node name="HSeparator" type="HSeparator" parent="."]
@@ -46,6 +48,11 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("1_v32hl")
 
 [node name="OptionType" type="OptionButton" parent="HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
@@ -113,9 +120,15 @@ max_value = 37.0
 value = 1.0
 rounded = true
 
+[node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("1_v32hl")
+
 [node name="HSeparator2" type="HSeparator" parent="."]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [connection signal="item_selected" from="HBoxContainer/OptionType" to="." method="_OptionType_Selected"]
+[connection signal="text_changed" from="HBoxContainer/VBoxContainer/LineEdit" to="." method="_LineEdit_Changed"]
 [connection signal="value_changed" from="HBoxContainer/VBoxContainer/Other type/SpinType" to="." method="_SpinType_valueChange"]

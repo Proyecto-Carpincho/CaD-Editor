@@ -24,7 +24,7 @@ func _ready() -> void:
 	if aniPlayerPath != NodePath(""):
 		aniPlayer=get_node(aniPlayerPath)
 	if aniPlayer != null and lisAnimationPlayer != []:
-		var aniIndex:int=lisAnimationPlayer.find(aniPlayer)
+		var aniIndex:int=lisAnimationPlayer.find(aniPlayer.get_path())
 		SetAniplayerOptions()
 		OptionPlayer.select(aniIndex)
 		_NodeOption_Selected(aniIndex)
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 			_NodeOption_Selected(0)
 			SetAnimationOptions()
 		if aniPlayer and lisAnimationPlayer and OptionAnimation.get_item_count() != aniPlayer.get_animation_list().size():
-			_NodeOption_Selected(lisAnimationPlayer.find(aniPlayer))
+			_NodeOption_Selected(lisAnimationPlayer.find(aniPlayer.get_path()))
 
 func ecualsList() -> bool:
 	var list=CinematicEditor.listAnimationPlayers

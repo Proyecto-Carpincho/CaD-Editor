@@ -49,6 +49,7 @@ func SetCinematicData():
 var OneTime:bool
 var MetholdEnum:String
 func _get_property_list() -> Array[Dictionary]:
+	print(dicImportTypeVar,dicImportVar)
 	var property:Array[Dictionary]
 	#region Create a group (All Data)
 	property.append({

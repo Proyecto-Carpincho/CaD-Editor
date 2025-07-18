@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cu0f8fehin727"]
+[gd_scene load_steps=14 format=3 uid="uid://cu0f8fehin727"]
 
 [ext_resource type="Script" uid="uid://tq2by8px6e8a" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Animation Node.gd" id="1_jmb2q"]
 [ext_resource type="Theme" uid="uid://dd0ipi65gry1f" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Animation Node Theme.tres" id="1_nb3lu"]
-[ext_resource type="Theme" uid="uid://dybbmpbjt03lu" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Rich text Titile.tres" id="5_3o282"]
 [ext_resource type="Theme" uid="uid://4n06vdth0cl3" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Rich text Checkbox.tres" id="6_baawb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1b21"]
@@ -67,7 +66,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("1_nb3lu")
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 
 [node name="Node" type="VBoxContainer" parent="TabContainer"]
 visible = false
@@ -83,7 +82,7 @@ theme = ExtResource("1_nb3lu")
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_3o282")
+theme = ExtResource("1_nb3lu")
 theme_override_styles/fill = SubResource("StyleBoxEmpty_d1b21")
 theme_override_styles/background = SubResource("StyleBoxEmpty_ilduj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_s2xbw")
@@ -122,7 +121,6 @@ layout_mode = 2
 theme = ExtResource("1_nb3lu")
 
 [node name="Animation" type="VBoxContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -136,7 +134,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_nm833")
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_3o282")
+theme = ExtResource("1_nb3lu")
 theme_override_styles/fill = SubResource("StyleBoxEmpty_d1b21")
 theme_override_styles/background = SubResource("StyleBoxEmpty_ilduj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_s2xbw")
@@ -177,6 +175,7 @@ theme = ExtResource("1_nb3lu")
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ixknr")
 
 [node name="Awaits" type="VBoxContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

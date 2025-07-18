@@ -5,6 +5,11 @@ class_name ImportData
 @onready var OtherType:VBoxContainer= get_node("HBoxContainer/VBoxContainer/Other type")
 @onready var NormalType:VBoxContainer= get_node("HBoxContainer/VBoxContainer/Normal Type")
 @onready var RichType:RichTextLabel=get_node("HBoxContainer/VBoxContainer/Other type/Rich Type")
+@onready var SpinType:SpinBox=get_node("HBoxContainer/VBoxContainer/Other type/SpinType")
+@onready var OptionType:OptionButton=get_node("HBoxContainer/OptionType")
+@onready var LineName:LineEdit=get_node("HBoxContainer/VBoxContainer/LineEdit")
+@export var numType:int
+@export var varName:String
 const Type:Array[String] = [
 	"Nil",        # 0
 	"Bool",       # 1
@@ -46,12 +51,29 @@ const Type:Array[String] = [
 	"PackedColorArray"    #37
 ]
 
+func _ready() -> void:
+	SpinType.set_value(numType)
+	_SpinType_valueChange(numType)
+	LineName.set_text(varName)
 
 func _OptionType_Selected(index: int) -> void:
 	OtherType.set_visible(index == 6)
 	NormalType.set_visible(index != 6)
-
+	if index != 6:
+		numType=OptionType.get_item_id(index)
+		SetVariant()
 
 func _SpinType_valueChange(value: float) -> void:
-	print(value,Type[value])
+	numType=value
 	RichType.set_text("[wave]Type: "+Type[value]+"[/wave]")
+	SetVariant()
+
+func _LineEdit_Changed(new_text: String) -> void:
+	varName=new_text
+	SetVariant()
+
+func SetVariant()->void:
+	print("A")
+	var cinePlayer:CinematicPlayer=CinematicEditor.creatorOfUi
+	cinePlayer.dicImportTypeVar.set(varName,numType)
+	cinePlayer.dicImportVar.get_or_add(varName,null)

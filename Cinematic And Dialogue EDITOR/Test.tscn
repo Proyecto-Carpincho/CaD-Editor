@@ -1,9 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://f87k4l0swq45"]
+[gd_scene load_steps=30 format=3 uid="uid://f87k4l0swq45"]
 
 [ext_resource type="Script" uid="uid://gtbcpq6kgg1m" path="res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd" id="1_myinc"]
 [ext_resource type="Script" uid="uid://cccm0ewpn34bo" path="res://test.gd" id="1_q1uvj"]
 [ext_resource type="Script" uid="uid://dx50qld6qpi0q" path="res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd" id="2_njov2"]
+[ext_resource type="Theme" uid="uid://dd0ipi65gry1f" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Animation Node Theme.tres" id="7_vwb7u"]
+[ext_resource type="Script" uid="uid://tq2by8px6e8a" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Animation Node.gd" id="8_cqdos"]
 [ext_resource type="Theme" uid="uid://tu7wuaclbs7c" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Import Data Theme.tres" id="9_r6p7k"]
+[ext_resource type="Theme" uid="uid://4n06vdth0cl3" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Rich text Checkbox.tres" id="9_rc7cs"]
 [ext_resource type="Script" uid="uid://dts3d3f24f12c" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Import Data.gd" id="10_rc7cs"]
 [ext_resource type="Texture2D" uid="uid://b6lv3bye4gn2x" path="res://icon.svg" id="10_vwb7u"]
 [ext_resource type="Theme" uid="uid://dle2o11meervh" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Rich Normal Text.tres" id="11_rc7cs"]
@@ -48,7 +51,7 @@ _data = {
 &"test animation": SubResource("Animation_njov2")
 }
 
-[sub_resource type="PackedScene" id="PackedScene_q1uvj"]
+[sub_resource type="PackedScene" id="PackedScene_d1b21"]
 _bundled = {
 "conn_count": 0,
 "conns": PackedInt32Array(),
@@ -57,11 +60,11 @@ _bundled = {
 "node_count": 2,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 19, 0, -1, 18, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 1, 12, 10, 13, 11, 14, 12, 15, 1, 16, 13, 17, 11, 18, 12, 0, 0, 0, 20, 20, -1, 1, 2, 14, 0),
-"variants": [Color(1, 0, 0.160784, 1), 0, 400.0, 40.0, 448.0, 97.0, 1, Vector2(400, 40), "Start", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), 2],
+"variants": [Color(1, 0, 0.160784, 1), 0, 200.87, 180.209, 256.87, 237.209, 1, Vector2(342, 210), "Start", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), 2],
 "version": 3
 }
 
-[sub_resource type="PackedScene" id="PackedScene_qs82m"]
+[sub_resource type="PackedScene" id="PackedScene_ilduj"]
 _bundled = {
 "conn_count": 0,
 "conns": PackedInt32Array(),
@@ -70,33 +73,66 @@ _bundled = {
 "node_count": 2,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 20, 0, -1, 19, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 9, 12, 1, 13, 10, 14, 11, 15, 12, 16, 1, 17, 13, 18, 11, 19, 9, 0, 0, 0, 21, 21, -1, 1, 2, 14, 0),
-"variants": [Color(1, 0, 0.160784, 1), 0, 720.0, 40.0, 758.0, 95.0, 1, Vector2(720, 40), "End", true, Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), 2],
+"variants": [Color(1, 0, 0.160784, 1), 0, 544.87, 180.209, 594.87, 235.209, 1, Vector2(686, 210), "End", true, Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), 2],
 "version": 3
 }
 
-[sub_resource type="PackedScene" id="PackedScene_c4vo5"]
+[sub_resource type="PackedScene" id="PackedScene_s2xbw"]
 _bundled = {
 "conn_count": 3,
-"conns": PackedInt32Array(4, 0, 90, 89, 2, 0, 0, 9, 0, 92, 91, 2, 0, 0, 12, 0, 94, 93, 2, 0, 0),
+"conns": PackedInt32Array(4, 0, 87, 86, 2, 0, 0, 9, 0, 89, 88, 2, 0, 0, 12, 0, 91, 90, 2, 0, 0),
 "editable_instances": [],
-"names": PackedStringArray("Import Data", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "slot/2/left_enabled", "slot/2/left_type", "slot/2/left_color", "slot/2/left_icon", "slot/2/right_enabled", "slot/2/right_type", "slot/2/right_color", "slot/2/right_icon", "slot/2/draw_stylebox", "script", "numType", "varName", "metadata/_custom_type_script", "GraphNode", "HSeparator", "HBoxContainer", "VSeparator2", "VSeparator", "OptionType", "alignment", "selected", "item_count", "popup/item_0/text", "popup/item_0/id", "popup/item_0/disabled", "popup/item_1/text", "popup/item_1/id", "popup/item_2/text", "popup/item_2/id", "popup/item_3/text", "popup/item_3/id", "popup/item_4/text", "popup/item_4/id", "popup/item_5/text", "popup/item_5/id", "popup/item_6/text", "popup/item_6/id", "OptionButton", "VBoxContainer", "Normal Type", "visible", "Rich Name", "bbcode_enabled", "text", "horizontal_alignment", "vertical_alignment", "RichTextLabel", "LineEdit", "placeholder_text", "caret_blink", "caret_blink_interval", "Other type", "Rich Type", "SpinType", "max_value", "value", "rounded", "SpinBox", "VSeparator3", "HSeparator2", "_OptionType_Selected", "item_selected", "_LineEdit_Changed", "text_changed", "_SpinType_valueChange", "value_changed"),
+"names": PackedStringArray("Import Data", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "slot/2/left_enabled", "slot/2/left_type", "slot/2/left_color", "slot/2/left_icon", "slot/2/right_enabled", "slot/2/right_type", "slot/2/right_color", "slot/2/right_icon", "slot/2/draw_stylebox", "script", "metadata/_custom_type_script", "GraphNode", "HSeparator", "HBoxContainer", "VSeparator2", "VSeparator", "OptionType", "alignment", "selected", "item_count", "popup/item_0/text", "popup/item_0/id", "popup/item_0/disabled", "popup/item_1/text", "popup/item_1/id", "popup/item_2/text", "popup/item_2/id", "popup/item_3/text", "popup/item_3/id", "popup/item_4/text", "popup/item_4/id", "popup/item_5/text", "popup/item_5/id", "popup/item_6/text", "popup/item_6/id", "OptionButton", "VBoxContainer", "Normal Type", "Rich Name", "bbcode_enabled", "text", "horizontal_alignment", "vertical_alignment", "RichTextLabel", "LineEdit", "placeholder_text", "caret_blink", "caret_blink_interval", "Other type", "visible", "Rich Type", "SpinType", "max_value", "rounded", "SpinBox", "VSeparator3", "HSeparator2", "_OptionType_Selected", "item_selected", "_LineEdit_Changed", "text_changed", "_SpinType_valueChange", "value_changed"),
 "node_count": 15,
 "node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 42, 0, -1, 41, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 12, 1, 13, 11, 14, 12, 15, 10, 16, 1, 17, 11, 18, 12, 19, 13, 20, 10, 21, 1, 22, 11, 23, 12, 24, 13, 25, 6, 26, 14, 27, 12, 28, 13, 29, 10, 30, 1, 31, 11, 32, 12, 33, 10, 34, 1, 35, 11, 36, 12, 37, 13, 38, 15, 39, 16, 40, 17, 41, 18, 0, 0, 0, 43, 43, -1, 2, 1, 19, 2, 20, 0, 0, 0, 44, 44, -1, 1, 2, 20, 0, 2, 0, 46, 45, -1, 3, 1, 21, 2, 20, 8, 7, 0, 2, 0, 66, 47, -1, 20, 1, 22, 2, 20, 48, 6, 49, 23, 50, 24, 51, 25, 52, 1, 53, 13, 54, 26, 55, 20, 56, 27, 57, 28, 58, 29, 59, 30, 60, 31, 61, 32, 62, 33, 63, 6, 64, 34, 65, 1, 0, 2, 0, 46, 46, -1, 3, 1, 21, 2, 20, 8, 7, 0, 2, 0, 67, 67, -1, 2, 1, 35, 2, 20, 0, 6, 0, 67, 68, -1, 2, 69, 10, 2, 20, 0, 7, 0, 75, 70, -1, 7, 1, 36, 2, 20, 8, 7, 71, 13, 72, 37, 73, 6, 74, 6, 0, 6, 0, 76, 76, -1, 6, 1, 38, 2, 20, 72, 17, 77, 39, 78, 13, 79, 40, 0, 6, 0, 67, 80, -1, 1, 2, 20, 0, 10, 0, 75, 81, -1, 6, 1, 41, 2, 20, 8, 42, 71, 13, 72, 43, 74, 6, 0, 10, 0, 86, 82, -1, 4, 2, 20, 83, 44, 84, 44, 85, 13, 0, 2, 0, 46, 87, -1, 3, 1, 21, 2, 20, 8, 7, 0, 0, 0, 43, 88, -1, 2, 1, 19, 2, 20, 0),
-"variants": [Vector2(270, 177), 0, 100.0, 40.0, 435.0, 217.0, 1, ExtResource("9_r6p7k"), Vector2(100, 40), "Import Data", false, Color(1, 1, 1, 1), null, true, Color(0, 0.529412, 0.501961, 1), ExtResource("10_rc7cs"), 37, "tess", "uid://beaxfln0pm5av", Vector2(0, 20), 2, Vector2(15, 0), Vector2(80, 0), 6, 7, "Type", "Int", "Vec 2", 5, "Vec 3", 9, "String", 4, "Bool", "Other", Vector2(150, 100), Vector2(0, 65), "[wave] Variable Name [/wave]", Vector2(0, 30), "Var Name", 0.5, Vector2(170, 50), ExtResource("11_rc7cs"), "[wave]Type: PackedColorArray[/wave]", 37.0],
+"nodes": PackedInt32Array(-1, -1, 40, 0, -1, 39, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 12, 1, 13, 11, 14, 12, 15, 10, 16, 1, 17, 11, 18, 12, 19, 13, 20, 10, 21, 1, 22, 11, 23, 12, 24, 13, 25, 6, 26, 14, 27, 12, 28, 13, 29, 10, 30, 1, 31, 11, 32, 12, 33, 10, 34, 1, 35, 11, 36, 12, 37, 13, 38, 15, 39, 16, 0, 0, 0, 41, 41, -1, 2, 1, 17, 2, 18, 0, 0, 0, 42, 42, -1, 1, 2, 18, 0, 2, 0, 44, 43, -1, 3, 1, 19, 2, 18, 8, 7, 0, 2, 0, 64, 45, -1, 20, 1, 20, 2, 18, 46, 6, 47, 1, 48, 21, 49, 22, 50, 1, 51, 13, 52, 23, 53, 18, 54, 24, 55, 25, 56, 26, 57, 27, 58, 28, 59, 29, 60, 30, 61, 6, 62, 31, 63, 1, 0, 2, 0, 44, 44, -1, 3, 1, 19, 2, 18, 8, 7, 0, 2, 0, 65, 65, -1, 2, 1, 32, 2, 18, 0, 6, 0, 65, 66, -1, 1, 2, 18, 0, 7, 0, 72, 67, -1, 7, 1, 33, 2, 18, 8, 7, 68, 13, 69, 34, 70, 6, 71, 6, 0, 6, 0, 73, 73, -1, 5, 1, 35, 2, 18, 74, 36, 75, 13, 76, 37, 0, 6, 0, 65, 77, -1, 2, 78, 10, 2, 18, 0, 10, 0, 72, 79, -1, 6, 1, 38, 2, 18, 8, 39, 68, 13, 69, 40, 71, 6, 0, 10, 0, 83, 80, -1, 3, 2, 18, 81, 41, 82, 13, 0, 2, 0, 44, 84, -1, 3, 1, 19, 2, 18, 8, 7, 0, 0, 0, 41, 85, -1, 2, 1, 17, 2, 18, 0),
+"variants": [Vector2(270, 177), 0, 58.8695, 70.2087, 379.87, 247.209, 1, ExtResource("9_r6p7k"), Vector2(200, 100), "Import Data", false, Color(1, 1, 1, 1), null, true, Color(0, 0.529412, 0.501961, 1), ExtResource("10_rc7cs"), "uid://beaxfln0pm5av", Vector2(0, 20), 2, Vector2(15, 0), Vector2(80, 0), 7, "Type", "Int", "Vec 2", 5, "Vec 3", 9, "String", 4, "Bool", "Other", Vector2(150, 100), Vector2(0, 65), "[wave] Variable Name [/wave]", Vector2(0, 30), "Var Name", 0.5, Vector2(170, 50), ExtResource("11_rc7cs"), "[wave]Type: Nil[/wave]", 37.0],
 "version": 3
 }
 
-[sub_resource type="Resource" id="Resource_ivycn"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1b21"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilduj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2xbw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdfvj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iw7q2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8vq6"]
+bg_color = Color(0.167451, 0.167451, 0.167451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctmup"]
+bg_color = Color(0.0980986, 0.0980985, 0.0980985, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm833"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyx0r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixknr"]
+
+[sub_resource type="PackedScene" id="PackedScene_rdfvj"]
+_bundled = {
+"conn_count": 4,
+"conns": PackedInt32Array(8, 0, 75, 74, 2, 0, 0, 16, 0, 75, 76, 2, 0, 0, 22, 0, 78, 77, 2, 0, 0, 25, 0, 78, 79, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Animation Node", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "selected", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "script", "metadata/_custom_type_script", "GraphNode", "HSeparator", "TabContainer", "size_flags_vertical", "size_flags_stretch_ratio", "tab_alignment", "current_tab", "Node", "visible", "metadata/_tab_index", "VBoxContainer", "Text AniPlayer", "size_flags_horizontal", "theme_override_styles/fill", "theme_override_styles/background", "theme_override_styles/focus", "theme_override_styles/normal", "bbcode_enabled", "text", "horizontal_alignment", "RichTextLabel", "OptionMenu", "HBoxContainer", "VSeparator2", "theme_override_styles/separator", "VSeparator", "OptionNode", "theme_override_constants/outline_size", "theme_override_styles/hover", "item_count", "popup/item_0/id", "popup/item_0/separator", "OptionButton", "HSeparator2", "Animation", "Text AniName", "OptionAnimation", "Awaits", "Wait Ani", "Await", "CheckBox", "Wait PreAnimation", "_NodeOption_Selected", "item_selected", "_Animation_Selected", "_WaitAni_toggled", "toggled", "_WaitPre_toggled"),
+"node_count": 27,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 32, 0, -1, 31, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 12, 11, 13, 1, 14, 12, 15, 13, 16, 11, 17, 1, 18, 12, 19, 13, 20, 9, 21, 9, 22, 1, 23, 14, 24, 13, 25, 9, 26, 1, 27, 14, 28, 13, 29, 9, 30, 15, 31, 16, 0, 0, 0, 33, 33, -1, 3, 1, 17, 2, 18, 8, 7, 0, 0, 0, 34, 34, -1, 7, 1, 19, 2, 18, 35, 20, 36, 21, 8, 7, 37, 6, 38, 6, 0, 2, 0, 42, 39, -1, 3, 40, 11, 2, 18, 41, 1, 0, 3, 0, 33, 33, -1, 3, 1, 17, 2, 18, 8, 7, 0, 3, 0, 52, 43, -1, 11, 1, 22, 2, 18, 44, 20, 8, 7, 45, 23, 46, 24, 47, 25, 48, 26, 49, 9, 50, 27, 51, 6, 0, 3, 0, 54, 53, -1, 1, 2, 18, 0, 6, 0, 57, 55, -1, 3, 2, 18, 8, 7, 56, 28, 0, 6, 0, 64, 58, -1, 10, 1, 29, 2, 18, 44, 20, 8, 7, 59, 1, 60, 30, 48, 31, 61, 6, 62, 1, 63, 9, 0, 6, 0, 57, 57, -1, 2, 2, 18, 8, 7, 0, 3, 0, 33, 65, -1, 3, 1, 32, 2, 18, 8, 7, 0, 2, 0, 42, 66, -1, 2, 2, 18, 41, 6, 0, 11, 0, 33, 33, -1, 4, 1, 17, 2, 18, 8, 7, 56, 33, 0, 11, 0, 52, 67, -1, 11, 1, 22, 2, 18, 44, 20, 8, 7, 45, 23, 46, 24, 47, 25, 48, 26, 49, 9, 50, 34, 51, 6, 0, 11, 0, 54, 53, -1, 1, 2, 18, 0, 14, 0, 57, 55, -1, 3, 2, 18, 8, 7, 56, 28, 0, 14, 0, 64, 68, -1, 10, 1, 29, 2, 18, 44, 20, 8, 7, 59, 1, 60, 30, 48, 31, 61, 6, 62, 1, 63, 9, 0, 14, 0, 57, 57, -1, 3, 2, 18, 8, 7, 56, 35, 0, 11, 0, 33, 65, -1, 4, 1, 32, 2, 18, 8, 7, 56, 36, 0, 2, 0, 42, 69, -1, 3, 40, 11, 2, 18, 41, 18, 0, 19, 0, 33, 33, -1, 3, 1, 17, 2, 18, 8, 7, 0, 19, 0, 54, 70, -1, 2, 1, 37, 2, 18, 0, 21, 0, 72, 71, -1, 1, 2, 18, 0, 21, 0, 52, 52, -1, 4, 2, 18, 44, 20, 8, 38, 50, 39, 0, 19, 0, 54, 73, -1, 2, 1, 37, 2, 18, 0, 24, 0, 72, 71, -1, 1, 2, 18, 0, 24, 0, 52, 52, -1, 4, 2, 18, 44, 20, 8, 38, 50, 40, 0),
+"variants": [Vector2(215, 150), 0, 418.87, 50.2087, 633.87, 269.209, 1, ExtResource("7_vwb7u"), Vector2(560, 80), true, "Animation Node", false, Color(1, 1, 1, 1), null, Color(1, 0, 0, 1), ExtResource("8_cqdos"), "uid://beaxfln0pm5av", Vector2(0, 20), 2, Vector2(0, 140), 3, 0.0, Vector2(0, 30), SubResource("StyleBoxEmpty_d1b21"), SubResource("StyleBoxEmpty_ilduj"), SubResource("StyleBoxEmpty_s2xbw"), SubResource("StyleBoxEmpty_rdfvj"), "[wave]AnimationPlayer[/wave]", SubResource("StyleBoxEmpty_iw7q2"), Vector2(0, 40), SubResource("StyleBoxFlat_q8vq6"), SubResource("StyleBoxFlat_ctmup"), Vector2(0, 8), SubResource("StyleBoxEmpty_nm833"), "[wave]  Select Animation[/wave]", SubResource("StyleBoxEmpty_xyx0r"), SubResource("StyleBoxEmpty_ixknr"), Vector2(0, 38), ExtResource("9_rc7cs"), "wait for the 
+animation", "wait for previous 
+animation"],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_iw7q2"]
 script = ExtResource("2_njov2")
-allNodes = Array[PackedScene]([SubResource("PackedScene_q1uvj"), SubResource("PackedScene_qs82m"), SubResource("PackedScene_c4vo5")])
+allNodes = Array[PackedScene]([SubResource("PackedScene_d1b21"), SubResource("PackedScene_ilduj"), SubResource("PackedScene_s2xbw"), SubResource("PackedScene_rdfvj")])
 allConecction = Array[Dictionary]([])
-dicVarData = Dictionary[String, Variant]({
-"tess": PackedColorArray()
-})
-dicVarType = Dictionary[String, int]({
-"tess": 1
-})
+dicVarData = Dictionary[String, Variant]({})
+dicVarType = Dictionary[String, int]({})
 metadata/_custom_type_script = "uid://dx50qld6qpi0q"
 
 [node name="Node2D" type="Node2D"]
@@ -114,16 +150,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_2au82")
 }
 
-[node name="CinematicPlayer" type="Node" parent="." node_paths=PackedStringArray("AnimationPlayers")]
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(12, 11)
+texture = ExtResource("10_vwb7u")
+
+[node name="CinematicPlayer" type="Node" parent="."]
 script = ExtResource("1_myinc")
-CinematicResorse = SubResource("Resource_ivycn")
-AnimationPlayers = [NodePath("../AnimationPlayer"), NodePath("../AnimationPlayer2")]
-tess = PackedColorArray()
+CinematicResorse = SubResource("Resource_iw7q2")
 autoloadDialog = 0
 dialogMethold = 0
 SignalName = ""
 metadata/_custom_type_script = "uid://gtbcpq6kgg1m"
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(12, 11)
-texture = ExtResource("10_vwb7u")

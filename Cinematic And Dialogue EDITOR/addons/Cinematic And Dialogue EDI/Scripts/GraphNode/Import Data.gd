@@ -73,7 +73,7 @@ func _LineEdit_Changed(new_text: String) -> void:
 	SetVariant()
 
 func SetVariant()->void:
-	print("A")
 	var cinePlayer:CinematicPlayer=CinematicEditor.creatorOfUi
-	cinePlayer.dicImportTypeVar.set(varName,numType)
-	cinePlayer.dicImportVar.get_or_add(varName,null)
+	if cinePlayer and not varName.is_empty():
+		cinePlayer.dicImportTypeVar.set(varName,numType)
+		cinePlayer.dicImportVar.get_or_add(varName,null)

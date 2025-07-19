@@ -1,4 +1,5 @@
-extends CinematicNode
+@tool
+extends "res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Path Node.gd"
 
 
 # Called when the node enters the scene tree for the first time.

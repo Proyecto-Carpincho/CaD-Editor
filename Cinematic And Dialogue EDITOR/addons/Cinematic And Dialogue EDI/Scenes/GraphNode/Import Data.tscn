@@ -38,8 +38,6 @@ slot/2/right_color = Color(1, 1, 1, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 script = ExtResource("1_mnqrt")
-numType = null
-varName = null
 metadata/_custom_type_script = "uid://beaxfln0pm5av"
 
 [node name="HSeparator" type="HSeparator" parent="."]
@@ -111,13 +109,12 @@ custom_minimum_size = Vector2(170, 50)
 layout_mode = 2
 theme = ExtResource("3_srk3a")
 bbcode_enabled = true
-text = "[wave] Type: [/wave]"
+text = "[wave]Type: Nil[/wave]"
 vertical_alignment = 1
 
 [node name="SpinType" type="SpinBox" parent="HBoxContainer/VBoxContainer/Other type"]
 layout_mode = 2
 max_value = 37.0
-value = 1.0
 rounded = true
 
 [node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]

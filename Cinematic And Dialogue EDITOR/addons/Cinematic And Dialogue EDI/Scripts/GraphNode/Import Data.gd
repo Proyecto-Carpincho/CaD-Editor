@@ -70,7 +70,6 @@ func _SpinType_valueChange(value: float) -> void:
 
 func _LineEdit_Changed(new_text: String) -> void:
 	varName=new_text
-	SetVariant()
 
 func SetVariant()->void:
 	var cinePlayer:CinematicPlayer=CinematicEditor.creatorOfUi

@@ -39,7 +39,8 @@ func _process(delta: float) -> void:
 		if not ecualsList():
 			lisAnimationPlayer.clear()
 			for node:AnimationPlayer in CinematicEditor.listAnimationPlayers:
-				lisAnimationPlayer.append(node.get_path())
+				if node:
+					lisAnimationPlayer.append(node.get_path())
 			OptionPlayer.select(0)
 			_NodeOption_Selected(0)
 			SetAnimationOptions()

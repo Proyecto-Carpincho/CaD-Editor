@@ -9,13 +9,16 @@ var OptionNode:OptionButton
 var OptionMethod:OptionButton
 
 func SetNodePathsOptions() -> void:
+	listNode = CinematicEditor.listNodePaths
 	if not OptionNode:
 		push_error("OptionNode is Null")
 		return
 	
 	OptionNode.clear()
 	for preNode:NodePath in listNode:
-		OptionNode.add_item(get_node(preNode).name)
+		var node=CinematicEditor.GetNode(preNode)
+		if node:
+			OptionNode.add_item(node.name)
 	OptionNode.select(0)
 	_OptionNode_Selected(0)
 
@@ -31,7 +34,7 @@ func SetMetholsOptions():
 		return
 	
 	OptionMethod.clear()
-	for method:Dictionary in get_node(methodNode):
+	for method:Dictionary in CinematicEditor.GetNode(methodNode):
 		OptionMethod.add_item(method["name"])
 	OptionMethod.select(0)
 	_OptionMethod_Selected(0)

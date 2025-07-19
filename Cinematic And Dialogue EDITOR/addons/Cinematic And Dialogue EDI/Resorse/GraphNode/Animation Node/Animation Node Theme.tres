@@ -1,7 +1,10 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://dd0ipi65gry1f"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://dd0ipi65gry1f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbjk0"]
+bg_color = Color(0, 0.0117647, 0.0392157, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbxti"]
-bg_color = Color(0, 0.0117647, 0.0392157, 1)
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbths"]
 bg_color = Color(0.772549, 0.356863, 1, 1)
@@ -26,8 +29,14 @@ shadow_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_124mw"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlruq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhbhl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7if3"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_124mw"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0, 0.0117647, 0.0392157, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
@@ -78,10 +87,14 @@ corner_radius_top_right = 10
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07rfx"]
 
 [resource]
+GraphNode/styles/panel = SubResource("StyleBoxFlat_sbjk0")
 GraphNode/styles/panel_selected = SubResource("StyleBoxFlat_mbxti")
 GraphNode/styles/titlebar = SubResource("StyleBoxFlat_bbths")
 GraphNode/styles/titlebar_selected = SubResource("StyleBoxFlat_rpc6m")
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_124mw")
+RichTextLabel/styles/background = SubResource("StyleBoxEmpty_hlruq")
+RichTextLabel/styles/fill = SubResource("StyleBoxEmpty_yhbhl")
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_v7if3")
 TabContainer/font_sizes/font_size = 12
 TabContainer/styles/panel = SubResource("StyleBoxFlat_124mw")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxEmpty_mbxti")

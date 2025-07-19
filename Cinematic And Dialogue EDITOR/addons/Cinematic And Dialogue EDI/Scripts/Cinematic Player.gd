@@ -9,7 +9,13 @@ signal CinematicEnd
 @export_group("Paths")
 @export var NodePaths: Array[NodePath]:
 	set(Var):
-		NodePaths=Var
+		NodePaths.clear()
+		for path:NodePath in Var:
+			if path != NodePath(""):
+				NodePaths.append(get_node(path).get_path())
+			else:
+				NodePaths = Var
+				break
 		SetCinematicData()
 @export var AnimationPlayers: Array[AnimationPlayer]:
 	set(Var):

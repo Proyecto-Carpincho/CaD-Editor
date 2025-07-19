@@ -2,7 +2,7 @@
 extends Panel
 
 const path:String = "res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/"
-const listNode:Array[PackedScene] = [preload(path+"Animation Node.tscn"),preload(path+"Await Node.tscn"),preload(path+"Import Data.tscn"),preload(path+"Method Node.tscn"),preload(path+"Dialogic Node.tscn")]
+const listNode:Array[PackedScene] = [preload(path+"Animation Node.tscn"),preload(path+"Await Node.tscn"),preload(path+"Import Data.tscn"),preload(path+"Method Path Node/Method Node.tscn"),preload(path+"Method Path Node/Dialogic Node.tscn")]
 const listType:Array[String]=["Animation","Await","Import Data","Method","Dialogic"]
 @onready var timer:Timer=get_node("Timer")
 var MouseInside:bool

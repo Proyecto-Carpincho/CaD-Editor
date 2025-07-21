@@ -23,7 +23,6 @@ func SetDataNode(AniPlayers:Array[AnimationPlayer],NodePaths:Array[NodePath],Dia
 	DialogMethod=DiaMethod
 
 func GetNode(path:NodePath) -> Node:
-	print(get_node(path),path)
 	return get_node(path)
 
 func OnPanel(emisor:Node) -> Control:

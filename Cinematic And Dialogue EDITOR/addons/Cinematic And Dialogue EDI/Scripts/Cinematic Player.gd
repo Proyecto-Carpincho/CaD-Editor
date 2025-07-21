@@ -164,7 +164,8 @@ func SaveData() -> void:
 				auxListNode.append(dupNode)
 			
 		var auxConnections:Array = NodeEditor.get_connection_list() as Array
-		CinematicResorse.SaveNodes(auxListNode,auxConnections,dicImportVar,dicImportTypeVar)
+		CinematicResorse.SaveNodes(auxListNode,auxConnections)
+		SaveVariables()
 
 func LoadData() -> void:
 	#print("LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD")
@@ -180,12 +181,33 @@ func LoadData() -> void:
 				NodeEditor.add_child(node)
 			else:
 				push_error("esta dentro del arbol guebon")
+	
+	#Wait one frame to ensure exist childs of "NodeEditor"
 	await get_tree().process_frame
-	dicImportVar = CinematicResorse.dicVarData
-	dicImportTypeVar = CinematicResorse.dicVarType
+	LoadVariables()
+	
+	#While frame for ensure ALL CinematicNode is "READY" 
 	while  NodeEditor.connections != CinematicResorse.allConecction:
 		await get_tree().process_frame
 		NodeEditor.connections = CinematicResorse.allConecction
+	
+	
+
+func SaveVariables() -> void:
+	CinematicResorse.dicVarData = dicImportVar
+	CinematicResorse.dicVarType = dicImportTypeVar
+
+func LoadVariables() -> void:
+	#Set dicImportVar and dicImportTypeVar make sure creator of vars (Import Data)
+	var listVarName:Array[String]=EditorGraph.GetVarsName()
+	for Key:String in CinematicResorse.dicVarData.keys():
+		if listVarName.find(Key) != -1 and CinematicResorse.dicVarType.has(Key):
+			dicImportVar.set(Key,CinematicResorse.dicVarData[Key])
+			dicImportTypeVar.set(Key,CinematicResorse.dicVarType[Key])
+		else:
+			dicImportVar.erase(Key)
+			dicImportTypeVar.erase(Key)
+	notify_property_list_changed()
 
 func _exit_tree() -> void:
 	if not isCredible and Engine.is_editor_hint() and CinematicResorse:

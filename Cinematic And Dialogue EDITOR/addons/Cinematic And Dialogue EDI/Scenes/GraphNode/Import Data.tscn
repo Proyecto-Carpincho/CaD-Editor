@@ -5,9 +5,9 @@
 [ext_resource type="Theme" uid="uid://dle2o11meervh" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Rich Normal Text.tres" id="3_srk3a"]
 
 [node name="Import Data" type="GraphNode"]
-custom_minimum_size = Vector2(270, 177)
-offset_right = 177.0
-offset_bottom = 86.0
+custom_minimum_size = Vector2(200, 0)
+offset_right = 278.0
+offset_bottom = 167.0
 theme = ExtResource("1_v32hl")
 title = "Import Data"
 slot/0/left_enabled = false
@@ -48,31 +48,29 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
-custom_minimum_size = Vector2(15, 0)
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme = ExtResource("1_v32hl")
 
 [node name="OptionType" type="OptionButton" parent="HBoxContainer"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
+theme = ExtResource("1_v32hl")
 alignment = 1
 selected = 0
-item_count = 7
-popup/item_0/text = "Type"
-popup/item_0/id = 0
-popup/item_0/disabled = true
-popup/item_1/text = "Int"
-popup/item_1/id = 2
-popup/item_2/text = "Vec 2"
-popup/item_2/id = 5
-popup/item_3/text = "Vec 3"
-popup/item_3/id = 9
-popup/item_4/text = "String"
-popup/item_4/id = 4
-popup/item_5/text = "Bool"
-popup/item_5/id = 1
-popup/item_6/text = "Other"
-popup/item_6/id = 0
+item_count = 6
+popup/item_0/text = "Int"
+popup/item_0/id = 2
+popup/item_1/text = "Vec 2"
+popup/item_1/id = 5
+popup/item_2/text = "Vec 3"
+popup/item_2/id = 9
+popup/item_3/text = "String"
+popup/item_3/id = 4
+popup/item_4/text = "Bool"
+popup/item_4/id = 1
+popup/item_5/text = "Other"
+popup/item_5/id = 0
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
@@ -96,7 +94,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 placeholder_text = "Var Name"
 
@@ -105,7 +102,7 @@ visible = false
 layout_mode = 2
 
 [node name="Rich Type" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/Other type"]
-custom_minimum_size = Vector2(170, 50)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme = ExtResource("3_srk3a")
 bbcode_enabled = true
@@ -118,12 +115,12 @@ max_value = 37.0
 rounded = true
 
 [node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
-custom_minimum_size = Vector2(15, 0)
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme = ExtResource("1_v32hl")
 
 [node name="HSeparator2" type="HSeparator" parent="."]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [connection signal="item_selected" from="HBoxContainer/OptionType" to="." method="_OptionType_Selected"]

@@ -37,7 +37,7 @@ func _get_property_list():
 		"usage": PROPERTY_USAGE_NO_EDITOR})
 	return properties
 
-func SaveNodes(nodesToSave:Array[Node],Conections:Array[Dictionary],varData:Dictionary[String,Variant],varType:Dictionary[String,int]):
+func SaveNodes(nodesToSave:Array[Node],Conections:Array[Dictionary]):
 	allNodes.clear()
 	allNameNode.clear()
 	for node:Node in nodesToSave:
@@ -51,8 +51,6 @@ func SaveNodes(nodesToSave:Array[Node],Conections:Array[Dictionary],varData:Dict
 		if error != OK:
 			push_error("Error in packed of node: ",node.name)
 	allConecction=Conections
-	dicVarData=varData
-	dicVarType=varType
 
 func SetNameList(node:Node) -> void:
 	var auxName:StringName = node.name

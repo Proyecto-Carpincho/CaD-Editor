@@ -58,6 +58,7 @@ GraphNode/styles/panel_selected = SubResource("StyleBoxFlat_8ne3c")
 GraphNode/styles/titlebar = SubResource("StyleBoxFlat_8kdiq")
 GraphNode/styles/titlebar_selected = SubResource("StyleBoxFlat_gwoab")
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_5ko1e")
+OptionButton/font_sizes/font_size = 12
 RichTextLabel/font_sizes/bold_font_size = 16
 RichTextLabel/font_sizes/bold_italics_font_size = 16
 RichTextLabel/font_sizes/italics_font_size = 16

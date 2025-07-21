@@ -57,11 +57,13 @@ func _ready() -> void:
 	LineName.set_text(varName)
 
 func _OptionType_Selected(index: int) -> void:
-	OtherType.set_visible(index == 6)
-	NormalType.set_visible(index != 6)
-	if index != 6:
+	OtherType.set_visible(index == 5)
+	NormalType.set_visible(index != 5)
+	if index != 5:
 		numType=OptionType.get_item_id(index)
-		SetVariant()
+	else:
+		numType=get_node("HBoxContainer/VBoxContainer/Other type/SpinType").value
+	SetVariant()
 
 func _SpinType_valueChange(value: float) -> void:
 	numType=value
@@ -70,9 +72,11 @@ func _SpinType_valueChange(value: float) -> void:
 
 func _LineEdit_Changed(new_text: String) -> void:
 	varName=new_text
+	SetVariant()
 
 func SetVariant()->void:
 	var cinePlayer:CinematicPlayer=CinematicEditor.creatorOfUi
 	if cinePlayer and not varName.is_empty():
 		cinePlayer.dicImportTypeVar.set(varName,numType)
 		cinePlayer.dicImportVar.get_or_add(varName,null)
+		cinePlayer.SaveVariables()

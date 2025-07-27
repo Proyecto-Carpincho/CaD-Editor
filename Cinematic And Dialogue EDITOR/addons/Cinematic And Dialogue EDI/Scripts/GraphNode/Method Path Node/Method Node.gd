@@ -1,20 +1,26 @@
 @tool
 extends "res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Path Node.gd"
 
-@onready var TabCon:TabContainer = get_node("TabContainer")
+@onready var TabCon:TabContainer = get_node("VBoxContainer/TabContainer")
 @onready var Parameter:Node = get_node("Param 1")
 @export var ExtraParam:int=0
+var SlotData:Dictionary[int,Variant]
 
-# Called when the node enters the scene tree for the first time.
+func _get_property_list() -> Array[Dictionary]:
+	var properties:Array[Dictionary]
+	properties.append({
+		"name": "SlotData",
+		"type": TYPE_ARRAY,
+		"usage": PROPERTY_USAGE_NO_EDITOR})
+	return properties
+
 func _ready() -> void:
-	OptionNode = get_node("TabContainer/Node/HBoxContainer/OptionNode")
-	OptionMethod = get_node("TabContainer/Method/HBoxContainer/OptionMethod")
+	OptionNode = get_node("VBoxContainer/TabContainer/Node/HBoxContainer/OptionNode")
+	OptionMethod = get_node("VBoxContainer/TabContainer/Method/HBoxContainer/OptionMethod")
 	SetNodePathsOptions()
-
 
 func _ViewMethods_pressed() -> void:
 	get_node("Create Parm/View Methods").set_visible(false)
-	print(TabCon)
 	TabCon.set_visible(true)
 	TabCon.current_tab = 1
 
@@ -25,7 +31,6 @@ func _TabContiner_Pressed(tab: int) -> void:
 		TabCon.current_tab = 1
 
 func _AddButton_pressed() -> void:
-	var TuputaMadre:int = -1 if not TabCon.is_visible() else 0
 	ExtraParam+=1
 	if ExtraParam > 1:
 		add_child(Parameter.duplicate())
@@ -34,16 +39,38 @@ func _AddButton_pressed() -> void:
 		get_child(ExtraParam+3).name = "Param "+ str(ExtraParam)
 	else:
 		Parameter.set_visible(true)
-	set_slot(ExtraParam+2+TuputaMadre,true,1,Color(0.0, 0.529, 0.502),false,0,Color.BLACK)
-		
-	
+	set_slot(ExtraParam+2,true,1,Color(0.0, 0.529, 0.502),false,0,Color.BLACK)
+
 func _RemoveButton_pressed() -> void:
 	if ExtraParam-1 >= 0:
-		var TuputaMadre:int = -1 if not TabCon.is_visible() else 0	
 		if ExtraParam > 1:
-			get_node("param "+ str(ExtraParam)).queue_free()
+			get_node("Param "+ str(ExtraParam)).queue_free()
 		else:
 			Parameter.set_visible(false)
-		set_slot(ExtraParam+2+TuputaMadre,false,1,Color.BLACK,false,0,Color.BLACK)
+		set_slot(ExtraParam+2,false,1,Color.BLACK,false,0,Color.BLACK)
 		ExtraParam-=1
 		size.y = 165.0
+
+func SetSlotData(Var:Variant,Slot:int)->void:
+	SlotData[Slot]=Var
+	SlotData.set(Slot,Var)
+
+func StartAction()->void:
+	var ParametersList:Array
+	for i in range(SlotData.size()):
+		if SlotData.has(i+1):
+			ParametersList.append(SlotData[i+1])
+		else:
+			push_error("no estan bien asignado los parametros todos los datos: ",SlotData)
+			emit_signal("NextNode")
+			return
+	var node:Node=CinematicEditor.GetNode(methodNode)
+	node.callv(methodName,ParametersList)
+	
+	CinematicEditor.connect("Timeout",Timeout)
+	CinematicEditor.AwaitTime(0.05,name)
+	emit_signal("NextNode")
+
+func Timeout(TimerCreator:String):
+	if TimerCreator == name:
+		emit_signal("NextNode")

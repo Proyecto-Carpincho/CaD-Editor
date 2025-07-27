@@ -80,3 +80,6 @@ func SetVariant()->void:
 		cinePlayer.dicImportTypeVar.set(varName,numType)
 		cinePlayer.dicImportVar.get_or_add(varName,null)
 		cinePlayer.SaveVariables()
+
+func GetNameVar()->String:
+	return varName

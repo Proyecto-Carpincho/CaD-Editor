@@ -19,14 +19,15 @@ func SetNodePathsOptions() -> void:
 		var node=CinematicEditor.GetNode(preNode)
 		if node:
 			OptionNode.add_item(node.name)
-	OptionNode.select(0)
-	_OptionNode_Selected(0)
+	if OptionNode.get_item_count() != 0:
+		OptionNode.select(0)
+		_OptionNode_Selected(0)
 
 func _OptionNode_Selected(index:int) -> void:
-	if listMethod != []:
-		methodNode=listMethod[index]
+	if listNode!=[]:
+		methodNode=listNode[index]
 		SetMetholsOptions()
-		_OptionMethod_Selected(0)
+		_OptionMethod_Selected(0) 
 
 func SetMetholsOptions():
 	if not OptionMethod:
@@ -34,10 +35,17 @@ func SetMetholsOptions():
 		return
 	
 	OptionMethod.clear()
-	for method:Dictionary in CinematicEditor.GetNode(methodNode):
+	listMethod.clear()
+	for method:Dictionary in CinematicEditor.GetNode(methodNode).get_method_list():
 		OptionMethod.add_item(method["name"])
-	OptionMethod.select(0)
-	_OptionMethod_Selected(0)
+		listMethod.append(method["name"])
+	if OptionMethod.get_item_count() > 0:
+		if methodName == "" or not listMethod.find(methodName):
+			OptionMethod.select(0)
+			_OptionMethod_Selected(0)
+		else:
+			OptionMethod.select(listMethod.find(methodName))
+			_OptionMethod_Selected(listMethod.find(methodName))
 
 func _OptionMethod_Selected(index:int) -> void:
 	if listMethod==[]:

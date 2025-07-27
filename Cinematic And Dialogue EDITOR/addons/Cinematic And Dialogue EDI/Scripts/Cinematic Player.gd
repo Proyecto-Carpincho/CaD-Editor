@@ -242,17 +242,26 @@ func ExecutionLine(from:String,step:int) -> void:
 
 func ExeNode(node:CinematicNode,step:int) -> void:
 	node.StartAction()
-	print(node.name)
 	await node.NextNode
 	ExecutionLine(node.name,step)
 
 func GetListConection(from:String) -> Array[String]:
 	var auxConecctions:Array[Dictionary] = CinematicResorse.allConecction
 	var allToNodes:Array[String]
-	for conecction:Dictionary in auxConecctions:
-		if conecction["from_node"] == from:
-			allToNodes.append(conecction["to_node"])
+	for connection:Dictionary in auxConecctions:
+		if connection["from_node"] == from:
+			allToNodes.append(connection["to_node"])
 	return allToNodes
 
 func StartImport():
-	pass
+	var auxConecctions:Array[Dictionary] = CinematicResorse.allConecction
+	for connection in auxConecctions:
+		var auxFromIndex:int = CinematicResorse.allNameNode.find(connection["from_node"])
+		var packedFromNode:PackedScene=CinematicResorse.allNodes[auxFromIndex]
+		var fromNode:Node=packedFromNode.instantiate()
+		if fromNode is ImportData:
+			var auxToIndex:int = CinematicResorse.allNameNode.find(connection["to_node"])
+			var packedToNode:PackedScene=CinematicResorse.allNodes[auxToIndex]
+			var toNode:Node=packedToNode.instantiate()
+			if toNode.has_method("SetSlotData") and not fromNode.GetNameVar().is_empty():
+				toNode.SetSlotData(dicImportVar.get(fromNode.GetNameVar()),connection["to_port"])

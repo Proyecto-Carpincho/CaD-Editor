@@ -3,12 +3,10 @@ res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Animati
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Await Node/Await Node theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Import Data Theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/Method Node theme.tres
-res://addons/Cinematic And Dialogue EDI/DATA Plugin/Global CAD.gd
-res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Import Data.tscn
-res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Rich Normal Text.tres
-res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/Graph Editor.gd
-res://addons/Cinematic And Dialogue EDI/Scenes/GraphEditor.tscn
+res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd
 res://Test.tscn
+res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Path Node.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd
 res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Import Data.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Animation Node.gd
+res://test.gd

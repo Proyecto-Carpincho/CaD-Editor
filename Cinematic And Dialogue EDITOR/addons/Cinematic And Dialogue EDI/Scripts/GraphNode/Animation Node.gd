@@ -86,7 +86,7 @@ func _WaitAni_toggled(toggled_on: bool) -> void:
 	waitNextAnimation=toggled_on
 #endregion
 
-func StartAction():
+func StartAction()->void:
 	if aniPlayerPath != NodePath(""):
 		aniPlayer=CinematicEditor.GetNode(aniPlayerPath)
 	

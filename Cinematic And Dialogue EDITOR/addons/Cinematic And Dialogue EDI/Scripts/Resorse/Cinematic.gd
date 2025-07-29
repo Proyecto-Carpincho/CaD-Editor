@@ -64,10 +64,7 @@ func LoadChildNodes() -> Array[Node]:
 	for packedNode:PackedScene in allNodes:
 		var node:Node=packedNode.instantiate()
 		auxListNode.append(node)
-		if node.get_child_count() == 0:
-			push_error("el errrrror esta en load talvez", node.name)
 	return auxListNode
-
 
 func SetChildOwner(node: Node, owner: Node):
 	for child in node.get_children():

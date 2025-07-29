@@ -7,7 +7,8 @@ var EditorGraph:Control
 var creatorOfUi:Node
 
 #region Varable of data to nodes
-var listAnimationPlayers:Array[AnimationPlayer]
+var absEditorAni:Array[NodePath]=[]
+var absRuntimeAni:Array[NodePath]=[]
 var listNodePaths:Array[NodePath]
 
 var DialogSignal:String
@@ -15,14 +16,19 @@ var DialogAutoload:Node
 var DialogMethod:String
 #endregion
 
-func SetDataNode(AniPlayers:Array[AnimationPlayer],NodePaths:Array[NodePath],DiaSignal:String,Autoload:Node,DiaMethod:String) -> void:
-	listAnimationPlayers=AniPlayers
+func SetDataNode(AniPlayers:Array[NodePath],NodePaths:Array[NodePath],DiaSignal:String,Autoload:Node,DiaMethod:String) -> void:
+	if Engine.is_editor_hint():
+		absEditorAni=AniPlayers
+	else:
+		absRuntimeAni=AniPlayers
 	listNodePaths=NodePaths
 	DialogSignal=DiaSignal
 	DialogAutoload=Autoload
 	DialogMethod=DiaMethod
 
 func GetNode(path:NodePath) -> Node:
+	if not Engine.is_editor_hint():
+		return get_tree().current_scene.get_node(path)
 	return get_node(path)
 
 func OnPanel(emisor:Node) -> Control:

@@ -9,19 +9,57 @@ signal CinematicEnd
 @export_group("Paths")
 @export var NodePaths: Array[NodePath]:
 	set(Var):
-		NodePaths.clear()
-		for path:NodePath in Var:
-			if path != NodePath(""):
-				NodePaths.append(get_node(path).get_path())
+		NodePaths=Var
+		if is_inside_tree():
+			var list:Array[NodePath]
+			
+			for path:NodePath in Var:
+				if path != NodePath(""):
+					list.append(get_node(path).get_path())
+				else:
+					return
+			if Engine.is_editor_hint():
+				absoluteEditorPaths=list
 			else:
-				NodePaths = Var
-				break
-		SetCinematicData()
-@export var AnimationPlayers: Array[AnimationPlayer]:
-	set(Var):
-		AnimationPlayers=Var
-		SetCinematicData()
+				absoluteRuntimePaths=list
+			
+			SetCinematicData()
+@export var AnimationPlayers: Array[NodePath]
+var Seguridad:Array[NodePath]
 
+func setAnimationPlayers(Var:Array[NodePath]):
+	if is_inside_tree() and get_tree().current_scene or Engine.is_editor_hint():
+		absoluteEditorAni.clear()
+		absoluteRuntimeAni.clear()
+		var a:int=0
+		if not Engine.is_editor_hint() and not get_tree().current_scene.is_node_ready():
+			await get_tree().current_scene.ready
+		for i:int in range(Var.size()):
+			var path:NodePath=Var[i]
+			
+			
+			if path.is_empty():
+				print("EL PATH ", i, " ES \"\"")
+			else:
+				if not get_node_or_null(path):
+					print("No se encontro el ")
+				
+				elif not (get_node_or_null(path) is AnimationPlayer):
+					push_error("Eso no es un animation player")
+				else:
+					if Engine.is_editor_hint():
+						absoluteEditorAni.append(get_node(path).get_path())
+					else:
+						absoluteRuntimeAni.append(get_node(path).get_path())
+			
+		SetCinematicData()
+	AnimationPlayers=Var
+
+var absoluteEditorAni:Array[NodePath]=[]
+var absoluteRuntimeAni:Array[NodePath]=[]
+
+var absoluteEditorPaths:Array[NodePath]
+var absoluteRuntimePaths:Array[NodePath]
 #region get list var
 var dicImportTypeVar:Dictionary[String,int]
 var dicImportVar:Dictionary[String,Variant]:
@@ -47,9 +85,13 @@ var methodName:String
 
 
 func SetCinematicData():
-	if is_inside_tree() and listAutoload != []:
-		var auxAutoload= listAutoload[autoloadDialog]
-		CinematicEditor.SetDataNode(AnimationPlayers,NodePaths,SignalName,auxAutoload,methodName)
+	if is_inside_tree():
+		var auxAutoload
+		if listAutoload!=[]:
+			auxAutoload= listAutoload[autoloadDialog]
+		var aniPlayers=absoluteEditorAni if Engine.is_editor_hint() else absoluteRuntimeAni
+		
+		CinematicEditor.SetDataNode(aniPlayers,NodePaths,SignalName,auxAutoload,methodName)
 		OneTime=true
 
 var OneTime:bool
@@ -136,6 +178,11 @@ var isCredible:bool = true
 var errorPushed:bool
 #endregion
 
+func _ready() -> void:
+	if not is_inside_tree():
+		await tree_entered
+	setAnimationPlayers(AnimationPlayers)
+
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint() and CinematicResorse:
 		errorPushed = false
@@ -153,8 +200,10 @@ func _process(delta: float) -> void:
 		errorPushed = true
 		push_error("no existe el recuso porfa crealo, nodo ", name)
 
+
 #region Save And Load
 func SaveData() -> void:
+	setAnimationPlayers(AnimationPlayers)
 	#print("SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE")
 	if EditorGraph:
 		var auxListNode:Array[Node]
@@ -168,6 +217,7 @@ func SaveData() -> void:
 		SaveVariables()
 
 func LoadData() -> void:
+	setAnimationPlayers(AnimationPlayers)
 	#print("LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD")
 	var auxlistNode = CinematicResorse.LoadNode()
 	for node:Node in auxlistNode:
@@ -224,7 +274,6 @@ func _notification(what: int) -> void:
 
 
 func StartCinematic() -> void:
-	#Step 1 Import Data
 	StartImport()
 	ExecutionLine("Start Node",1)
 
@@ -235,10 +284,16 @@ func ExecutionLine(from:String,step:int) -> void:
 		if nodeName == "End Node":
 			emit_signal("CinematicEnd")
 		else:
-			var index = listNameNode.find(nodeName)
-			var packedNode:PackedScene=CinematicResorse.allNodes[index]
+			var packedNode:PackedScene=CinematicResorse.allNodes[FindNode(nodeName)]
 			var node=packedNode.instantiate()
 			ExeNode(node,step+1)
+
+func FindNode(Name:String) -> int:
+	for i:int in range(CinematicResorse.allNodes.size()):
+		var node =CinematicResorse.allNodes[i].instantiate()
+		if node.name==Name:
+			return i
+	return -1
 
 func ExeNode(node:CinematicNode,step:int) -> void:
 	node.StartAction()
@@ -246,7 +301,7 @@ func ExeNode(node:CinematicNode,step:int) -> void:
 	ExecutionLine(node.name,step)
 
 func GetListConection(from:String) -> Array[String]:
-	var auxConecctions:Array[Dictionary] = CinematicResorse.allConecction
+	var auxConecctions:Array[Dictionary] = CinematicResorse.allConecction.duplicate(true)
 	var allToNodes:Array[String]
 	for connection:Dictionary in auxConecctions:
 		if connection["from_node"] == from:

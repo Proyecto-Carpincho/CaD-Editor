@@ -1,12 +1,11 @@
-res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Method Path Node/Method Node.tscn
+res://Test.tscn
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Animation Node Theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Await Node/Await Node theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Import Data Theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/Method Node theme.tres
-res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd
-res://Test.tscn
-res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Path Node.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Import Data.gd
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Dialogic Node theme.tres
 res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Animation Node.gd
-res://test.gd
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphEditor.tscn
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Method Path Node/Method Node.tscn
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Method Path Node/Dialogic Node.tscn
+res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd

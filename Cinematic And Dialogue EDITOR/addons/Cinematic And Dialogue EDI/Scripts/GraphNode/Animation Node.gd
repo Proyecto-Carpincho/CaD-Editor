@@ -2,29 +2,40 @@
 extends CinematicNode
 
 
-@export var aniPlayer:AnimationPlayer
-@export var aniPlayerPath:NodePath
+var aniPlayer:AnimationPlayer
+var listAnimationPlayer:Array[NodePath]
 @export var animationName:String
 @export var waitPreAnimation:bool
 @export var waitNextAnimation:bool
-@export var lisAnimationPlayer:Array[NodePath]
+
 
 @onready var OptionPlayer:OptionButton=get_node("TabContainer/Node/OptionMenu/OptionNode")
 @onready var OptionAnimation:OptionButton=get_node("TabContainer/Animation/OptionMenu/OptionAnimation")
 @onready var WaitPre:CheckBox=get_node("TabContainer/Awaits/Wait PreAnimation/Await")
 @onready var WaitAni:CheckBox=get_node("TabContainer/Awaits/Wait Ani/Await")
 
+func _get_property_list() -> Array[Dictionary]:
+	var property:Array[Dictionary]
+	property.append({
+		"name":"aniPlayer",
+		"type": TYPE_OBJECT,
+		"usage":PROPERTY_USAGE_NO_EDITOR,})
+	property.append({
+		"name": "listAnimationPlayer",
+		"type": TYPE_ARRAY,
+		"usage": PROPERTY_USAGE_NO_EDITOR
+	})
+	return property
+
 func GetGraph() -> Control:
 	var auxParent:Node=get_parent().get_parent()
 	return  auxParent if get_parent() is GraphEdit else null
-
 func _ready() -> void:
 	WaitPre.button_pressed=waitPreAnimation
 	WaitAni.button_pressed=waitNextAnimation
-	if aniPlayerPath != NodePath(""):
-		aniPlayer=get_node(aniPlayerPath)
-	if aniPlayer != null and lisAnimationPlayer != []:
-		var aniIndex:int=lisAnimationPlayer.find(aniPlayer.get_path())
+	if aniPlayer != null and listAnimationPlayer != []:
+		var aniIndex:int=listAnimationPlayer.find(aniPlayer.get_path())
+		aniIndex=aniIndex if aniIndex!=-1 else 0
 		SetAniplayerOptions()
 		OptionPlayer.select(aniIndex)
 		_NodeOption_Selected(aniIndex)
@@ -34,24 +45,23 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if GetGraph():
-		if not aniPlayer and aniPlayerPath != NodePath(""):
-			aniPlayer=get_node(aniPlayerPath)
 		if not ecualsList():
-			lisAnimationPlayer.clear()
-			for node:AnimationPlayer in CinematicEditor.listAnimationPlayers:
-				if node:
-					lisAnimationPlayer.append(node.get_path())
+			listAnimationPlayer.clear()
+			listAnimationPlayer = CinematicEditor.absEditorAni if Engine.is_editor_hint() else CinematicEditor.absRuntimeAni
+			
 			OptionPlayer.select(0)
 			_NodeOption_Selected(0)
 			SetAnimationOptions()
-		if aniPlayer and lisAnimationPlayer and OptionAnimation.get_item_count() != aniPlayer.get_animation_list().size():
-			_NodeOption_Selected(lisAnimationPlayer.find(aniPlayer.get_path()))
+		
+		if aniPlayer and listAnimationPlayer and OptionAnimation.get_item_count() != aniPlayer.get_animation_list().size():
+			_NodeOption_Selected(listAnimationPlayer.find(aniPlayer))
+		
 
 func ecualsList() -> bool:
-	var list=CinematicEditor.listAnimationPlayers
-	if lisAnimationPlayer.size() == list.size():
+	var list = CinematicEditor.absEditorAni if Engine.is_editor_hint() else CinematicEditor.absRuntimeAni
+	if listAnimationPlayer.size() == list.size():
 		for i in range(list.size()):
-			if list[i].get_path() != lisAnimationPlayer[i]:
+			if list[i] != listAnimationPlayer[i]:
 				return false
 	else:
 		return false
@@ -59,10 +69,11 @@ func ecualsList() -> bool:
 
 func SetAniplayerOptions() -> void:
 	OptionPlayer.clear()
-	for preNode:NodePath in lisAnimationPlayer:
-		var node = get_node(preNode)
-		if node:
-			OptionPlayer.add_item(node.name)
+	for path:NodePath in listAnimationPlayer:
+		if not path.is_empty():
+			var node=CinematicEditor.GetNode(path)
+			if node:
+				OptionPlayer.add_item(node.name)
 
 func SetAnimationOptions() -> void:
 	OptionAnimation.clear()
@@ -70,10 +81,11 @@ func SetAnimationOptions() -> void:
 		OptionAnimation.add_item(animation)
 
 #region coneccted methods
+@export var indexNode:int
 func _NodeOption_Selected(index: int) -> void:
-	if lisAnimationPlayer != [] and index >= 0:
-		aniPlayer=get_node(lisAnimationPlayer[index])
-		aniPlayerPath=aniPlayer.get_path()
+	if listAnimationPlayer != [] and index >= 0:
+		aniPlayer=CinematicEditor.GetNode(listAnimationPlayer[index])
+		indexNode=index
 		SetAnimationOptions()
 
 func _Animation_Selected(index: int) -> void:
@@ -87,15 +99,12 @@ func _WaitAni_toggled(toggled_on: bool) -> void:
 #endregion
 
 func StartAction()->void:
-	if aniPlayerPath != NodePath(""):
-		aniPlayer=CinematicEditor.GetNode(aniPlayerPath)
-	
+	listAnimationPlayer=CinematicEditor.absEditorAni if Engine.is_editor_hint() else CinematicEditor.absRuntimeAni
+	aniPlayer=CinematicEditor.GetNode(listAnimationPlayer[indexNode])
 	if aniPlayer:
 		if aniPlayer.is_playing() and waitPreAnimation:
 			await aniPlayer.animation_finished
-		else:
-			aniPlayer.stop()
-		aniPlayer.play(animationName)
+		aniPlayer.call("play",animationName)
 		
 		if waitNextAnimation:
 			await aniPlayer.animation_finished

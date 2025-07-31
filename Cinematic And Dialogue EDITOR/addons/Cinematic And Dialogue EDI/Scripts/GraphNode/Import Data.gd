@@ -8,7 +8,7 @@ class_name ImportData
 @onready var SpinType:SpinBox=get_node("HBoxContainer/VBoxContainer/Other type/SpinType")
 @onready var OptionType:OptionButton=get_node("HBoxContainer/OptionType")
 @onready var LineName:LineEdit=get_node("HBoxContainer/VBoxContainer/LineEdit")
-@export var numType:int
+@export var numType:int=TYPE_INT
 @export var varName:String
 const Type:Array[String] = [
 	"Nil",        # 0

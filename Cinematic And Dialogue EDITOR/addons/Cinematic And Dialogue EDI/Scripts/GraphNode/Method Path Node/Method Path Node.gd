@@ -15,19 +15,23 @@ func SetNodePathsOptions() -> void:
 		return
 	
 	OptionNode.clear()
-	for preNode:NodePath in listNode:
-		var node=CinematicEditor.GetNode(preNode)
+	for path:NodePath in listNode:
+		var node=CinematicEditor.GetNode(path)
 		if node:
 			OptionNode.add_item(node.name)
-	if OptionNode.get_item_count() != 0:
-		OptionNode.select(0)
-		_OptionNode_Selected(0)
+	if OptionNode.get_item_count() == 0:
+		return
+	
+	var indexNode:int = listNode.find(methodNode)
+	indexNode = indexNode if indexNode != -1 else 0
+	
+	OptionNode.select(indexNode)
+	_OptionNode_Selected(indexNode)
 
 func _OptionNode_Selected(index:int) -> void:
 	if listNode!=[]:
 		methodNode=listNode[index]
 		SetMetholsOptions()
-		_OptionMethod_Selected(0) 
 
 func SetMetholsOptions():
 	if not OptionMethod:

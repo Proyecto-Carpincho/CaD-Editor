@@ -7,8 +7,7 @@ var EditorGraph:Control
 var creatorOfUi:Node
 
 #region Varable of data to nodes
-var absEditorAni:Array[NodePath]=[]
-var absRuntimeAni:Array[NodePath]=[]
+var absAniPlayer:Array[NodePath]=[]
 var listNodePaths:Array[NodePath]
 
 var DialogSignal:String
@@ -17,10 +16,7 @@ var DialogMethod:String
 #endregion
 
 func SetDataNode(AniPlayers:Array[NodePath],NodePaths:Array[NodePath],DiaSignal:String,Autoload:Node,DiaMethod:String) -> void:
-	if Engine.is_editor_hint():
-		absEditorAni=AniPlayers
-	else:
-		absRuntimeAni=AniPlayers
+	absAniPlayer=AniPlayers
 	listNodePaths=NodePaths
 	DialogSignal=DiaSignal
 	DialogAutoload=Autoload
@@ -90,6 +86,7 @@ func Paste(auxLisNode) -> void:
 
 func SetTextInEditor(text):
 	EditorGraph.setText(text)
+
 #endregion
 signal Timeout(creator:String)
 func AwaitTime(time:float,creator:String):

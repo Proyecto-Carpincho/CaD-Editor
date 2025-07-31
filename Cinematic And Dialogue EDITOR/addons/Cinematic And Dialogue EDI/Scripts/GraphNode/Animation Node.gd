@@ -4,6 +4,7 @@ extends CinematicNode
 
 var aniPlayer:AnimationPlayer
 var listAnimationPlayer:Array[NodePath]
+var indexNode:int
 @export var animationName:String
 @export var waitPreAnimation:bool
 @export var waitNextAnimation:bool
@@ -23,8 +24,11 @@ func _get_property_list() -> Array[Dictionary]:
 	property.append({
 		"name": "listAnimationPlayer",
 		"type": TYPE_ARRAY,
-		"usage": PROPERTY_USAGE_NO_EDITOR
-	})
+		"usage": PROPERTY_USAGE_NO_EDITOR})
+	property.append({
+		"name":"indexNode",
+		"type":TYPE_INT,
+		"usage":PROPERTY_USAGE_NO_EDITOR})
 	return property
 
 func GetGraph() -> Control:
@@ -34,6 +38,8 @@ func _ready() -> void:
 	WaitPre.button_pressed=waitPreAnimation
 	WaitAni.button_pressed=waitNextAnimation
 	if aniPlayer != null and listAnimationPlayer != []:
+		if not aniPlayer.is_inside_tree():
+			await aniPlayer.tree_entered
 		var aniIndex:int=listAnimationPlayer.find(aniPlayer.get_path())
 		aniIndex=aniIndex if aniIndex!=-1 else 0
 		SetAniplayerOptions()
@@ -47,7 +53,7 @@ func _process(delta: float) -> void:
 	if GetGraph():
 		if not ecualsList():
 			listAnimationPlayer.clear()
-			listAnimationPlayer = CinematicEditor.absEditorAni if Engine.is_editor_hint() else CinematicEditor.absRuntimeAni
+			listAnimationPlayer = CinematicEditor.absAniPlayer
 			
 			OptionPlayer.select(0)
 			_NodeOption_Selected(0)
@@ -58,7 +64,7 @@ func _process(delta: float) -> void:
 		
 
 func ecualsList() -> bool:
-	var list = CinematicEditor.absEditorAni if Engine.is_editor_hint() else CinematicEditor.absRuntimeAni
+	var list = CinematicEditor.absAniPlayer
 	if listAnimationPlayer.size() == list.size():
 		for i in range(list.size()):
 			if list[i] != listAnimationPlayer[i]:
@@ -81,7 +87,6 @@ func SetAnimationOptions() -> void:
 		OptionAnimation.add_item(animation)
 
 #region coneccted methods
-@export var indexNode:int
 func _NodeOption_Selected(index: int) -> void:
 	if listAnimationPlayer != [] and index >= 0:
 		aniPlayer=CinematicEditor.GetNode(listAnimationPlayer[index])

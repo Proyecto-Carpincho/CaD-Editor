@@ -56,6 +56,10 @@ func SetSlotData(Var:Variant,Slot:int)->void:
 	SlotData.set(Slot,Var)
 
 func StartAction()->void:
+	var indexNode=listNode.find(methodNode)
+	if listNode.size() == CinematicEditor.listNodePaths.size():
+		listNode=CinematicEditor.listNodePaths
+		methodNode=listNode[indexNode]
 	var ParametersList:Array
 	for i in range(SlotData.size()):
 		if SlotData.has(i+1):

@@ -53,18 +53,18 @@ func _process(delta: float) -> void:
 	if GetGraph():
 		if not ecualsList():
 			listAnimationPlayer.clear()
-			listAnimationPlayer = CinematicEditor.absAniPlayer
+			listAnimationPlayer = CinematicEditor.absAniPlayer.duplicate(true)
 			
 			OptionPlayer.select(0)
 			_NodeOption_Selected(0)
 			SetAnimationOptions()
 		
 		if aniPlayer and listAnimationPlayer and OptionAnimation.get_item_count() != aniPlayer.get_animation_list().size():
-			_NodeOption_Selected(listAnimationPlayer.find(aniPlayer))
+			_NodeOption_Selected(listAnimationPlayer.find(aniPlayer.get_path()))
 		
 
 func ecualsList() -> bool:
-	var list = CinematicEditor.absAniPlayer
+	var list = CinematicEditor.absAniPlayer.duplicate(true)
 	if listAnimationPlayer.size() == list.size():
 		for i in range(list.size()):
 			if list[i] != listAnimationPlayer[i]:
@@ -104,16 +104,18 @@ func _WaitAni_toggled(toggled_on: bool) -> void:
 #endregion
 
 func StartAction()->void:
-	listAnimationPlayer=CinematicEditor.absEditorAni if Engine.is_editor_hint() else CinematicEditor.absRuntimeAni
+	listAnimationPlayer=CinematicEditor.absAniPlayer.duplicate(true)
 	aniPlayer=CinematicEditor.GetNode(listAnimationPlayer[indexNode])
-	if aniPlayer:
+	if aniPlayer and aniPlayer.get_animation_list().find(animationName) != -1:
 		if aniPlayer.is_playing() and waitPreAnimation:
 			await aniPlayer.animation_finished
-		aniPlayer.call("play",animationName)
+		
+		if aniPlayer.get_animation_list().find(animationName) !=-1:
+			aniPlayer.play(animationName)
 		
 		if waitNextAnimation:
 			await aniPlayer.animation_finished
-	else:
+	elif not aniPlayer:
 		push_error("No exist animation player to play animation, Self Name: ", name)
 	CinematicEditor.connect("Timeout",Timeout)
 	CinematicEditor.AwaitTime(0.05,name)

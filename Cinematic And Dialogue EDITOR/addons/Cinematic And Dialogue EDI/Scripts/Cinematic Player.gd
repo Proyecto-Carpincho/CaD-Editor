@@ -14,7 +14,7 @@ signal CinematicEnd
 
 func setNodePaths(Var:Array[NodePath]):
 	NodePaths=Var
-	if is_inside_tree() and get_tree().current_scene or Engine.is_editor_hint():
+	if (is_inside_tree() and get_tree().current_scene) or Engine.is_editor_hint():
 		absolutePaths.clear()
 		if not Engine.is_editor_hint() and not get_tree().current_scene.is_node_ready():
 			await get_tree().current_scene.ready
@@ -31,7 +31,7 @@ var absolutePaths:Array[NodePath]
 @export var AnimationPlayers: Array[NodePath]
 
 func setAnimationPlayers(Var:Array[NodePath]):
-	if is_inside_tree() and get_tree().current_scene or Engine.is_editor_hint():
+	if (is_inside_tree() and get_tree().current_scene) or Engine.is_editor_hint():
 		absoluteAniPath.clear()
 		if not Engine.is_editor_hint() and not get_tree().current_scene.is_node_ready():
 			await get_tree().current_scene.ready
@@ -61,7 +61,7 @@ var listAutoload:Array[Node]
 var methodName:String
 
 
-func SetCinematicData():
+func setCinematicData():
 	if is_inside_tree():
 		var auxAutoload
 		if listAutoload!=[]:
@@ -190,7 +190,7 @@ func SaveData() -> void:
 		var auxListNode:Array[Node]
 		for node in NodeEditor.get_children():
 			if node is GraphNode or node is CinematicNode:
-				var dupNode=node
+				var dupNode=node.duplicate()
 				auxListNode.append(dupNode)
 			
 		var auxConnections:Array = NodeEditor.get_connection_list() as Array
@@ -199,7 +199,7 @@ func SaveData() -> void:
 
 func LoadData() -> void:
 	IsLoading=true
-	SetCinematicData()
+	setCinematicData()
 	#print("LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD")
 	var auxlistNode = CinematicResorse.LoadNode()
 	for node:Node in auxlistNode:
@@ -253,7 +253,7 @@ func _exit_tree() -> void:
 		OneTime=true
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_EDITOR_POST_SAVE and  CinematicEditor.SelfSelected(self):
+	if what == NOTIFICATION_EDITOR_PRE_SAVE and  CinematicEditor.SelfSelected(self) and CinematicResorse and EditorGraph:
 		SaveData()
 		CinematicEditor.SetTextInEditor("Save!")
 #endregion
@@ -261,7 +261,7 @@ func _notification(what: int) -> void:
 #region StartCinematic
 func StartCinematic() -> void:
 	LoadVariables()
-	SetCinematicData()
+	setCinematicData()
 	StartImport()
 	ExecutionLine("Start Node",1)
 

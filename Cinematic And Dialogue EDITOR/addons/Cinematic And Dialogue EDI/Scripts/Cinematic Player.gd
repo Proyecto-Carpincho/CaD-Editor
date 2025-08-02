@@ -157,6 +157,7 @@ var isCredible:bool = true
 var errorPushed:bool
 #endregion
 
+#region normal method
 func _ready() -> void:
 	if not is_inside_tree():
 		await tree_entered
@@ -179,12 +180,13 @@ func _process(delta: float) -> void:
 	elif not CinematicResorse and not errorPushed:
 		errorPushed = true
 		push_error("no existe el recuso porfa crealo, nodo ", name)
-
+#endregion
 
 #region Save And Load
+var IsLoading:bool
 func SaveData() -> void:
 	#print("SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE --- SAVE")
-	if EditorGraph:
+	if EditorGraph and not IsLoading:
 		var auxListNode:Array[Node]
 		for node in NodeEditor.get_children():
 			if node is GraphNode or node is CinematicNode:
@@ -196,6 +198,7 @@ func SaveData() -> void:
 		SaveVariables()
 
 func LoadData() -> void:
+	IsLoading=true
 	SetCinematicData()
 	#print("LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD --- LOAD")
 	var auxlistNode = CinematicResorse.LoadNode()
@@ -216,10 +219,10 @@ func LoadData() -> void:
 	LoadVariablesInEditor()
 	
 	#While frame for ensure ALL CinematicNode is "READY" 
-	while  NodeEditor.connections != CinematicResorse.allConecction:
+	while  NodeEditor.connections != CinematicResorse.allConecction and NodeEditor:
 		await get_tree().process_frame
 		NodeEditor.connections = CinematicResorse.allConecction
-	
+	IsLoading=false
 	
 
 func SaveVariables() -> void:

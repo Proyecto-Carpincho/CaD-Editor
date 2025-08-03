@@ -1,5 +1,7 @@
 @tool
 extends Node
+signal TestSignal
+
 
 var pluginEditor:CaDPlugin
 var Clipboard:Array[CinematicNode]
@@ -11,16 +13,18 @@ var absAniPlayer:Array[NodePath]=[]
 var listNodePaths:Array[NodePath]
 
 var DialogSignal:String
-var DialogAutoload:Node
+var DialogAutoload:String
 var DialogMethod:String
+var DialogFile:String
 #endregion
 
-func SetDataNode(AniPlayers:Array[NodePath],NodePaths:Array[NodePath],DiaSignal:String,Autoload:Node,DiaMethod:String) -> void:
+func SetDataNode(AniPlayers:Array[NodePath],NodePaths:Array[NodePath],DiaSignal:String,Autoload:String,DiaMethod:String,dialogueFile:String) -> void:
 	absAniPlayer=AniPlayers
 	listNodePaths=NodePaths
 	DialogSignal=DiaSignal
 	DialogAutoload=Autoload
 	DialogMethod=DiaMethod
+	DialogFile=dialogueFile
 
 func GetNode(path:NodePath) -> Node:
 	if not Engine.is_editor_hint():

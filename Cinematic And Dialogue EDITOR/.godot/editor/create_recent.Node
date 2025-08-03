@@ -1,11 +1,11 @@
 CinematicPlayer
+Label
+VBoxContainer
 AnimationPlayer
 AnimationTree
-Label
 HBoxContainer
 Button
 Panel
-VBoxContainer
 OptionButton
 LineEdit
 RichTextLabel

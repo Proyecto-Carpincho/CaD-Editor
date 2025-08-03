@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 CinematicEditor="*res://addons/Cinematic And Dialogue EDI/DATA Plugin/Global CAD.gd"
+AutoloadTest="*res://AutoloadTest.gd"
 
 [editor_plugins]
 

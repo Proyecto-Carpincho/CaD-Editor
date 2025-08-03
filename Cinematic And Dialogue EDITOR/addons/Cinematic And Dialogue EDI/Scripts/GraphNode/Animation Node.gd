@@ -31,9 +31,7 @@ func _get_property_list() -> Array[Dictionary]:
 		"usage":PROPERTY_USAGE_NO_EDITOR})
 	return property
 
-func GetGraph() -> Control:
-	var auxParent:Node=get_parent().get_parent()
-	return  auxParent if get_parent() is GraphEdit else null
+
 func _ready() -> void:
 	WaitPre.button_pressed=waitPreAnimation
 	WaitAni.button_pressed=waitNextAnimation
@@ -50,7 +48,7 @@ func _ready() -> void:
 			OptionAnimation.select(aniPlayer.get_animation_list().find(animationName))
 
 func _process(delta: float) -> void:
-	if GetGraph():
+	if getGraph():
 		if not ecualsList():
 			listAnimationPlayer.clear()
 			listAnimationPlayer = CinematicEditor.absAniPlayer.duplicate(true)

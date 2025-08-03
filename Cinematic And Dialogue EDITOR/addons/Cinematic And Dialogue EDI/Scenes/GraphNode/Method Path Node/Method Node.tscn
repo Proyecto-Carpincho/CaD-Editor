@@ -58,7 +58,6 @@ script = ExtResource("2_oiyto")
 SlotData = Dictionary[int, Variant]({
 1: 1
 })
-listNode = Array[NodePath]([NodePath("/root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Node2D/AnimationPlayer")])
 metadata/_custom_type_script = "uid://beaxfln0pm5av"
 
 [node name="HSeparator" type="HSeparator" parent="."]

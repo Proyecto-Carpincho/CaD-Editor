@@ -57,18 +57,18 @@ var dicImportVar:Dictionary[String,Variant]
 var autoloadDialog:int
 var dialogMethold:int
 var SignalName:String
-var listAutoload:Array[Node]
+var listAutoload:Array[String]
 var methodName:String
 
 
 func setCinematicData():
 	if is_inside_tree():
-		var auxAutoload
+		var auxAutoload:String
 		if listAutoload!=[]:
 			auxAutoload= listAutoload[autoloadDialog]
 		setNodePaths(NodePaths)
 		setAnimationPlayers(AnimationPlayers)
-		CinematicEditor.SetDataNode(absoluteAniPath,absolutePaths,SignalName,auxAutoload,methodName)
+		CinematicEditor.SetDataNode(absoluteAniPath,absolutePaths,SignalName,auxAutoload,methodName,dialogueFile)
 		OneTime=true
 
 ##variable de mierda para el get properety list para que no ejecute 20 veces la parte de dialogos por que genera un lag mortal
@@ -103,9 +103,10 @@ func _get_property_list() -> Array[Dictionary]:
 		var lisRoot=get_tree().root.get_children()
 		listAutoload.clear()
 		for i in range(lisRoot.size()):
-			if get_tree().get_current_scene() != lisRoot[i] and not lisRoot[i].name in ["@EditorNode@21269","@ProgressDialog@13"]: #despues poner CinematicEditor 
-				listAutoload.append(lisRoot[i])
-				AutoloadENUM += lisRoot[i].name
+			var auxName:String = lisRoot[i].name
+			if get_tree().get_current_scene() != lisRoot[i] and not auxName in ["@EditorNode@21272","@ProgressDialog@13"]: #despues poner CinematicEditor 
+				listAutoload.append(auxName)
+				AutoloadENUM += auxName
 				if lisRoot.size() - 1 > i:
 					AutoloadENUM += ","
 		property.append({
@@ -117,12 +118,12 @@ func _get_property_list() -> Array[Dictionary]:
 		
 		if OneTime:
 			MetholdEnum=""
-			var auxSize:int =lisRoot[autoloadDialog].get_method_list().size()
-			var auxload:Node=lisRoot[autoloadDialog]
-			methodName=auxload.get_method_list()[dialogMethold]["name"]
-			for method:Dictionary in lisRoot[autoloadDialog].get_method_list():
+			var auxAutoload = get_node("/root/"+listAutoload[autoloadDialog])
+			var auxSize:int =auxAutoload.get_method_list().size()
+			methodName=auxAutoload.get_method_list()[dialogMethold]["name"]
+			for method:Dictionary in auxAutoload.get_method_list():
 				MetholdEnum+=method["name"]
-				if auxSize  -1 > auxload.get_method_list().find(method):
+				if auxSize  -1 > auxAutoload.get_method_list().find(method):
 					MetholdEnum+=","
 			OneTime=false
 		property.append({
@@ -138,6 +139,8 @@ func _get_property_list() -> Array[Dictionary]:
 			"usage":PROPERTY_USAGE_DEFAULT})
 		#endregion
 	return property
+@export_group("Autoload Dialogue")
+@export_file("csv") var dialogueFile:String
 
 func _get(property) -> Variant:
 	if dicImportVar.has(property):
@@ -146,7 +149,6 @@ func _get(property) -> Variant:
 
 func _set(property, value) -> bool:
 	if dicImportVar.has(property):
-		print("A")
 		dicImportVar[property] = value
 		return true
 	return false

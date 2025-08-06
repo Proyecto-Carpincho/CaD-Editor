@@ -32,7 +32,6 @@ script = ExtResource("3_uuyjh")
 metadata/_custom_type_script = "uid://beaxfln0pm5av"
 
 [node name="KeyContainer" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 2
 
 [node name="VSeparator2" type="VSeparator" parent="KeyContainer"]
@@ -114,6 +113,7 @@ layout_mode = 2
 theme = ExtResource("1_r6f2i")
 
 [node name="NodeContainer" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 
 [node name="VSeparator2" type="VSeparator" parent="NodeContainer"]

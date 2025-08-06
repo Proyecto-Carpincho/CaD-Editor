@@ -1,7 +1,7 @@
+CinematicPlayer
 RichTextLabel
 VSeparator
 OptionButton
-CinematicPlayer
 Label
 VBoxContainer
 AnimationPlayer

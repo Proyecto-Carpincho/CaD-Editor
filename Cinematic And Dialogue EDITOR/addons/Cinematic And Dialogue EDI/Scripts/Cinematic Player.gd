@@ -75,6 +75,7 @@ func setCinematicData():
 var OneTime:bool
 var MetholdEnum:String
 func _get_property_list() -> Array[Dictionary]:
+	LoadVariables()
 	var property:Array[Dictionary]
 	#region Create a group (All Data)
 	property.append({
@@ -228,8 +229,8 @@ func LoadData() -> void:
 	
 
 func SaveVariables() -> void:
-	CinematicResorse.dicVarData = dicImportVar
-	CinematicResorse.dicVarType = dicImportTypeVar
+	CinematicResorse.dicVarData = dicImportVar.duplicate(true)
+	CinematicResorse.dicVarType = dicImportTypeVar.duplicate(true)
 
 func LoadVariablesInEditor() -> void:
 	#Set dicImportVar and dicImportTypeVar make sure creator of vars (Import Data)
@@ -261,10 +262,12 @@ func _notification(what: int) -> void:
 #endregion
 
 #region StartCinematic
+signal EndImport
 func StartCinematic() -> void:
 	LoadVariables()
 	setCinematicData()
 	StartImport()
+	await EndImport
 	ExecutionLine("Start Node",1)
 
 func ExecutionLine(from:String,step:int) -> void:
@@ -309,4 +312,6 @@ func StartImport():
 			var toNode:Node=packedToNode.instantiate()
 			if toNode.has_method("SetSlotData") and not fromNode.GetNameVar().is_empty():
 				toNode.SetSlotData(dicImportVar.get(fromNode.GetNameVar()),connection["to_port"])
+	await get_tree().process_frame
+	emit_signal("EndImport")
 #endregion

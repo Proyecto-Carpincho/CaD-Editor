@@ -20,8 +20,8 @@ func _ready() -> void:
 		autoloadMethod = CinematicEditor.DialogMethod
 		_KeyEdit_changed(keyName)
 		get_node("KeyContainer/Key/Text/KeyEdit").text = keyName
-	labelAutoload.text = autoload
-	labelSignal.text = autoloadSignal
+	labelAutoload.text = "Autoload Node: "+autoload
+	labelSignal.text = "Signal: "+autoloadSignal
 	labelMethod.text = "Method: "+autoloadMethod
 	OptionNode = get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer/OptionNode")
 	OptionMethod = get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer2/OptionMethod")
@@ -46,6 +46,7 @@ func _OptionLocation_Selected(index: int) -> void:
 	get_node("NodeContainer/Node To Exe/DialogicNode/Signals/Label Signal").set_visible(index==0)
 	get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Method").set_visible(index==1)
 	get_node("NodeContainer/Node To Exe/DialogicNode/Signals/Line Signal").set_visible(index==1)
+	size = Vector2(0,225)
 
 func LoadCVS(file_path: String) -> Array:
 	# Read a CSV file line by line, splitting on commas

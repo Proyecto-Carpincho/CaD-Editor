@@ -52,7 +52,6 @@ func _RemoveButton_pressed() -> void:
 		size.y = 165.0
 
 func SetSlotData(Var:Variant,Slot:int)->void:
-	print(Var, " aaa")
 	SlotData[Slot]=Var
 	SlotData.set(Slot,Var)
 
@@ -63,10 +62,9 @@ func StartAction()->void:
 		methodNode=listNode[indexNode]
 	var ParametersList:Array
 	for i in range(SlotData.size()):
-		if ExtraParam -1 > i:
+		if ExtraParam > i:
 			if SlotData.has(i+1):
 				ParametersList.append(SlotData[i+1])
-				prints(SlotData, i,ExtraParam -1 > i)
 			else:
 				push_error("no estan bien asignado los parametros todos los datos: ",SlotData)
 				emit_signal("NextNode")

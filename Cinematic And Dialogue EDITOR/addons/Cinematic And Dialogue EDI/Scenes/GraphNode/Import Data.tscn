@@ -106,12 +106,13 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme = ExtResource("3_srk3a")
 bbcode_enabled = true
-text = "[wave]Type: Nil[/wave]"
+text = "[wave]Type: Int[/wave]"
 vertical_alignment = 1
 
 [node name="SpinType" type="SpinBox" parent="HBoxContainer/VBoxContainer/Other type"]
 layout_mode = 2
 max_value = 37.0
+value = 2.0
 rounded = true
 
 [node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]

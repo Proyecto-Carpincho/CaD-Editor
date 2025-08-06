@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://6h3cpkr1amas"]
+[gd_scene load_steps=4 format=3 uid="uid://6h3cpkr1amas"]
 
 [ext_resource type="Theme" uid="uid://kahpx1hi0dd5" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Dialogic Node theme.tres" id="1_r6f2i"]
+[ext_resource type="Theme" uid="uid://dq6pyfp6ll30l" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Normal theme.tres" id="3_07yp7"]
 [ext_resource type="Script" uid="uid://c842id01mbspf" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Dialogic Node.gd" id="3_uuyjh"]
 
 [node name="Dialogic Node" type="GraphNode"]
@@ -34,6 +35,11 @@ metadata/_custom_type_script = "uid://beaxfln0pm5av"
 visible = false
 layout_mode = 2
 
+[node name="VSeparator2" type="VSeparator" parent="KeyContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+theme = ExtResource("1_r6f2i")
+
 [node name="Button Key" type="Button" parent="KeyContainer"]
 custom_minimum_size = Vector2(50, 180)
 layout_mode = 2
@@ -45,9 +51,19 @@ Node
 
  "
 
+[node name="VSeparator" type="VSeparator" parent="KeyContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("1_r6f2i")
+
 [node name="Key" type="VBoxContainer" parent="KeyContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="HSeparator4" type="HSeparator" parent="KeyContainer/Key"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("1_r6f2i")
 
 [node name="Text" type="VBoxContainer" parent="KeyContainer/Key"]
 layout_mode = 2
@@ -66,7 +82,7 @@ custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
 theme = ExtResource("1_r6f2i")
 bbcode_enabled = true
-text = "[wave]   Display:"
+text = "[wave]Display:"
 
 [node name="HSeparator2" type="HSeparator" parent="KeyContainer/Key/Text"]
 layout_mode = 2
@@ -89,15 +105,26 @@ theme = ExtResource("1_r6f2i")
 
 [node name="CheckWait" type="CheckBox" parent="KeyContainer/Key"]
 layout_mode = 2
-theme = ExtResource("1_r6f2i")
+theme = ExtResource("3_07yp7")
 text = "Wait signal to End"
+
+[node name="VSeparator3" type="VSeparator" parent="KeyContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+theme = ExtResource("1_r6f2i")
 
 [node name="NodeContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
+[node name="VSeparator2" type="VSeparator" parent="NodeContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+theme = ExtResource("1_r6f2i")
+
 [node name="Button Node" type="Button" parent="NodeContainer"]
 custom_minimum_size = Vector2(50, 180)
 layout_mode = 2
+theme = ExtResource("1_r6f2i")
 text = "
 
 
@@ -107,11 +134,16 @@ text = "
 
 "
 
+[node name="VSeparator" type="VSeparator" parent="NodeContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("1_r6f2i")
+
 [node name="Node To Exe" type="VBoxContainer" parent="NodeContainer"]
 layout_mode = 2
 
 [node name="HSeparator4" type="HSeparator" parent="NodeContainer/Node To Exe"]
-custom_minimum_size = Vector2(0, 5)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme = ExtResource("1_r6f2i")
 
@@ -126,6 +158,7 @@ text = "Location"
 [node name="OptionLocation" type="OptionButton" parent="NodeContainer/Node To Exe/Location"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_07yp7")
 selected = 0
 item_count = 2
 popup/item_0/text = "Autoload"
@@ -136,20 +169,27 @@ popup/item_1/id = 1
 [node name="DialogicNode" type="VBoxContainer" parent="NodeContainer/Node To Exe"]
 layout_mode = 2
 
+[node name="HSeparator4" type="HSeparator" parent="NodeContainer/Node To Exe/DialogicNode"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("1_r6f2i")
+
 [node name="Signals" type="VBoxContainer" parent="NodeContainer/Node To Exe/DialogicNode"]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NodeContainer/Node To Exe/DialogicNode/Signals"]
-layout_mode = 2
-text = "Signal Name:"
-
 [node name="Label Signal" type="Label" parent="NodeContainer/Node To Exe/DialogicNode/Signals"]
 layout_mode = 2
+text = "Signal: "
 
 [node name="Line Signal" type="LineEdit" parent="NodeContainer/Node To Exe/DialogicNode/Signals"]
 visible = false
 layout_mode = 2
+
+[node name="HSeparator4" type="HSeparator" parent="NodeContainer/Node To Exe/DialogicNode/Signals"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("1_r6f2i")
 
 [node name="Node" type="VBoxContainer" parent="NodeContainer/Node To Exe/DialogicNode"]
 layout_mode = 2
@@ -157,15 +197,18 @@ layout_mode = 2
 [node name="Node Autoload" type="VBoxContainer" parent="NodeContainer/Node To Exe/DialogicNode/Node"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="NodeContainer/Node To Exe/DialogicNode/Node/Node Autoload"]
-layout_mode = 2
-text = "Autoload Name:"
-
 [node name="Label Autoload" type="Label" parent="NodeContainer/Node To Exe/DialogicNode/Node/Node Autoload"]
 layout_mode = 2
+text = "Autoload Node: "
+
+[node name="HSeparator5" type="HSeparator" parent="NodeContainer/Node To Exe/DialogicNode/Node/Node Autoload"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("1_r6f2i")
 
 [node name="Label Method" type="Label" parent="NodeContainer/Node To Exe/DialogicNode/Node/Node Autoload"]
 layout_mode = 2
+text = "Method: "
 
 [node name="Node Method" type="VBoxContainer" parent="NodeContainer/Node To Exe/DialogicNode/Node"]
 visible = false
@@ -177,6 +220,7 @@ layout_mode = 2
 [node name="OptionNode" type="OptionButton" parent="NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_07yp7")
 
 [node name="Label" type="Label" parent="NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer"]
 layout_mode = 2
@@ -193,10 +237,16 @@ layout_mode = 2
 [node name="OptionMethod" type="OptionButton" parent="NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_07yp7")
 
 [node name="Label" type="Label" parent="NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer2"]
 layout_mode = 2
 text = "Method"
+
+[node name="VSeparator3" type="VSeparator" parent="NodeContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+theme = ExtResource("1_r6f2i")
 
 [connection signal="pressed" from="KeyContainer/Button Key" to="." method="_ButtonKey_Pressed"]
 [connection signal="text_changed" from="KeyContainer/Key/Text/KeyEdit" to="." method="_KeyEdit_changed"]

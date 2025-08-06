@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Cinematic And Dialogic Active"
+run/main_scene="uid://baeyhnogdfcld"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,3 +23,7 @@ AutoloadTest="*res://AutoloadTest.gd"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Cinematic And Dialogue EDI/plugin.cfg")
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Prueba - Hoja 1.en.translation", "res://Prueba - Hoja 1.es.translation")

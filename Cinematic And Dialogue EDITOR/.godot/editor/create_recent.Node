@@ -1,3 +1,6 @@
+RichTextLabel
+VSeparator
+OptionButton
 CinematicPlayer
 Label
 VBoxContainer
@@ -6,8 +9,6 @@ AnimationTree
 HBoxContainer
 Button
 Panel
-OptionButton
 LineEdit
-RichTextLabel
 HSeparator
 CheckBox

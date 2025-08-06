@@ -1,5 +1,8 @@
 # CaD Editor
 
+- [Version](#version)
+
+  
 **CaD** is a plugin for Godot that acts as a graph editor, designed to be the core of your cinematics. Its main goal is to flexibly redirect data to the nodes or systems you need.
 
 > [!NOTE]  
@@ -17,3 +20,22 @@
     </td>
   </tr>
 </table>
+
+## Easy Edition
+
+<table>
+  <tr>
+    <td>
+      <p><strong>Easy Edition</strong><br/>
+      This plugin is not only perfect as the core of your cinematics, but also convenient for modifying them.</p>
+      <p>It can create, copy, paste, cut, and delete Cinematic Nodes</p>
+    </td>
+    <td>
+      <img src="https://github.com/Proyecto-Carpincho/CaD-Editor/blob/main/To%20Readme/Editor%20Test.gif" width = "500"/>
+    </td>
+  </tr>
+</table>
+
+## Version
+
+[CaD 1.0](https://github.com/Proyecto-Carpincho/CaD-Editor/releases/tag/StableVersions)

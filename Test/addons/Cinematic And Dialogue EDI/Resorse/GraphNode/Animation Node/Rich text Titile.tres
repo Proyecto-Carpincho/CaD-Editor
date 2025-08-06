@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dybbmpbjt03lu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iho8y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fgmp1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dcs8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hpor8"]
+
+[resource]
+RichTextLabel/styles/background = SubResource("StyleBoxEmpty_iho8y")
+RichTextLabel/styles/fill = SubResource("StyleBoxEmpty_fgmp1")
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_0dcs8")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_hpor8")

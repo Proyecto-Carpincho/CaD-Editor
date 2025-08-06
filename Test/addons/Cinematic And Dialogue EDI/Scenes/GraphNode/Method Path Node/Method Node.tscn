@@ -1,0 +1,209 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbdf7nskidrcm"]
+
+[ext_resource type="Theme" uid="uid://dekv58jqf0vde" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/Method Node theme.tres" id="2_ls8xr"]
+[ext_resource type="Script" uid="uid://d0opea2t4j5mm" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd" id="2_oiyto"]
+
+[node name="Method Node" type="GraphNode"]
+custom_minimum_size = Vector2(0, 165)
+offset_right = 223.0
+offset_bottom = 165.0
+theme = ExtResource("2_ls8xr")
+title = "Method Node"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 0, 0, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = true
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 0, 0, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 1
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+script = ExtResource("2_oiyto")
+SlotData = Dictionary[int, Variant]({
+1: 1
+})
+metadata/_custom_type_script = "uid://beaxfln0pm5av"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_ls8xr")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Node" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Node"]
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+theme = ExtResource("2_ls8xr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Node"]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/TabContainer/Node/HBoxContainer"]
+layout_mode = 2
+
+[node name="OptionNode" type="OptionButton" parent="VBoxContainer/TabContainer/Node/HBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/TabContainer/Node/HBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/TabContainer/Node"]
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+theme = ExtResource("2_ls8xr")
+
+[node name="Method" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/TabContainer/Method"]
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+theme = ExtResource("2_ls8xr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Method"]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/TabContainer/Method/HBoxContainer"]
+layout_mode = 2
+
+[node name="OptionMethod" type="OptionButton" parent="VBoxContainer/TabContainer/Method/HBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/TabContainer/Method/HBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/TabContainer/Method"]
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+theme = ExtResource("2_ls8xr")
+
+[node name="Param" type="Label" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Create Parm" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="Create Parm"]
+custom_minimum_size = Vector2(8.1, 0)
+layout_mode = 2
+theme = ExtResource("2_ls8xr")
+
+[node name="Button add" type="Button" parent="Create Parm"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "add"
+
+[node name="Button remove" type="Button" parent="Create Parm"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "remove"
+
+[node name="VSeparator3" type="VSeparator" parent="Create Parm"]
+custom_minimum_size = Vector2(8.1, 0)
+layout_mode = 2
+theme = ExtResource("2_ls8xr")
+
+[node name="View Methods" type="Panel" parent="Create Parm"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(23.77, 0)
+layout_mode = 2
+
+[node name="View Methods" type="Button" parent="Create Parm/View Methods"]
+custom_minimum_size = Vector2(100, 31)
+layout_mode = 2
+offset_left = 23.0
+offset_right = 123.0
+offset_bottom = 31.0
+rotation = 1.5708
+text = "Methods"
+
+[node name="VSeparator2" type="VSeparator" parent="Create Parm"]
+custom_minimum_size = Vector2(8.1, 0)
+layout_mode = 2
+theme = ExtResource("2_ls8xr")
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Param 1" type="VBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Param 1"]
+layout_mode = 2
+
+[node name="Param" type="RichTextLabel" parent="Param 1/Panel"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+offset_left = 4.0
+offset_right = 155.0
+offset_bottom = 25.0
+size_flags_horizontal = 3
+theme = ExtResource("2_ls8xr")
+bbcode_enabled = true
+text = "[pulse freq=5 color=#00ff84 ease=-1][color=#00ffea]  Parameter   -1- [/color] [/pulse] "
+
+[connection signal="tab_clicked" from="VBoxContainer/TabContainer" to="." method="_TabContiner_Pressed"]
+[connection signal="item_selected" from="VBoxContainer/TabContainer/Node/HBoxContainer/OptionNode" to="." method="_OptionNode_Selected"]
+[connection signal="item_selected" from="VBoxContainer/TabContainer/Method/HBoxContainer/OptionMethod" to="." method="_OptionMethod_Selected"]
+[connection signal="pressed" from="Create Parm/Button add" to="." method="_AddButton_pressed"]
+[connection signal="pressed" from="Create Parm/Button remove" to="." method="_RemoveButton_pressed"]
+[connection signal="pressed" from="Create Parm/View Methods/View Methods" to="." method="_ViewMethods_pressed"]

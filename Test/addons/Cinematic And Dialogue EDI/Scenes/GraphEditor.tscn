@@ -1,0 +1,190 @@
+[gd_scene load_steps=11 format=3 uid="uid://csb2gc6i5atx2"]
+
+[ext_resource type="Script" uid="uid://cxwyxcr8unhsv" path="res://addons/Cinematic And Dialogue EDI/Scripts/Graph Editor.gd" id="1_d4qq3"]
+[ext_resource type="Script" uid="uid://b6bq5atl5hc2p" path="res://addons/Cinematic And Dialogue EDI/Scripts/Sub Nodes/CreateNode.gd" id="1_ed3fd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvia4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_loqs0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45oo2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgosd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6batv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ed3fd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4qq3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l7x70"]
+
+[node name="GraphEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d4qq3")
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+right_disconnects = true
+connection_lines_curvature = 0.4
+connection_lines_thickness = 7.5
+
+[node name="ConsolaTest" type="RichTextLabel" parent="GraphEdit"]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 28.0
+offset_right = 169.0
+offset_bottom = 99.0
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_styles/fill = SubResource("StyleBoxEmpty_jvia4")
+theme_override_styles/background = SubResource("StyleBoxEmpty_loqs0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_45oo2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bgosd")
+bbcode_enabled = true
+vertical_alignment = 1
+
+[node name="PanelCreateNode" type="Panel" parent="GraphEdit"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_right = 154.0
+offset_bottom = 210.0
+pivot_offset = Vector2(77, 18)
+mouse_filter = 1
+script = ExtResource("1_ed3fd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GraphEdit/PanelCreateNode"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxEmpty_6batv")
+theme_override_styles/background = SubResource("StyleBoxEmpty_ed3fd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d4qq3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l7x70")
+bbcode_enabled = true
+text = "[tornado radius=2 freq=1.5]Create New Node[/tornado]
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GraphEdit/PanelCreateNode"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphEdit/PanelCreateNode/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Animation" type="Button" parent="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+button_mask = 7
+text = "Animation Node"
+
+[node name="Await" type="Button" parent="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+button_mask = 7
+text = "Await Node"
+
+[node name="Import" type="Button" parent="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+button_mask = 7
+text = "Import Data"
+
+[node name="Method" type="Button" parent="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+button_mask = 7
+text = "Method Node"
+
+[node name="Dialogic" type="Button" parent="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+button_mask = 7
+text = "Dialogic Node"
+
+[node name="Timer" type="Timer" parent="GraphEdit/PanelCreateNode"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Start Node" type="GraphNode" parent="GraphEdit"]
+self_modulate = Color(1, 0, 0.160784, 1)
+layout_mode = 0
+offset_left = 342.0
+offset_top = 210.0
+offset_right = 388.0
+offset_bottom = 267.0
+mouse_filter = 1
+position_offset = Vector2(342, 210)
+title = "Start"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 0, 0, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphEdit/Start Node"]
+layout_mode = 2
+
+[node name="End Node" type="GraphNode" parent="GraphEdit"]
+self_modulate = Color(1, 0, 0.160784, 1)
+layout_mode = 0
+offset_left = 686.0
+offset_top = 210.0
+offset_right = 724.0
+offset_bottom = 265.0
+mouse_filter = 1
+position_offset = Vector2(686, 210)
+title = "End"
+ignore_invalid_connection_type = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 0, 0, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphEdit/End Node"]
+layout_mode = 2
+
+[connection signal="connection_request" from="GraphEdit" to="." method="Conection_Request"]
+[connection signal="disconnection_request" from="GraphEdit" to="." method="Disconect_Recuest"]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/RichTextLabel" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="mouse_exited" from="GraphEdit/PanelCreateNode/RichTextLabel" to="GraphEdit/PanelCreateNode" method="_Mouse_Exited"]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/ScrollContainer" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="mouse_exited" from="GraphEdit/PanelCreateNode/ScrollContainer" to="GraphEdit/PanelCreateNode" method="_Mouse_Exited"]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="mouse_exited" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer" to="GraphEdit/PanelCreateNode" method="_Mouse_Exited"]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer/Animation" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Animation"]]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer/Await" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Await"]]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer/Import" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Import Data"]]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer/Method" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Method"]]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer/Dialogic" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Dialogic"]]

@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://4n06vdth0cl3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iho8y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fgmp1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dcs8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imv85"]
+
+[resource]
+RichTextLabel/font_sizes/bold_font_size = 13
+RichTextLabel/font_sizes/bold_italics_font_size = 13
+RichTextLabel/font_sizes/italics_font_size = 13
+RichTextLabel/font_sizes/mono_font_size = 13
+RichTextLabel/font_sizes/normal_font_size = 13
+RichTextLabel/styles/background = SubResource("StyleBoxEmpty_iho8y")
+RichTextLabel/styles/fill = SubResource("StyleBoxEmpty_fgmp1")
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_0dcs8")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_imv85")

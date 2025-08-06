@@ -1,0 +1,71 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://tu7wuaclbs7c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrcbw"]
+bg_color = Color(0, 0.0117647, 0.0392157, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.752941, 0.376471, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ne3c"]
+bg_color = Color(0, 0.0117647, 0.0392157, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.454902, 0.215686, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kdiq"]
+bg_color = Color(1.97336e-06, 0.751299, 0.375187, 1)
+border_width_left = 105
+border_color = Color(0, 0.752941, 0.376471, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwoab"]
+bg_color = Color(1.10701e-06, 0.454112, 0.216628, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ko1e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrcbw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ne3c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6q4u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kdiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gwoab"]
+
+[resource]
+GraphNode/styles/panel = SubResource("StyleBoxFlat_xrcbw")
+GraphNode/styles/panel_selected = SubResource("StyleBoxFlat_8ne3c")
+GraphNode/styles/titlebar = SubResource("StyleBoxFlat_8kdiq")
+GraphNode/styles/titlebar_selected = SubResource("StyleBoxFlat_gwoab")
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_5ko1e")
+OptionButton/font_sizes/font_size = 12
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_italics_font_size = 16
+RichTextLabel/font_sizes/italics_font_size = 16
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 19
+RichTextLabel/styles/background = SubResource("StyleBoxEmpty_xrcbw")
+RichTextLabel/styles/fill = SubResource("StyleBoxEmpty_8ne3c")
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_s6q4u")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_8kdiq")
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_gwoab")

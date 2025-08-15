@@ -52,6 +52,9 @@ slot/1/right_color = Color(1, 0, 0, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 script = ExtResource("1_jmb2q")
+aniPlayer = null
+listAnimationPlayer = Array[NodePath]([])
+indexNode = 0
 metadata/_custom_type_script = "uid://beaxfln0pm5av"
 
 [node name="HSeparator" type="HSeparator" parent="."]

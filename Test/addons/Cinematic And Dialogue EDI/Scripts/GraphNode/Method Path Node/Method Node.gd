@@ -72,11 +72,4 @@ func StartAction()->void:
 	
 	var node:Node=CinematicEditor.GetNode(methodNode)
 	node.callv(methodName,ParametersList)
-	
-	CinematicEditor.connect("Timeout",Timeout)
-	CinematicEditor.AwaitTime(0.05,name)
-	emit_signal("NextNode")
-
-func Timeout(TimerCreator:String):
-	if TimerCreator == name:
-		emit_signal("NextNode")
+	emitNextNode()

@@ -88,11 +88,4 @@ func StartAction()->void:
 			CinematicEditor.GetNode(methodNode).call(methodName,keyName)
 			if waitSignal:
 				await Signal(CinematicEditor.GetNode(methodNode),get_node("NodeContainer/Node To Exe/DialogicNode/Signals/Line Signal").text)
-	CinematicEditor.connect("Timeout",Timeout)
-	CinematicEditor.AwaitTime(0.05,name)
-	emit_signal("NextNode")
-
-
-func Timeout(TimerCreator:String):
-	if TimerCreator == name:
-		emit_signal("NextNode")
+	emitNextNode()

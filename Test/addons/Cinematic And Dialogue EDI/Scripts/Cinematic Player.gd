@@ -166,6 +166,14 @@ func _ready() -> void:
 		await tree_entered
 	setNodePaths(NodePaths)
 	setAnimationPlayers(AnimationPlayers)
+	lazyLoad()
+
+var allUnpackedNodes:Array[Node]
+func lazyLoad():
+	allUnpackedNodes.clear()
+	for packedNode:PackedScene in CinematicResorse.allNodes:
+		var node = packedNode.instantiate()
+		allUnpackedNodes.append(node)
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint() and CinematicResorse:
@@ -276,13 +284,13 @@ func ExecutionLine(from:String,step:int) -> void:
 		if nodeName == "End Node":
 			emit_signal("CinematicEnd")
 		else:
-			var packedNode:PackedScene=CinematicResorse.allNodes[FindNode(nodeName)]
-			var node=packedNode.instantiate()
+			
+			var node=allUnpackedNodes[FindNode(nodeName)]
 			ExeNode(node,step+1)
 
 func FindNode(Name:String) -> int:
-	for i:int in range(CinematicResorse.allNodes.size()):
-		var node =CinematicResorse.allNodes[i].instantiate()
+	for i:int in range(allUnpackedNodes.size()):
+		var node:Node = allUnpackedNodes[i]
 		if node.name==Name:
 			return i
 	return -1
@@ -304,12 +312,10 @@ func StartImport():
 	var auxConecctions:Array[Dictionary] = CinematicResorse.allConecction
 	for connection in auxConecctions:
 		var auxFromIndex:int = FindNode(connection["from_node"])
-		var packedFromNode:PackedScene=CinematicResorse.allNodes[auxFromIndex]
-		var fromNode:Node=packedFromNode.instantiate()
+		var fromNode=allUnpackedNodes[auxFromIndex]
 		if fromNode is ImportData:
 			var auxToIndex:int = FindNode(connection["to_node"])
-			var packedToNode:PackedScene=CinematicResorse.allNodes[auxToIndex]
-			var toNode:Node=packedToNode.instantiate()
+			var toNode=allUnpackedNodes[auxToIndex]
 			if toNode.has_method("SetSlotData") and not fromNode.GetNameVar().is_empty():
 				toNode.SetSlotData(dicImportVar.get(fromNode.GetNameVar()),connection["to_port"])
 	await get_tree().process_frame

@@ -10,7 +10,8 @@ func _ready() -> void:
 
 
 func StartAction():
-	CinematicEditor.connect("Timeout",Timeout)
+	if not CinematicEditor.is_connected("Timeout",Timeout):
+		CinematicEditor.connect("Timeout",Timeout)
 	CinematicEditor.AwaitTime(WaitTime,name)
 
 func Timeout(TimerCreator:String):

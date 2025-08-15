@@ -115,11 +115,4 @@ func StartAction()->void:
 			await aniPlayer.animation_finished
 	elif not aniPlayer:
 		push_error("No exist animation player to play animation, Self Name: ", name)
-	CinematicEditor.connect("Timeout",Timeout)
-	CinematicEditor.AwaitTime(0.05,name)
-	emit_signal("NextNode")
-
-
-func Timeout(TimerCreator:String):
-	if TimerCreator == name:
-		emit_signal("NextNode")
+	emitNextNode()

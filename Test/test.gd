@@ -16,11 +16,11 @@ func TestDialog(Key:String)->void:
 	var Text = tr(Key)
 	get_node("Dialogue").text=Text + " " + Key
 	
-	await get_tree().create_timer(2 if Key in ["Ky1","Ky2"]else 2.2).timeout
+	await get_tree().create_timer(2).timeout
 	emit_signal("Test1")
 
 func TestMethodNode(Type:String)->void:
-	get_node("RichTextLabel").text = "Metodo: "+Type
+	get_node("RichTextLabel").text = "Method Var: "+Type
 	print(Type)
 
 func EndCinematic()->void:

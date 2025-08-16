@@ -20,5 +20,5 @@ func Timeout(TimerCreator:String):
 func emitNextNode():
 	if not CinematicEditor.is_connected("Timeout",Timeout):
 		CinematicEditor.connect("Timeout",Timeout)
-	CinematicEditor.AwaitTime(0.05,name)
+	CinematicEditor.AwaitTime(0.01,name)
 	emit_signal("NextNode")

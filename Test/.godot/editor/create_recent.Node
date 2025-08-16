@@ -1,3 +1,5 @@
+GraphFrame
+GraphElement
 CinematicPlayer
 RichTextLabel
 VSeparator
@@ -11,4 +13,3 @@ Button
 Panel
 LineEdit
 HSeparator
-CheckBox

@@ -42,10 +42,11 @@ func _CheckWait_Toggled(toggled_on: bool) -> void:
 
 func _OptionLocation_Selected(index: int) -> void:
 	typeNode=index
-	get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Autoload").set_visible(index==0)
-	get_node("NodeContainer/Node To Exe/DialogicNode/Signals/Label Signal").set_visible(index==0)
-	get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Method").set_visible(index==1)
-	get_node("NodeContainer/Node To Exe/DialogicNode/Signals/Line Signal").set_visible(index==1)
+	const Path:String = "NodeContainer/Node To Exe/DialogicNode/"
+	get_node(Path+"Node/Node Autoload").set_visible(index==0)
+	get_node(Path+"Signals/Label Signal").set_visible(index==0)
+	get_node(Path+"Node/Node Method").set_visible(index==1)
+	get_node(Path+"Signals/Line Signal").set_visible(index==1)
 	size = Vector2(0,225)
 
 func LoadCVS(file_path: String) -> Array:
@@ -66,6 +67,8 @@ func LoadCVS(file_path: String) -> Array:
 
 func _KeyEdit_changed(newText: String) -> void:
 	for line:Array in LoadCVS(filePath):
+		if line.size() <= 2:
+			continue
 		if line[0] == newText:
 			get_node("KeyContainer/Key/Text/RichText Display").text = line[1]
 			keyName = newText

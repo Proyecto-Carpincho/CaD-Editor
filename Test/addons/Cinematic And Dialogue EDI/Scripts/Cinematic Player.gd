@@ -15,16 +15,16 @@ signal CinematicEnd
 func setNodePaths(Var:Array[NodePath]):
 	NodePaths=Var
 	if (is_inside_tree() and get_tree().current_scene) or Engine.is_editor_hint():
-		absolutePaths.clear()
+		listAbsolutePaths.clear()
 		if not Engine.is_editor_hint() and not get_tree().current_scene.is_node_ready():
 			await get_tree().current_scene.ready
 		
 		for path:NodePath in Var:
 			if path.is_empty():
 				continue
-			absolutePaths.append(get_node(path).get_path())
+			listAbsolutePaths.append(get_node(path).get_path())
 
-var absolutePaths:Array[NodePath]
+var listAbsolutePaths:Array[NodePath]
 #endregion
 
 #region var AnimationPlayers
@@ -32,7 +32,7 @@ var absolutePaths:Array[NodePath]
 
 func setAnimationPlayers(Var:Array[NodePath]):
 	if (is_inside_tree() and get_tree().current_scene) or Engine.is_editor_hint():
-		absoluteAniPath.clear()
+		listAbsoluteAniPaths.clear()
 		if not Engine.is_editor_hint() and not get_tree().current_scene.is_node_ready():
 			await get_tree().current_scene.ready
 		for path:NodePath in Var:
@@ -44,10 +44,10 @@ func setAnimationPlayers(Var:Array[NodePath]):
 				push_error("Eso no es un animation player")
 				continue
 			
-			absoluteAniPath.append(get_node(path).get_path())
+			listAbsoluteAniPaths.append(get_node(path).get_path())
 	AnimationPlayers=Var
 
-var absoluteAniPath:Array[NodePath]=[]
+var listAbsoluteAniPaths:Array[NodePath]=[]
 #endregion
 #endregion
 
@@ -68,7 +68,7 @@ func setCinematicData():
 			auxAutoload= listAutoload[autoloadDialog]
 		setNodePaths(NodePaths)
 		setAnimationPlayers(AnimationPlayers)
-		CinematicEditor.SetDataNode(absoluteAniPath,absolutePaths,SignalName,auxAutoload,methodName,dialogueFile)
+		CinematicEditor.SetDataNode(listAbsoluteAniPaths,listAbsolutePaths,SignalName,auxAutoload,methodName,dialogueFile)
 		OneTime=true
 
 ##variable de mierda para el get properety list para que no ejecute 20 veces la parte de dialogos por que genera un lag mortal
@@ -316,8 +316,8 @@ func StartImport():
 		if fromNode is ImportData:
 			var auxToIndex:int = FindNode(connection["to_node"])
 			var toNode=allUnpackedNodes[auxToIndex]
-			if toNode.has_method("SetSlotData") and not fromNode.GetNameVar().is_empty():
-				toNode.SetSlotData(dicImportVar.get(fromNode.GetNameVar()),connection["to_port"])
+			if toNode.has_method("SetSlotData") and not fromNode.getNameVar().is_empty():
+				toNode.SetSlotData(dicImportVar.get(fromNode.getNameVar()),connection["to_port"])
 	await get_tree().process_frame
 	emit_signal("EndImport")
 #endregion

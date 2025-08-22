@@ -63,23 +63,23 @@ func _OptionType_Selected(index: int) -> void:
 		numType=OptionType.get_item_id(index)
 	else:
 		numType=get_node("HBoxContainer/VBoxContainer/Other type/SpinType").value
-	SetVariant()
+	setVar()
 
 func _SpinType_valueChange(value: float) -> void:
 	numType=value
 	RichType.set_text("[wave]Type: "+Type[value]+"[/wave]")
-	SetVariant()
+	setVar()
 
 func _LineEdit_Changed(new_text: String) -> void:
 	varName=new_text
-	SetVariant()
+	setVar()
 
-func SetVariant()->void:
+func setVar()->void:
 	var cinePlayer:CinematicPlayer=CinematicEditor.creatorOfUi
 	if cinePlayer and not varName.is_empty():
 		cinePlayer.dicImportTypeVar.set(varName,numType)
 		cinePlayer.dicImportVar.get_or_add(varName,null)
 		cinePlayer.SaveVariables()
 
-func GetNameVar()->String:
+func getNameVar()->String:
 	return varName

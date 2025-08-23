@@ -75,7 +75,7 @@ func SetAniplayerOptions() -> void:
 	OptionPlayer.clear()
 	for path:NodePath in listAnimationPlayer:
 		if not path.is_empty():
-			var node=CinematicEditor.GetNode(path)
+			var node=CinematicEditor.getNode(path)
 			if node:
 				OptionPlayer.add_item(node.name)
 
@@ -87,7 +87,7 @@ func SetAnimationOptions() -> void:
 #region coneccted methods
 func _NodeOption_Selected(index: int) -> void:
 	if listAnimationPlayer != [] and index >= 0:
-		aniPlayer=CinematicEditor.GetNode(listAnimationPlayer[index])
+		aniPlayer=CinematicEditor.getNode(listAnimationPlayer[index])
 		indexNode=index
 		SetAnimationOptions()
 
@@ -103,7 +103,7 @@ func _WaitAni_toggled(toggled_on: bool) -> void:
 
 func StartAction()->void:
 	listAnimationPlayer=CinematicEditor.absAniPlayer.duplicate(true)
-	aniPlayer=CinematicEditor.GetNode(listAnimationPlayer[indexNode])
+	aniPlayer=CinematicEditor.getNode(listAnimationPlayer[indexNode])
 	if aniPlayer and aniPlayer.get_animation_list().find(animationName) != -1:
 		if aniPlayer.is_playing() and waitPreAnimation:
 			await aniPlayer.animation_finished
@@ -115,4 +115,4 @@ func StartAction()->void:
 			await aniPlayer.animation_finished
 	elif not aniPlayer:
 		push_error("No exist animation player to play animation, Self Name: ", name)
-	emitNextNode()
+	EmitNextNode()

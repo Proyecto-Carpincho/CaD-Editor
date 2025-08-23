@@ -83,12 +83,12 @@ func StartAction()->void:
 		methodNode=listNode[indexNode]
 	match typeNode:
 		0:#Autoload
-			var auxAutoload:Node=CinematicEditor.GetNode("/root/"+autoload)
+			var auxAutoload:Node=CinematicEditor.getNode("/root/"+autoload)
 			auxAutoload.call(autoloadMethod,keyName)
 			if waitSignal:
 				await Signal(auxAutoload,autoloadSignal)
 		1:#Nodes
-			CinematicEditor.GetNode(methodNode).call(methodName,keyName)
+			CinematicEditor.getNode(methodNode).call(methodName,keyName)
 			if waitSignal:
-				await Signal(CinematicEditor.GetNode(methodNode),get_node("NodeContainer/Node To Exe/DialogicNode/Signals/Line Signal").text)
-	emitNextNode()
+				await Signal(CinematicEditor.getNode(methodNode),get_node("NodeContainer/Node To Exe/DialogicNode/Signals/Line Signal").text)
+	EmitNextNode()

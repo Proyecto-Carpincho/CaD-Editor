@@ -4,8 +4,8 @@ signal TestSignal
 
 
 var pluginEditor:CaDPlugin
-var Clipboard:Array[CinematicNode]
-var EditorGraph:Control
+var clipboard:Array[CinematicNode]
+var editorGraph:Control
 var creatorOfUi:Node
 
 #region Varable of data to nodes
@@ -26,7 +26,7 @@ func SetDataNode(AniPlayers:Array[NodePath],NodePaths:Array[NodePath],DiaSignal:
 	DialogMethod=DiaMethod
 	DialogFile=dialogueFile
 
-func GetNode(path:NodePath) -> Node:
+func getNode(path:NodePath) -> Node:
 	if not Engine.is_editor_hint():
 		return get_tree().current_scene.get_node(path)
 	return get_node(path)
@@ -34,8 +34,8 @@ func GetNode(path:NodePath) -> Node:
 func OnPanel(emisor:Node) -> Control:
 	if not creatorOfUi and pluginEditor:
 		creatorOfUi=emisor
-		EditorGraph=pluginEditor.OnPanel()
-		return EditorGraph
+		editorGraph=pluginEditor.OnPanel()
+		return editorGraph
 	return null
 
 func OffPanel() -> void:
@@ -43,53 +43,53 @@ func OffPanel() -> void:
 	if pluginEditor:
 		pluginEditor.OffPanel()
 
-func SelfSelected(emisor:Node) ->bool:
+func NodeIsSelected(emisor:Node) ->bool:
 	if pluginEditor:
 		return pluginEditor.Interface().find(emisor) != -1
 	return false
 #region
 func _input(event: InputEvent) -> void:
-	if EditorGraph:
-		var auxLisNode:Array[CinematicNode]=EditorGraph.NodeIsSelected()
+	if editorGraph:
+		var auxLisNode:Array[CinematicNode]=editorGraph.NodeIsSelected()
 		if auxLisNode.size() != 0:
 			if event.is_action_pressed("ui_copy"):
 				Copy(auxLisNode, false)
 			if event.is_action_pressed("ui_cut"):
 				Cut(auxLisNode)
 			if event.is_action_pressed("ui_graph_delete"):
-				Delente(auxLisNode)
-	if event.is_action_pressed("ui_paste") and Clipboard != [] and EditorGraph:
-		Paste(Clipboard)
+				Delete(auxLisNode)
+	if event.is_action_pressed("ui_paste") and clipboard != [] and editorGraph:
+		Paste(clipboard)
 
 func Copy(auxLisNode,internalCall:bool) -> void:
-	Clipboard.clear()
+	clipboard.clear()
 	for nodo:CinematicNode in auxLisNode:
-		Clipboard.append(nodo.duplicate())
+		clipboard.append(nodo.duplicate())
 	if not internalCall:
-		SetTextInEditor("Copy!")
+		setTextInEditor("Copy!")
 
 func Cut(auxLisNode) -> void:
 	Copy(auxLisNode, true)
-	Delente(auxLisNode)
-	SetTextInEditor("Cut!")
+	Delete(auxLisNode)
+	setTextInEditor("Cut!")
 
-func Delente(auxLisNode) -> void:
+func Delete(auxLisNode) -> void:
 	for node:CinematicNode in auxLisNode:
 		node.queue_free()
-	SetTextInEditor("Delente!")
+	setTextInEditor("Delete!")
 
 func Paste(auxLisNode) -> void:
-	var newClipboard:Array[CinematicNode]
+	var newclipboard:Array[CinematicNode]
 	for node:CinematicNode in auxLisNode:
 		var dupNode:=node.duplicate()
-		EditorGraph.get_node("GraphEdit").add_child(dupNode)
+		editorGraph.get_node("GraphEdit").add_child(dupNode)
 		dupNode.position_offset += Vector2(25,10)
-		newClipboard.append(dupNode.duplicate())
-	Clipboard=newClipboard
-	SetTextInEditor("Paste!")
+		newclipboard.append(dupNode.duplicate())
+	clipboard=newclipboard
+	setTextInEditor("Paste!")
 
-func SetTextInEditor(text):
-	EditorGraph.setText(text)
+func setTextInEditor(text):
+	editorGraph.setText(text)
 
 #endregion
 signal Timeout(creator:String)

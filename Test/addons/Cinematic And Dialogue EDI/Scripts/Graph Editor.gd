@@ -23,7 +23,7 @@ func setText(text) -> void:
 	ConsolaTest.set_text("[wave amp=50.0 freq=5.0 connected=1]"+text+"[/wave]")
 	get_tree().create_tween().tween_property(ConsolaTest,"modulate:a",0,0.5)
 
-func GetVarsName() -> Array[String]:
+func getVarsName() -> Array[String]:
 	var listName:Array[String]
 	for node:Node in get_node("GraphEdit").get_children():
 		if node is ImportData:

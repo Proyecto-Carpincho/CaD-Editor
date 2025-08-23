@@ -70,6 +70,6 @@ func StartAction()->void:
 				emit_signal("NextNode")
 				return
 	
-	var node:Node=CinematicEditor.GetNode(methodNode)
+	var node:Node=CinematicEditor.getNode(methodNode)
 	node.callv(methodName,ParametersList)
-	emitNextNode()
+	EmitNextNode()

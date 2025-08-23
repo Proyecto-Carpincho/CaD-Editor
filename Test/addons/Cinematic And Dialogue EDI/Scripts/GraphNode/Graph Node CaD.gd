@@ -3,7 +3,7 @@ extends GraphNode
 class_name CinematicNode
 signal NextNode
 
-var EditorGraph:Control
+var editorGraph:Control
 
 func StartAction() -> void:
 	push_error("This node no have a Action")
@@ -17,7 +17,7 @@ func Timeout(TimerCreator:String):
 	if TimerCreator == name:
 		emit_signal("NextNode")
 
-func emitNextNode():
+func EmitNextNode():
 	if not CinematicEditor.is_connected("Timeout",Timeout):
 		CinematicEditor.connect("Timeout",Timeout)
 	CinematicEditor.AwaitTime(0.01,name)

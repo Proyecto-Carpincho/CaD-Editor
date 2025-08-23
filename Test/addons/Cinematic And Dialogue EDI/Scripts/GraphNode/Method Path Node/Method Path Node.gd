@@ -16,7 +16,7 @@ func SetNodePathsOptions() -> void:
 	
 	OptionNode.clear()
 	for path:NodePath in listNode:
-		var node=CinematicEditor.GetNode(path)
+		var node=CinematicEditor.getNode(path)
 		if node:
 			OptionNode.add_item(node.name)
 	if OptionNode.get_item_count() == 0:
@@ -40,7 +40,7 @@ func SetMetholsOptions():
 	
 	OptionMethod.clear()
 	listMethod.clear()
-	for method:Dictionary in CinematicEditor.GetNode(methodNode).get_method_list():
+	for method:Dictionary in CinematicEditor.getNode(methodNode).get_method_list():
 		OptionMethod.add_item(method["name"])
 		listMethod.append(method["name"])
 	if OptionMethod.get_item_count() > 0:

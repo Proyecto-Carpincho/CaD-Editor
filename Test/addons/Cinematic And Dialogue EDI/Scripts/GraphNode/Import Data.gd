@@ -10,7 +10,7 @@ class_name ImportData
 @onready var LineName:LineEdit=get_node("HBoxContainer/VBoxContainer/LineEdit")
 @export var numType:int=TYPE_INT
 @export var varName:String
-const Type:Array[String] = [
+const type:Array[String] = [
 	"Nil",        # 0
 	"Bool",       # 1
 	"Int",        # 2
@@ -67,7 +67,7 @@ func _OptionType_Selected(index: int) -> void:
 
 func _SpinType_valueChange(value: float) -> void:
 	numType=value
-	RichType.set_text("[wave]Type: "+Type[value]+"[/wave]")
+	RichType.set_text("[wave]Type: "+type[value]+"[/wave]")
 	setVar()
 
 func _LineEdit_Changed(new_text: String) -> void:

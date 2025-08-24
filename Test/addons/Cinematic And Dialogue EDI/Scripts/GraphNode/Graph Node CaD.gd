@@ -3,7 +3,9 @@ extends GraphNode
 class_name CinematicNode
 signal NextNode
 
+
 var editorGraph:Control
+var cinematicData:DataCinematic
 
 func StartAction() -> void:
 	push_error("This node no have a Action")
@@ -22,3 +24,13 @@ func EmitNextNode():
 		CinematicEditor.connect("Timeout",Timeout)
 	CinematicEditor.AwaitTime(0.01,name)
 	emit_signal("NextNode")
+
+func setCinematicProperty()->Dictionary:
+	return {
+		"name":"indexNode",
+		"type":TYPE_INT,
+		"usage":PROPERTY_USAGE_NO_EDITOR}
+
+func setCinematicData()->void:
+	if Engine.is_editor_hint() and getGraph():
+		cinematicData=CinematicEditor.creatorOfUi.allDataCinematic

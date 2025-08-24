@@ -6,4 +6,16 @@ res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/Method Nod
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Dialogic Node theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Normal theme.tres
 res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Path Node.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Animation Node.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Graph Node CaD.gd
 res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/DataCinematic.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Dialogic Node.gd
+res://addons/Cinematic And Dialogue EDI/DATA Plugin/Global CAD.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/Graph Editor.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Import Data.gd
+res://test.gd
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Method Path Node/Dialogic Node.tscn
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Import Data.tscn

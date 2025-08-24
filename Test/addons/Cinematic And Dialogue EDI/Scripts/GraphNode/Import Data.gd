@@ -79,7 +79,6 @@ func setVar()->void:
 	if cinePlayer and not varName.is_empty():
 		cinePlayer.dicImportTypeVar.set(varName,numType)
 		cinePlayer.dicImportVar.get_or_add(varName,null)
-		cinePlayer.SaveVariables()
 
 func getNameVar()->String:
 	return varName

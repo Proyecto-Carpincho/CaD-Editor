@@ -3,30 +3,39 @@ extends "res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path N
 @export var typeNode:int
 @export var waitSignal:bool
 
-@export var autoloadSignal:String
-@export var autoload:String
-@export var autoloadMethod:String
-@export var filePath:String
 @export var keyName:String
 @onready var labelSignal:Label  = $"NodeContainer/Node To Exe/DialogicNode/Signals/Label Signal"
 @onready var labelAutoload:Label = $"NodeContainer/Node To Exe/DialogicNode/Node/Node Autoload/Label Autoload"
 @onready var labelMethod:Label = $"NodeContainer/Node To Exe/DialogicNode/Node/Node Autoload/Label Method"
 
 func _ready() -> void:
+	setCinematicData()
 	if getGraph():
-		filePath = CinematicEditor.DialogFile
-		autoloadSignal = CinematicEditor.DialogSignal
-		autoload = CinematicEditor.DialogAutoload
-		autoloadMethod = CinematicEditor.DialogMethod
 		_KeyEdit_changed(keyName)
 		get_node("KeyContainer/Key/Text/KeyEdit").text = keyName
-	labelAutoload.text = "Autoload Node: "+autoload
-	labelSignal.text = "Signal: "+autoloadSignal
-	labelMethod.text = "Method: "+autoloadMethod
+	labelAutoload.text = "Autoload Node: "+cinematicData.DialogAutoload
+	labelSignal.text = "Signal: "+cinematicData.DialogSignal
+	labelMethod.text = "Method: "+cinematicData.DialogMethod
 	OptionNode = get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer/OptionNode")
 	OptionMethod = get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer2/OptionMethod")
-	SetNodePathsOptions()
+	setNodePathsOptions()
+
+func _process(_delta: float) -> void:
+	if not cinematicData:
+		setCinematicData()
+
+	if cinematicData and not equalsList():
+		setNodePathsOptions()
 	
+	if labelAutoload.text.replace("Autoload Node: ","") != cinematicData.DialogAutoload:
+		labelAutoload.text = "Autoload Node: "+cinematicData.DialogAutoload
+	
+	if labelSignal.text.replace("Signal: ","") != cinematicData.DialogSignal:
+		labelSignal.text = "Signal: "+cinematicData.DialogSignal
+	
+	if labelMethod.text.replace("Method: ","") != cinematicData.DialogMethod:
+		labelMethod.text = "Method: "+cinematicData.DialogMethod
+
 
 func _ButtonKey_Pressed() -> void:
 	get_node("KeyContainer").visible=false
@@ -50,6 +59,8 @@ func _OptionLocation_Selected(index: int) -> void:
 	size = Vector2(0,225)
 
 func LoadCVS(file_path: String) -> Array:
+	if not FileAccess.file_exists(file_path):
+		return []
 	# Read a CSV file line by line, splitting on commas
 	var result:Array = []
 	var file := FileAccess.open(file_path, FileAccess.READ)
@@ -66,7 +77,7 @@ func LoadCVS(file_path: String) -> Array:
 	return result
 
 func _KeyEdit_changed(newText: String) -> void:
-	for line:Array in LoadCVS(filePath):
+	for line:Array in LoadCVS(cinematicData.DialogFile):
 		if line.size() <= 2:
 			continue
 		if line[0] == newText:
@@ -77,16 +88,12 @@ func _KeyEdit_changed(newText: String) -> void:
 	get_node("KeyContainer/Key/Text/RichText Display").text = "Invalid Key"
 
 func StartAction()->void:
-	var indexNode=listNode.find(methodNode)
-	if listNode.size() == CinematicEditor.listNodePaths.size():
-		listNode=CinematicEditor.listNodePaths
-		methodNode=listNode[indexNode]
 	match typeNode:
 		0:#Autoload
-			var auxAutoload:Node=CinematicEditor.getNode("/root/"+autoload)
-			auxAutoload.call(autoloadMethod,keyName)
+			var auxAutoload:Node=CinematicEditor.getNode("/root/"+cinematicData.DialogAutoload)
+			auxAutoload.call(cinematicData.DialogMethod,keyName)
 			if waitSignal:
-				await Signal(auxAutoload,autoloadSignal)
+				await Signal(auxAutoload,cinematicData.DialogSignal)
 		1:#Nodes
 			CinematicEditor.getNode(methodNode).call(methodName,keyName)
 			if waitSignal:

@@ -17,7 +17,16 @@ func _get_property_list() -> Array[Dictionary]:
 func _ready() -> void:
 	OptionNode = get_node("VBoxContainer/TabContainer/Node/HBoxContainer/OptionNode")
 	OptionMethod = get_node("VBoxContainer/TabContainer/Method/HBoxContainer/OptionMethod")
-	SetNodePathsOptions()
+	setNodePathsOptions()
+	setCinematicData()
+
+func _process(delta: float) -> void:
+	if not cinematicData:
+		print(cinematicData)
+		setCinematicData()
+	if cinematicData and not equalsList():
+		setNodePathsOptions()
+
 
 func _ViewMethods_pressed() -> void:
 	get_node("Create Parm/View Methods").set_visible(false)
@@ -51,23 +60,20 @@ func _RemoveButton_pressed() -> void:
 		ExtraParam-=1
 		size.y = 165.0
 
-func SetSlotData(Var:Variant,Slot:int)->void:
+func setSlotData(Var:Variant,Slot:int)->void:
 	SlotData[Slot]=Var
 	SlotData.set(Slot,Var)
 
 func StartAction()->void:
-	var indexNode=listNode.find(methodNode)
-	if listNode.size() == CinematicEditor.listNodePaths.size():
-		listNode=CinematicEditor.listNodePaths
-		methodNode=listNode[indexNode]
 	var ParametersList:Array
+	
 	for i in range(SlotData.size()):
 		if ExtraParam > i:
 			if SlotData.has(i+1):
 				ParametersList.append(SlotData[i+1])
 			else:
-				push_error("no estan bien asignado los parametros todos los datos: ",SlotData)
-				emit_signal("NextNode")
+				push_error("The parameters are not assigned correctly, all the data: ",SlotData)
+				EmitNextNode()
 				return
 	
 	var node:Node=CinematicEditor.getNode(methodNode)

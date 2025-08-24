@@ -3,11 +3,11 @@ extends CinematicNode
 
 
 var aniPlayer:AnimationPlayer
-var listAnimationPlayer:Array[NodePath]
 var indexNode:int
 @export var animationName:String
 @export var waitPreAnimation:bool
 @export var waitNextAnimation:bool
+
 
 
 @onready var OptionPlayer:OptionButton=get_node("TabContainer/Node/OptionMenu/OptionNode")
@@ -22,74 +22,71 @@ func _get_property_list() -> Array[Dictionary]:
 		"type": TYPE_OBJECT,
 		"usage":PROPERTY_USAGE_NO_EDITOR,})
 	property.append({
-		"name": "listAnimationPlayer",
-		"type": TYPE_ARRAY,
+		"name": "cinematicData",
+		"type": TYPE_OBJECT,
 		"usage": PROPERTY_USAGE_NO_EDITOR})
-	property.append({
-		"name":"indexNode",
-		"type":TYPE_INT,
-		"usage":PROPERTY_USAGE_NO_EDITOR})
+	property.append(setCinematicProperty())
 	return property
 
 
 func _ready() -> void:
+	setCinematicData()
+	
 	WaitPre.button_pressed=waitPreAnimation
 	WaitAni.button_pressed=waitNextAnimation
-	if aniPlayer != null and listAnimationPlayer != []:
-		if not aniPlayer.is_inside_tree():
-			await aniPlayer.tree_entered
-		var aniIndex:int=listAnimationPlayer.find(aniPlayer.get_path())
-		aniIndex=aniIndex if aniIndex!=-1 else 0
-		SetAniplayerOptions()
-		OptionPlayer.select(aniIndex)
-		_NodeOption_Selected(aniIndex)
-		SetAnimationOptions()
-		if animationName != "":
-			OptionAnimation.select(aniPlayer.get_animation_list().find(animationName))
+	if cinematicData:
+		if aniPlayer != null and cinematicData.listAnimationPaths != []:
+			if not aniPlayer.is_inside_tree():
+				await aniPlayer.tree_entered
+			var aniIndex:int=cinematicData.listAnimationPaths.find(aniPlayer.get_path())
+			aniIndex=aniIndex if aniIndex!=-1 else 0
+			setAniplayerOptions()
+			OptionPlayer.select(aniIndex)
+			_NodeOption_Selected(aniIndex)
+			setAnimationOptions()
+			if animationName != "":
+				OptionAnimation.select(aniPlayer.get_animation_list().find(animationName))
 
 func _process(delta: float) -> void:
-	if getGraph():
-		if not ecualsList():
-			listAnimationPlayer.clear()
-			listAnimationPlayer = CinematicEditor.absAniPlayer.duplicate(true)
+	if getGraph() and cinematicData:
+		if not equalsList():
 			
-			OptionPlayer.select(0)
 			_NodeOption_Selected(0)
-			SetAnimationOptions()
+			setAniplayerOptions()
+			setAnimationOptions()
 		
-		if aniPlayer and listAnimationPlayer and OptionAnimation.get_item_count() != aniPlayer.get_animation_list().size():
-			_NodeOption_Selected(listAnimationPlayer.find(aniPlayer.get_path()))
+		if aniPlayer and cinematicData.listAnimationPaths and OptionAnimation.get_item_count() != aniPlayer.get_animation_list().size():
+			_NodeOption_Selected(cinematicData.listAnimationPaths.find(aniPlayer.get_path()))
 		
 
-func ecualsList() -> bool:
-	var list = CinematicEditor.absAniPlayer.duplicate(true)
-	if listAnimationPlayer.size() == list.size():
-		for i in range(list.size()):
-			if list[i] != listAnimationPlayer[i]:
+func equalsList() -> bool:
+	var list = OptionPlayer.item_count
+	if cinematicData.listAnimationPaths.size() == list:
+		for i in range(cinematicData.listAnimationPaths.size()):
+			var path:NodePath  = cinematicData.listAnimationPaths[i]
+			if OptionPlayer.get_item_text(i) != path.get_name(path.get_name_count() - 1):
 				return false
 	else:
 		return false
 	return true
 
-func SetAniplayerOptions() -> void:
+func setAniplayerOptions() -> void:
 	OptionPlayer.clear()
-	for path:NodePath in listAnimationPlayer:
+	for path:NodePath in cinematicData.listAnimationPaths:
 		if not path.is_empty():
-			var node=CinematicEditor.getNode(path)
-			if node:
-				OptionPlayer.add_item(node.name)
+			OptionPlayer.add_item(path.get_name(path.get_name_count() - 1))
 
-func SetAnimationOptions() -> void:
+func setAnimationOptions() -> void:
 	OptionAnimation.clear()
 	for animation:String in aniPlayer.get_animation_list():
 		OptionAnimation.add_item(animation)
 
-#region coneccted methods
+#region connected methods
 func _NodeOption_Selected(index: int) -> void:
-	if listAnimationPlayer != [] and index >= 0:
-		aniPlayer=CinematicEditor.getNode(listAnimationPlayer[index])
+	if cinematicData.listAnimationPaths != [] and index >= 0:
+		aniPlayer=CinematicEditor.getNode(cinematicData.listAnimationPaths[index])
 		indexNode=index
-		SetAnimationOptions()
+		setAnimationOptions()
 
 func _Animation_Selected(index: int) -> void:
 	animationName = aniPlayer.get_animation_list()[index]
@@ -102,8 +99,7 @@ func _WaitAni_toggled(toggled_on: bool) -> void:
 #endregion
 
 func StartAction()->void:
-	listAnimationPlayer=CinematicEditor.absAniPlayer.duplicate(true)
-	aniPlayer=CinematicEditor.getNode(listAnimationPlayer[indexNode])
+	aniPlayer = CinematicEditor.getNode(cinematicData.listAnimationPaths[indexNode])
 	if aniPlayer and aniPlayer.get_animation_list().find(animationName) != -1:
 		if aniPlayer.is_playing() and waitPreAnimation:
 			await aniPlayer.animation_finished

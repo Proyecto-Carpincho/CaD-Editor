@@ -9,66 +9,72 @@ signal CinematicEnd
 #region EXPORT GRUOP Path
 @export_group("Paths")
 
-#region var NodePaths
-@export var NodePaths: Array[NodePath]
+@export var NodePaths: Array[NodePath]:
+	set(list):
+		NodePaths = list
+		if Engine.is_editor_hint():
+			setCinematicData()
+@export var AnimationPlayers: Array[NodePath]:
+	set(list):
+		AnimationPlayers = list
+		if Engine.is_editor_hint():
+			setCinematicData()
 
-func setNodePaths(Var:Array[NodePath]):
-	NodePaths=Var
+func getAbolutePaths(Var:Array[NodePath], IsForAnima:bool=false) -> Array[NodePath]:
+	var listPaths:Array[NodePath]
 	if (is_inside_tree() and get_tree().current_scene) or Engine.is_editor_hint():
-		listAbsolutePaths.clear()
-		if not Engine.is_editor_hint() and not get_tree().current_scene.is_node_ready():
-			await get_tree().current_scene.ready
-		
 		for path:NodePath in Var:
 			if path.is_empty():
 				continue
-			listAbsolutePaths.append(get_node(path).get_path())
-
-var listAbsolutePaths:Array[NodePath]
-#endregion
-
-#region var AnimationPlayers
-@export var AnimationPlayers: Array[NodePath]
-
-func setAnimationPlayers(Var:Array[NodePath]):
-	if (is_inside_tree() and get_tree().current_scene) or Engine.is_editor_hint():
-		listAbsoluteAniPaths.clear()
-		if not Engine.is_editor_hint() and not get_tree().current_scene.is_node_ready():
-			await get_tree().current_scene.ready
-		for path:NodePath in Var:
+			if IsForAnima:
+				if not (get_node_or_null(path) is AnimationPlayer):
+					if get_node_or_null(path):
+						push_error("this node is not AnimationPlayer")
+						AnimationPlayers[AnimationPlayers.find(path)] = NodePath("")
+					continue
 			
-			if path.is_empty():
-				continue
-			
-			if not (get_node_or_null(path) is AnimationPlayer):
-				push_error("Eso no es un animation player")
-				continue
-			
-			listAbsoluteAniPaths.append(get_node(path).get_path())
-	AnimationPlayers=Var
+			listPaths.append(get_node(path).get_path())
+	return listPaths
 
-var listAbsoluteAniPaths:Array[NodePath]=[]
-#endregion
 #endregion
 
 #region get list var
 var dicImportTypeVar:Dictionary[String,int]
 var dicImportVar:Dictionary[String,Variant]
-var autoloadDialog:int
-var dialogMethold:int
-var SignalName:String
+
+var autoloadDialog:int:
+	set(Int):
+		autoloadDialog = Int
+		setCinematicData()
+var dialogMethold:int:
+	set(Int):
+		dialogMethold = Int
+		setCinematicData()
+var SignalName:String:
+	set(str):
+		SignalName=str
+		setCinematicData()
 var listAutoload:Array[String]
 var methodName:String
 
+var allDataCinematic:DataCinematic
 
 func setCinematicData():
+	if not allDataCinematic:
+		allDataCinematic = DataCinematic.new()
 	if is_inside_tree():
 		var auxAutoload:String
 		if listAutoload!=[]:
 			auxAutoload= listAutoload[autoloadDialog]
-		setNodePaths(NodePaths)
-		setAnimationPlayers(AnimationPlayers)
-		CinematicEditor.SetDataNode(listAbsoluteAniPaths,listAbsolutePaths,SignalName,auxAutoload,methodName,dialogueFile)
+		
+		allDataCinematic.listAnimationPaths = getAbolutePaths(AnimationPlayers,true)
+		allDataCinematic.listNodePaths = getAbolutePaths(NodePaths)
+		
+		allDataCinematic.DialogAutoload = auxAutoload
+		allDataCinematic.DialogMethod = methodName
+		allDataCinematic.DialogFile = dialogueFile
+		allDataCinematic.DialogSignal = SignalName
+		
 		OneTime=true
 
 ##variable de mierda para el get properety list para que no ejecute 20 veces la parte de dialogos por que genera un lag mortal
@@ -79,6 +85,13 @@ func _get_property_list() -> Array[Dictionary]:
 	if not CinematicResorse:
 		return property
 	CinematicResorse.LoadVariables(self)
+	
+	property.append({
+		"name":"allDataCinematic",
+		"type": TYPE_OBJECT,
+		"usage":PROPERTY_USAGE_NO_EDITOR})
+	
+	
 	#region Create a group (All Data)
 	property.append({
 		"name": "All Data",
@@ -93,7 +106,7 @@ func _get_property_list() -> Array[Dictionary]:
 				"hint": PROPERTY_HINT_NONE})
 		else:
 			dicImportVar.erase(key) 
-		#endregion
+		#endregion All Data
 	
 	#region Create a group (Autoload Dialogue)
 	if is_inside_tree():
@@ -164,13 +177,7 @@ var nodeEditor:GraphEdit
 func _ready() -> void:
 	if not is_inside_tree():
 		await tree_entered
-	setNodePaths(NodePaths)
-	setAnimationPlayers(AnimationPlayers)
-
-var listUnpackedNodes:Array[Node]
-func LazyLoad():
-	listUnpackedNodes = CinematicResorse.LoadNode()
-
+	setCinematicData()
 
 var isCredible:bool = true 
 var previousSelected:bool
@@ -200,7 +207,7 @@ func _process(delta: float) -> void:
 		errorPushed = true
 		push_error("The node \"", name, "\" It doesn't have the \"Cinematic\" resource, please create it.")
 	
-	#If this node create menu, previous delete the resourse. Then closed the menu
+	#Close the menu if it was created and the resource was removed.
 	if not isCredible and not CinematicResorse:
 		CinematicEditor.OffPanel()
 	
@@ -214,7 +221,6 @@ func SaveData() -> void:
 
 func LoadData() -> void:
 	CinematicResorse.LoadData(nodeEditor,self,get_tree())
-#endregion
 
 func _exit_tree() -> void:
 	if not isCredible and Engine.is_editor_hint() and CinematicResorse and previousSelected:
@@ -237,7 +243,7 @@ func StartCinematic() -> void:
 	setCinematicData()
 	StartImport()
 	await EndImport
-	ExecutionLine("Start Node",1)
+	ExecutionLine("Start Node", 1)
 
 func ExecutionLine(from:String,step:int) -> void:
 	var allNodeToExe:Array[String]=getListConections(from)
@@ -270,15 +276,19 @@ func getListConections(from:String) -> Array[String]:
 	return allToNodes
 
 func StartImport():
-	var auxConecctions:Array[Dictionary] = CinematicResorse.listConnections
+	var auxConecctions:Array[Dictionary] = CinematicResorse.listConnections.duplicate(true)
 	for connection in auxConecctions:
 		var auxFromIndex:int = FindNode(connection["from_node"])
 		var fromNode=listUnpackedNodes[auxFromIndex]
 		if fromNode is ImportData:
 			var auxToIndex:int = FindNode(connection["to_node"])
 			var toNode=listUnpackedNodes[auxToIndex]
-			if toNode.has_method("SetSlotData") and not fromNode.getNameVar().is_empty():
-				toNode.SetSlotData(dicImportVar.get(fromNode.getNameVar()),connection["to_port"])
+			if toNode.has_method("setSlotData") and not fromNode.getNameVar().is_empty():
+				toNode.setSlotData(dicImportVar.get(fromNode.getNameVar()),connection["to_port"])
 	await get_tree().process_frame
 	emit_signal("EndImport")
+
+var listUnpackedNodes:Array[Node]
+func LazyLoad():
+	listUnpackedNodes = CinematicResorse.LoadNode()
 #endregion

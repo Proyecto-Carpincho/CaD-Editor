@@ -1,11 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://baeyhnogdfcld"]
+[gd_scene load_steps=17 format=3 uid="uid://baeyhnogdfcld"]
 
 [ext_resource type="Script" uid="uid://cccm0ewpn34bo" path="res://test.gd" id="1_q1uvj"]
 [ext_resource type="Script" uid="uid://gtbcpq6kgg1m" path="res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd" id="3_ivycn"]
-[ext_resource type="Theme" uid="uid://dd0ipi65gry1f" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Animation Node Theme.tres" id="4_q1uvj"]
-[ext_resource type="Script" uid="uid://tq2by8px6e8a" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Animation Node.gd" id="5_qs82m"]
+[ext_resource type="Script" uid="uid://bx7v140bbfrm8" path="res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/DataCinematic.gd" id="5_aq4fw"]
 [ext_resource type="Script" uid="uid://dx50qld6qpi0q" path="res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd" id="6_c4vo5"]
-[ext_resource type="Theme" uid="uid://4n06vdth0cl3" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Rich text Checkbox.tres" id="6_vwb7u"]
 [ext_resource type="Texture2D" uid="uid://b6lv3bye4gn2x" path="res://icon.svg" id="7_q1uvj"]
 
 [sub_resource type="Animation" id="Animation_r6p7k"]
@@ -185,7 +183,7 @@ _data = {
 &"Test 3.5": SubResource("Animation_ctmup")
 }
 
-[sub_resource type="PackedScene" id="PackedScene_q1uvj"]
+[sub_resource type="PackedScene" id="PackedScene_aq4fw"]
 _bundled = {
 "conn_count": 0,
 "conns": PackedInt32Array(),
@@ -194,11 +192,11 @@ _bundled = {
 "node_count": 2,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 19, 0, -1, 18, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 1, 12, 10, 13, 11, 14, 12, 15, 1, 16, 13, 17, 11, 18, 12, 0, 0, 0, 20, 20, -1, 1, 2, 14, 0),
-"variants": [Color(1, 0, 0.160784, 1), 0, 342.0, 210.0, 398.0, 267.0, 1, Vector2(342, 210), "Start", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), 2],
+"variants": [Color(1, 0, 0.160784, 1), 0, 240.0, 220.0, 296.0, 277.0, 1, Vector2(240, 220), "Start", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), 2],
 "version": 3
 }
 
-[sub_resource type="PackedScene" id="PackedScene_qs82m"]
+[sub_resource type="PackedScene" id="PackedScene_ivycn"]
 _bundled = {
 "conn_count": 0,
 "conns": PackedInt32Array(),
@@ -207,63 +205,20 @@ _bundled = {
 "node_count": 2,
 "node_paths": [],
 "nodes": PackedInt32Array(-1, -1, 20, 0, -1, 19, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 9, 12, 1, 13, 10, 14, 11, 15, 12, 16, 1, 17, 13, 18, 11, 19, 9, 0, 0, 0, 21, 21, -1, 1, 2, 14, 0),
-"variants": [Color(1, 0, 0.160784, 1), 0, 686.0, 210.0, 736.0, 265.0, 1, Vector2(686, 210), "End", true, Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), 2],
-"version": 3
-}
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d1b21"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ilduj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2xbw"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdfvj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iw7q2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8vq6"]
-bg_color = Color(0.167451, 0.167451, 0.167451, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctmup"]
-bg_color = Color(0.0980986, 0.0980985, 0.0980985, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm833"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyx0r"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixknr"]
-
-[sub_resource type="PackedScene" id="PackedScene_c4vo5"]
-_bundled = {
-"conn_count": 4,
-"conns": PackedInt32Array(8, 0, 89, 88, 2, 0, 0, 16, 0, 89, 90, 2, 0, 0, 22, 0, 92, 91, 2, 0, 0, 25, 0, 92, 93, 2, 0, 0),
-"editable_instances": [],
-"names": PackedStringArray("Animation Node", "custom_minimum_size", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "theme", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "script", "animationName", "aniPlayer", "listAnimationPlayer", "indexNode", "metadata/_custom_type_script", "GraphNode", "HSeparator", "TabContainer", "size_flags_vertical", "size_flags_stretch_ratio", "tab_alignment", "current_tab", "Node", "visible", "metadata/_tab_index", "VBoxContainer", "Text AniPlayer", "size_flags_horizontal", "theme_override_styles/fill", "theme_override_styles/background", "theme_override_styles/focus", "theme_override_styles/normal", "bbcode_enabled", "text", "horizontal_alignment", "RichTextLabel", "OptionMenu", "HBoxContainer", "VSeparator2", "theme_override_styles/separator", "VSeparator", "OptionNode", "theme_override_constants/outline_size", "theme_override_styles/hover", "selected", "item_count", "popup/item_0/text", "popup/item_0/id", "OptionButton", "HSeparator2", "Animation", "Text AniName", "OptionAnimation", "popup/item_1/text", "popup/item_1/id", "popup/item_2/text", "popup/item_2/id", "popup/item_3/text", "popup/item_3/id", "popup/item_4/text", "popup/item_4/id", "popup/item_5/text", "popup/item_5/id", "Awaits", "Wait Ani", "Await", "CheckBox", "Wait PreAnimation", "_NodeOption_Selected", "item_selected", "_Animation_Selected", "_WaitAni_toggled", "toggled", "_WaitPre_toggled"),
-"node_count": 27,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 35, 0, -1, 34, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 10, 12, 1, 13, 11, 14, 12, 15, 10, 16, 1, 17, 11, 18, 12, 19, 13, 20, 13, 21, 1, 22, 14, 23, 12, 24, 13, 25, 1, 26, 14, 27, 12, 28, 13, 29, 15, 30, 16, 31, 17, 32, 18, 33, 1, 34, 19, 0, 0, 0, 36, 36, -1, 3, 1, 20, 2, 21, 8, 7, 0, 0, 0, 37, 37, -1, 7, 1, 22, 2, 21, 38, 23, 39, 24, 8, 7, 40, 6, 41, 6, 0, 2, 0, 45, 42, -1, 3, 43, 10, 2, 21, 44, 1, 0, 3, 0, 36, 36, -1, 3, 1, 20, 2, 21, 8, 7, 0, 3, 0, 55, 46, -1, 11, 1, 25, 2, 21, 47, 23, 8, 7, 48, 26, 49, 27, 50, 28, 51, 29, 52, 13, 53, 30, 54, 6, 0, 3, 0, 57, 56, -1, 1, 2, 21, 0, 6, 0, 60, 58, -1, 3, 2, 21, 8, 7, 59, 31, 0, 6, 0, 68, 61, -1, 11, 1, 32, 2, 21, 47, 23, 8, 7, 62, 1, 63, 33, 51, 34, 64, 1, 65, 6, 66, 35, 67, 1, 0, 6, 0, 60, 60, -1, 2, 2, 21, 8, 7, 0, 3, 0, 36, 69, -1, 3, 1, 36, 2, 21, 8, 7, 0, 2, 0, 45, 70, -1, 2, 2, 21, 44, 6, 0, 11, 0, 36, 36, -1, 4, 1, 20, 2, 21, 8, 7, 59, 37, 0, 11, 0, 55, 71, -1, 11, 1, 25, 2, 21, 47, 23, 8, 7, 48, 26, 49, 27, 50, 28, 51, 29, 52, 13, 53, 38, 54, 6, 0, 11, 0, 57, 56, -1, 1, 2, 21, 0, 14, 0, 60, 58, -1, 3, 2, 21, 8, 7, 59, 31, 0, 14, 0, 68, 72, -1, 21, 1, 32, 2, 21, 47, 23, 8, 7, 62, 1, 63, 33, 51, 34, 64, 1, 65, 39, 66, 40, 67, 1, 73, 16, 74, 6, 75, 41, 76, 21, 77, 42, 78, 23, 79, 43, 80, 44, 81, 45, 82, 46, 0, 14, 0, 60, 60, -1, 3, 2, 21, 8, 7, 59, 47, 0, 11, 0, 36, 69, -1, 4, 1, 36, 2, 21, 8, 7, 59, 48, 0, 2, 0, 45, 83, -1, 3, 43, 10, 2, 21, 44, 21, 0, 19, 0, 36, 36, -1, 3, 1, 20, 2, 21, 8, 7, 0, 19, 0, 57, 84, -1, 2, 1, 49, 2, 21, 0, 21, 0, 86, 85, -1, 1, 2, 21, 0, 21, 0, 55, 55, -1, 4, 2, 21, 47, 23, 8, 50, 53, 51, 0, 19, 0, 57, 87, -1, 2, 1, 49, 2, 21, 0, 24, 0, 86, 85, -1, 1, 2, 21, 0, 24, 0, 55, 55, -1, 4, 2, 21, 47, 23, 8, 50, 53, 52, 0),
-"variants": [Vector2(215, 150), 0, 480.0, 120.0, 695.0, 339.0, 1, ExtResource("4_q1uvj"), Vector2(480, 120), "Animation Node", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), ExtResource("5_qs82m"), "Test 1", Object(AnimationPlayer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":1,"libraries":{
-&"": SubResource("AnimationLibrary_rc7cs")
-},"autoplay":"","playback_auto_capture":true,"playback_auto_capture_duration":-1.0,"playback_auto_capture_transition_type":0,"playback_auto_capture_ease_type":0,"playback_default_blend_time":0.0,"speed_scale":1.0,"movie_quit_on_finish":false,"blend_times":[],"script":null)
-, Array[NodePath]([NodePath("/root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Node2D/AnimationPlayer")]), "uid://beaxfln0pm5av", Vector2(0, 20), 2, Vector2(0, 140), 3, 0.0, Vector2(0, 30), SubResource("StyleBoxEmpty_d1b21"), SubResource("StyleBoxEmpty_ilduj"), SubResource("StyleBoxEmpty_s2xbw"), SubResource("StyleBoxEmpty_rdfvj"), "[wave]AnimationPlayer[/wave]", SubResource("StyleBoxEmpty_iw7q2"), Vector2(0, 40), SubResource("StyleBoxFlat_q8vq6"), SubResource("StyleBoxFlat_ctmup"), "AnimationPlayer", Vector2(0, 8), SubResource("StyleBoxEmpty_nm833"), "[wave]  Select Animation[/wave]", 6, "RESET", "Test 2", "Test 2.5", "Test 3", 4, "Test 3.5", 5, SubResource("StyleBoxEmpty_xyx0r"), SubResource("StyleBoxEmpty_ixknr"), Vector2(0, 38), ExtResource("6_vwb7u"), "wait for the 
-animation", "wait for previous 
-animation"],
+"variants": [Color(1, 0, 0.160784, 1), 0, 720.0, 220.0, 770.0, 275.0, 1, Vector2(720, 220), "End", true, Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), 2],
 "version": 3
 }
 
 [sub_resource type="Resource" id="Resource_ivycn"]
 script = ExtResource("6_c4vo5")
-listPackedNodes = Array[PackedScene]([SubResource("PackedScene_q1uvj"), SubResource("PackedScene_qs82m"), SubResource("PackedScene_c4vo5")])
-listConnections = Array[Dictionary]([{
-"from_node": &"Start Node",
-"from_port": 0,
-"keep_alive": false,
-"to_node": &"Animation Node",
-"to_port": 0
-}])
+listPackedNodes = Array[PackedScene]([SubResource("PackedScene_aq4fw"), SubResource("PackedScene_ivycn")])
+listConnections = Array[Dictionary]([])
 dicVarData = Dictionary[String, Variant]({})
 dicVarType = Dictionary[String, int]({})
 metadata/_custom_type_script = "uid://dx50qld6qpi0q"
+
+[sub_resource type="Resource" id="Resource_qs82m"]
+script = ExtResource("5_aq4fw")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_q1uvj")
@@ -280,9 +235,10 @@ libraries = {
 [node name="CinematicPlayer" type="Node" parent="."]
 script = ExtResource("3_ivycn")
 CinematicResorse = SubResource("Resource_ivycn")
-NodePaths = Array[NodePath]([NodePath(".."), NodePath("../AnimationPlayer")])
+NodePaths = Array[NodePath]([NodePath("..")])
 AnimationPlayers = Array[NodePath]([NodePath("../AnimationPlayer")])
 dialogueFile = "uid://8u7r0qty4w33"
+allDataCinematic = SubResource("Resource_qs82m")
 autoloadDialog = 1
 dialogMethold = 192
 SignalName = "TestSignal"
@@ -294,7 +250,7 @@ offset_right = 1154.0
 offset_bottom = 90.0
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
-text = "Ky4 Ky4"
+text = "Ky2 Ky2"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_top = 606.0
@@ -308,4 +264,4 @@ offset_left = 990.0
 offset_right = 1154.0
 offset_bottom = 38.0
 theme_override_font_sizes/normal_font_size = 26
-text = "FPS = 142.0"
+text = "FPS = 145.0"

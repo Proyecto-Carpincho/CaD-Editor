@@ -96,7 +96,7 @@ func LoadData(nodeEditor:GraphEdit,CinemaPlayer:CinematicPlayer,tree:SceneTree):
 
 
 func setEditorVariable(editorGraph:Control,CinemaPlayer:CinematicPlayer):
-	#Set dicImportVar and dicImportTypeVar make sure creator of vars (Import Data)
+	#set dicImportVar and dicImportTypeVar make sure creator of vars (Import Data)
 	var auxListVarName:Array[String]=editorGraph.getVarsName()
 	for Key:String in dicVarData.keys():
 		if auxListVarName.find(Key) != -1 and dicVarType.has(Key):

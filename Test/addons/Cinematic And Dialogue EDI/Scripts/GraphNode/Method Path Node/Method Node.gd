@@ -12,18 +12,19 @@ func _get_property_list() -> Array[Dictionary]:
 		"name": "SlotData",
 		"type": TYPE_ARRAY,
 		"usage": PROPERTY_USAGE_NO_EDITOR})
+	properties.append(setCinematicProperty())
 	return properties
 
 func _ready() -> void:
+	setCinematicData()
 	OptionNode = get_node("VBoxContainer/TabContainer/Node/HBoxContainer/OptionNode")
 	OptionMethod = get_node("VBoxContainer/TabContainer/Method/HBoxContainer/OptionMethod")
 	setNodePathsOptions()
-	setCinematicData()
 
 func _process(delta: float) -> void:
 	if not cinematicData:
-		print(cinematicData)
 		setCinematicData()
+	
 	if cinematicData and not equalsList():
 		setNodePathsOptions()
 
@@ -65,6 +66,8 @@ func setSlotData(Var:Variant,Slot:int)->void:
 	SlotData.set(Slot,Var)
 
 func StartAction()->void:
+	
+	var methodPath:NodePath = cinematicData.listNodePaths[indexNode]
 	var ParametersList:Array
 	
 	for i in range(SlotData.size()):
@@ -73,9 +76,9 @@ func StartAction()->void:
 				ParametersList.append(SlotData[i+1])
 			else:
 				push_error("The parameters are not assigned correctly, all the data: ",SlotData)
-				EmitNextNode()
+				EmitNextNodeSignal()
 				return
 	
-	var node:Node=CinematicEditor.getNode(methodNode)
+	var node:Node=CinematicEditor.getNode(methodPath)
 	node.callv(methodName,ParametersList)
-	EmitNextNode()
+	EmitNextNodeSignal()

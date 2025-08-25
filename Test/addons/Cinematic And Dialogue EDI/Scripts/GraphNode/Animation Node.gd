@@ -111,4 +111,4 @@ func StartAction()->void:
 			await aniPlayer.animation_finished
 	elif not aniPlayer:
 		push_error("No exist animation player to play animation, Self Name: ", name)
-	EmitNextNode()
+	EmitNextNodeSignal()

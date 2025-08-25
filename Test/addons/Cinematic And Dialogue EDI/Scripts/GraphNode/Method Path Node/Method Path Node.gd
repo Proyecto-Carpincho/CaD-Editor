@@ -1,7 +1,7 @@
 @tool
 extends CinematicNode
 
-@export var methodNode:NodePath
+@export var indexNode:int
 @export var methodName:String
 @export var listMethod:Array[String]
 @export var useMethod:bool = true
@@ -10,6 +10,9 @@ var OptionMethod:OptionButton
 
 func setNodePathsOptions() -> void:
 	setCinematicData()
+	if not cinematicData:
+		return
+	
 	cinematicData.listNodePaths 
 	if not OptionNode:
 		push_error("OptionNode is Null")
@@ -20,18 +23,23 @@ func setNodePathsOptions() -> void:
 		var node=CinematicEditor.getNode(path)
 		if node:
 			OptionNode.add_item(node.name)
+	
 	if OptionNode.get_item_count() == 0:
 		return
 	
-	var indexNode:int = cinematicData.listNodePaths.find(methodNode)
-	indexNode = indexNode if indexNode != -1 else 0
+
 	
 	OptionNode.select(indexNode)
 	_OptionNode_Selected(indexNode)
 
+
+
 func equalsList() -> bool:
 	if not OptionNode:
 		return true
+	
+	if not cinematicData:
+		return false
 	
 	var list = OptionNode.item_count
 	if cinematicData.listNodePaths.size() == list:
@@ -45,7 +53,7 @@ func equalsList() -> bool:
 
 func _OptionNode_Selected(index:int) -> void:
 	if cinematicData.listNodePaths!=[]:
-		methodNode=cinematicData.listNodePaths[index]
+		indexNode = index
 		
 		SetMetholsOptions()
 
@@ -60,7 +68,7 @@ func SetMetholsOptions() -> void:
 	OptionMethod.clear()
 	listMethod.clear()
 	
-	for method:Dictionary in CinematicEditor.getNode(methodNode).get_method_list():
+	for method:Dictionary in CinematicEditor.getNode(cinematicData.listNodePaths[indexNode]).get_method_list():
 		OptionMethod.add_item(method["name"])
 		listMethod.append(method["name"])
 	
@@ -76,4 +84,5 @@ func SetMetholsOptions() -> void:
 func _OptionMethod_Selected(index:int) -> void:
 	if listMethod==[]:
 		return
+	
 	methodName = listMethod[index]

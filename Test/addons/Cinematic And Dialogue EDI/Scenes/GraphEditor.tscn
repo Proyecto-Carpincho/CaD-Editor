@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://csb2gc6i5atx2"]
+[gd_scene load_steps=8 format=3 uid="uid://csb2gc6i5atx2"]
 
 [ext_resource type="Script" uid="uid://cxwyxcr8unhsv" path="res://addons/Cinematic And Dialogue EDI/Scripts/Graph Editor.gd" id="1_d4qq3"]
 [ext_resource type="Script" uid="uid://b6bq5atl5hc2p" path="res://addons/Cinematic And Dialogue EDI/Scripts/Sub Nodes/CreateNode.gd" id="1_ed3fd"]
+[ext_resource type="Theme" uid="uid://ciga0brbfoosq" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphEditor/CreateNode Menu theme.tres" id="2_l7x70"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvia4"]
 
@@ -10,14 +11,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45oo2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgosd"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6batv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ed3fd"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4qq3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l7x70"]
 
 [node name="GraphEditor" type="Control"]
 layout_mode = 3
@@ -59,78 +52,105 @@ vertical_alignment = 1
 
 [node name="PanelCreateNode" type="Panel" parent="GraphEdit"]
 visible = false
-z_index = 2
+z_index = 10
+clip_contents = true
+custom_minimum_size = Vector2(212, 260)
 layout_mode = 0
-offset_right = 154.0
-offset_bottom = 210.0
-pivot_offset = Vector2(77, 18)
-mouse_filter = 1
+offset_right = 212.0
+offset_bottom = 260.0
+pivot_offset = Vector2(106, 45)
+theme = ExtResource("2_l7x70")
 script = ExtResource("1_ed3fd")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="GraphEdit/PanelCreateNode"]
-custom_minimum_size = Vector2(0, 34)
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphEdit/PanelCreateNode"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 31.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 22.0
+offset_right = -27.0
+offset_bottom = -16.0
 grow_horizontal = 2
-theme_override_styles/fill = SubResource("StyleBoxEmpty_6batv")
-theme_override_styles/background = SubResource("StyleBoxEmpty_ed3fd")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_d4qq3")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_l7x70")
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GraphEdit/PanelCreateNode/VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme = ExtResource("2_l7x70")
 bbcode_enabled = true
 text = "[tornado radius=2 freq=1.5]Create New Node[/tornado]
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="GraphEdit/PanelCreateNode"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 40.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="GraphEdit/PanelCreateNode/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_l7x70")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GraphEdit/PanelCreateNode/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("2_l7x70")
 
-[node name="Animation" type="Button" parent="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer"]
+[node name="Animation" type="Button" parent="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
+theme = ExtResource("2_l7x70")
 button_mask = 7
 text = "Animation Node"
 
-[node name="Await" type="Button" parent="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer"]
+[node name="Await" type="Button" parent="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
+theme = ExtResource("2_l7x70")
 button_mask = 7
 text = "Await Node"
 
-[node name="Import" type="Button" parent="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer"]
+[node name="Import" type="Button" parent="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
+theme = ExtResource("2_l7x70")
 button_mask = 7
 text = "Import Data"
 
-[node name="Method" type="Button" parent="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer"]
+[node name="Method" type="Button" parent="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
+theme = ExtResource("2_l7x70")
 button_mask = 7
 text = "Method Node"
 
-[node name="Dialogic" type="Button" parent="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer"]
+[node name="Dialogic" type="Button" parent="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
+theme = ExtResource("2_l7x70")
 button_mask = 7
 text = "Dialogic Node"
 
+[node name="Wait Signal" type="Button" parent="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+theme = ExtResource("2_l7x70")
+button_mask = 7
+text = "Wait Signal"
+
+[node name="Chooser Node" type="Button" parent="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+theme = ExtResource("2_l7x70")
+button_mask = 7
+text = "Chooser Node"
+
 [node name="Timer" type="Timer" parent="GraphEdit/PanelCreateNode"]
-wait_time = 0.2
+wait_time = 0.1
 one_shot = true
 
 [node name="Start Node" type="GraphNode" parent="GraphEdit"]
 self_modulate = Color(1, 0, 0.160784, 1)
-layout_mode = 0
+layout_mode = 1
 offset_left = 342.0
 offset_top = 210.0
 offset_right = 388.0
@@ -177,14 +197,23 @@ layout_mode = 2
 
 [connection signal="connection_request" from="GraphEdit" to="." method="Conection_Request"]
 [connection signal="disconnection_request" from="GraphEdit" to="." method="Disconect_Recuest"]
-[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/RichTextLabel" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
-[connection signal="mouse_exited" from="GraphEdit/PanelCreateNode/RichTextLabel" to="GraphEdit/PanelCreateNode" method="_Mouse_Exited"]
-[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/ScrollContainer" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
-[connection signal="mouse_exited" from="GraphEdit/PanelCreateNode/ScrollContainer" to="GraphEdit/PanelCreateNode" method="_Mouse_Exited"]
-[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
-[connection signal="mouse_exited" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer" to="GraphEdit/PanelCreateNode" method="_Mouse_Exited"]
-[connection signal="pressed" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer/Animation" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Animation"]]
-[connection signal="pressed" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer/Await" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Await"]]
-[connection signal="pressed" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer/Import" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Import Data"]]
-[connection signal="pressed" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer/Method" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Method"]]
-[connection signal="pressed" from="GraphEdit/PanelCreateNode/ScrollContainer/VBoxContainer/Dialogic" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Dialogic"]]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="mouse_exited" from="GraphEdit/PanelCreateNode" to="GraphEdit/PanelCreateNode" method="_Mouse_Exited"]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer" to="." method="_Mouse_Entered"]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer/RichTextLabel" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Animation" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Animation" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Animation"]]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Await" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Await" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Await"]]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Import" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Import" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Import Data"]]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Method" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Method" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Method"]]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Dialogic" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Dialogic" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Dialogic"]]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Wait Signal" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Wait Signal" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Wait Signal"]]
+[connection signal="mouse_entered" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Chooser Node" to="GraphEdit/PanelCreateNode" method="_Mouse_Entered"]
+[connection signal="pressed" from="GraphEdit/PanelCreateNode/VBoxContainer/ScrollContainer/VBoxContainer/Chooser Node" to="GraphEdit/PanelCreateNode" method="CreateNode_pressed" binds= ["Chooser Node"]]

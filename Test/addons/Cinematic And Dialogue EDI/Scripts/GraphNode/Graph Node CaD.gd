@@ -12,6 +12,9 @@ func StartAction() -> void:
 	emit_signal("NextNode")
 
 func getGraph() -> Control:
+	if not get_parent():
+		return null
+	
 	var auxParent:Node=get_parent().get_parent()
 	return  auxParent if get_parent() is GraphEdit else null
 
@@ -19,7 +22,7 @@ func Timeout(TimerCreator:String):
 	if TimerCreator == name:
 		emit_signal("NextNode")
 
-func EmitNextNode():
+func EmitNextNodeSignal():
 	if not CinematicEditor.is_connected("Timeout",Timeout):
 		CinematicEditor.connect("Timeout",Timeout)
 	CinematicEditor.AwaitTime(0.01,name)
@@ -27,7 +30,7 @@ func EmitNextNode():
 
 func setCinematicProperty()->Dictionary:
 	return {
-		"name":"indexNode",
+		"name":"cinematicData",
 		"type":TYPE_INT,
 		"usage":PROPERTY_USAGE_NO_EDITOR}
 

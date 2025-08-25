@@ -191,8 +191,8 @@ _bundled = {
 "names": PackedStringArray("Start Node", "self_modulate", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "position_offset", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "GraphNode", "VBoxContainer"),
 "node_count": 2,
 "node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 19, 0, -1, 18, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 1, 12, 10, 13, 11, 14, 12, 15, 1, 16, 13, 17, 11, 18, 12, 0, 0, 0, 20, 20, -1, 1, 2, 14, 0),
-"variants": [Color(1, 0, 0.160784, 1), 0, 240.0, 220.0, 296.0, 277.0, 1, Vector2(240, 220), "Start", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), 2],
+"nodes": PackedInt32Array(-1, -1, 19, 0, -1, 18, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 1, 8, 6, 9, 7, 10, 8, 11, 9, 12, 10, 13, 11, 14, 12, 15, 9, 16, 13, 17, 11, 18, 12, 0, 0, 0, 20, 20, -1, 1, 2, 14, 0),
+"variants": [Color(1, 0, 0.160784, 1), 1, 340.0, 200.0, 396.0, 257.0, Vector2(340, 200), "Start", false, 0, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), 2],
 "version": 3
 }
 
@@ -201,23 +201,29 @@ _bundled = {
 "conn_count": 0,
 "conns": PackedInt32Array(),
 "editable_instances": [],
-"names": PackedStringArray("End Node", "self_modulate", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "position_offset", "title", "ignore_invalid_connection_type", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "GraphNode", "VBoxContainer"),
+"names": PackedStringArray("End Node", "self_modulate", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "position_offset", "selected", "title", "ignore_invalid_connection_type", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "GraphNode", "VBoxContainer"),
 "node_count": 2,
 "node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 20, 0, -1, 19, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 9, 12, 1, 13, 10, 14, 11, 15, 12, 16, 1, 17, 13, 18, 11, 19, 9, 0, 0, 0, 21, 21, -1, 1, 2, 14, 0),
-"variants": [Color(1, 0, 0.160784, 1), 0, 720.0, 220.0, 770.0, 275.0, 1, Vector2(720, 220), "End", true, Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), 2],
+"nodes": PackedInt32Array(-1, -1, 21, 0, -1, 20, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 8, 12, 8, 13, 1, 14, 10, 15, 11, 16, 12, 17, 1, 18, 13, 19, 11, 20, 8, 0, 0, 0, 22, 22, -1, 1, 2, 14, 0),
+"variants": [Color(1, 0, 0.160784, 1), 0, 820.0, 200.0, 870.0, 255.0, 1, Vector2(820, 200), true, "End", Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), 2],
 "version": 3
 }
 
-[sub_resource type="Resource" id="Resource_ivycn"]
+[sub_resource type="Resource" id="Resource_vwb7u"]
 script = ExtResource("6_c4vo5")
 listPackedNodes = Array[PackedScene]([SubResource("PackedScene_aq4fw"), SubResource("PackedScene_ivycn")])
-listConnections = Array[Dictionary]([])
+listConnections = Array[Dictionary]([{
+"from_node": &"Start Node",
+"from_port": 0,
+"keep_alive": false,
+"to_node": &"End Node",
+"to_port": 0
+}])
 dicVarData = Dictionary[String, Variant]({})
 dicVarType = Dictionary[String, int]({})
 metadata/_custom_type_script = "uid://dx50qld6qpi0q"
 
-[sub_resource type="Resource" id="Resource_qs82m"]
+[sub_resource type="Resource" id="Resource_r6p7k"]
 script = ExtResource("5_aq4fw")
 
 [node name="Node2D" type="Node2D"]
@@ -234,14 +240,13 @@ libraries = {
 
 [node name="CinematicPlayer" type="Node" parent="."]
 script = ExtResource("3_ivycn")
-CinematicResorse = SubResource("Resource_ivycn")
-NodePaths = Array[NodePath]([NodePath("..")])
-AnimationPlayers = Array[NodePath]([NodePath("../AnimationPlayer")])
-dialogueFile = "uid://8u7r0qty4w33"
-allDataCinematic = SubResource("Resource_qs82m")
-autoloadDialog = 1
-dialogMethold = 192
-SignalName = "TestSignal"
+CinematicResorse = SubResource("Resource_vwb7u")
+allDataCinematic = SubResource("Resource_r6p7k")
+listAutoload = Array[String](["CinematicEditor", "AutoloadTest"])
+methodName = "_process"
+autoloadDialog = 0
+dialogMethold = 0
+SignalName = ""
 metadata/_custom_type_script = "uid://gtbcpq6kgg1m"
 
 [node name="Dialogue" type="RichTextLabel" parent="."]
@@ -264,4 +269,4 @@ offset_left = 990.0
 offset_right = 1154.0
 offset_bottom = 38.0
 theme_override_font_sizes/normal_font_size = 26
-text = "FPS = 145.0"
+text = "FPS = 120.0"

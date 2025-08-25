@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ciga0brbfoosq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kono6"]
+bg_color = Color(0, 0, 0, 0.282353)
+draw_center = false
+skew = Vector2(0.045, 0)
+border_color = Color(0, 0, 0, 0.282353)
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qkh5"]
+bg_color = Color(0.0627451, 0.0627451, 0.0627451, 0.458824)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 5
+border_width_bottom = 10
+border_color = Color(0.494118, 0.105882, 0.14902, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing_size = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kono6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1qkh5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6xlo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tr0t6"]
+
+[resource]
+Button/styles/normal = SubResource("StyleBoxFlat_kono6")
+Panel/styles/panel = SubResource("StyleBoxFlat_1qkh5")
+RichTextLabel/styles/background = SubResource("StyleBoxEmpty_kono6")
+RichTextLabel/styles/fill = SubResource("StyleBoxEmpty_1qkh5")
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_y6xlo")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_tr0t6")

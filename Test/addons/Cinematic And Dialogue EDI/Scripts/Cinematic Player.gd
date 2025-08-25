@@ -44,6 +44,7 @@ var dicImportVar:Dictionary[String,Variant]
 
 var autoloadDialog:int:
 	set(Int):
+		OneTime=true
 		autoloadDialog = Int
 		setCinematicData()
 var dialogMethold:int:
@@ -91,6 +92,15 @@ func _get_property_list() -> Array[Dictionary]:
 		"type": TYPE_OBJECT,
 		"usage":PROPERTY_USAGE_NO_EDITOR})
 	
+	property.append({
+		"name":"listAutoload",
+		"type":TYPE_PACKED_STRING_ARRAY,
+		"usage":PROPERTY_USAGE_NO_EDITOR})
+	
+	property.append({
+		"name":"methodName",
+		"type":TYPE_STRING,
+		"usage":PROPERTY_USAGE_NO_EDITOR})
 	
 	#region Create a group (All Data)
 	property.append({
@@ -153,6 +163,7 @@ func _get_property_list() -> Array[Dictionary]:
 			"name": "SignalName",
 			"type": TYPE_STRING,
 			"usage":PROPERTY_USAGE_DEFAULT})
+		
 		#endregion
 	return property
 @export_group("Autoload Dialogue")

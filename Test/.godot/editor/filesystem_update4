@@ -1,21 +1,19 @@
-res://Test.tscn
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphEditor.tscn
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Animation Node Theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Await Node/Await Node theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Import Data Theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/Method Node theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Dialogic Node theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Normal theme.tres
-res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphEditor/CreateNode Menu theme.tres
+res://Test.tscn
+res://addons/Cinematic And Dialogue EDI/Scripts/Sub Nodes/CreateNode.gd
 res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Path Node.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Animation Node.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Graph Node CaD.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/DataCinematic.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Dialogic Node.gd
-res://addons/Cinematic And Dialogue EDI/DATA Plugin/Global CAD.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/Graph Editor.gd
-res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Import Data.gd
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Method Path Node/Wait Signal.tscn
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Chooser Node.tscn
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Animation Node.tscn
 res://test.gd
-res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Method Path Node/Dialogic Node.tscn
-res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Import Data.tscn
+res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Wait Signal Node.gd
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Wait Signal Node/Wait Signal Node theme.tres
+res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd

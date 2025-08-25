@@ -43,6 +43,7 @@ func _get_property_list():
 func SaveData(TypeVar:Dictionary,Vars:Dictionary,nodesToSave:Array[Node],Connections:Array[Dictionary]) -> void:
 	if isLoading:
 		return
+	
 	##Save ImportVars
 	dicVarData = Vars
 	dicVarType = TypeVar
@@ -80,12 +81,18 @@ func setChildOwner(node: Node, owner: Node):
 func LoadData(nodeEditor:GraphEdit,CinemaPlayer:CinematicPlayer,tree:SceneTree):
 	isLoading = true
 	for node:GraphNode in LoadNode():
-		if nodeEditor.find_child(node.name):
+		
+		var nodeFound:Node = nodeEditor.find_child(node.name)
+		
+		if nodeFound and nodeFound.get_class() == node.get_class():
 			nodeEditor.get_node(NodePath(node.name)).set_position_offset(node.position_offset)
+		
 		else:
 			if node.get_parent():
 				node.get_parent().remove_child(node)
+			
 			nodeEditor.add_child(node)
+	
 	await tree.process_frame
 	setEditorVariable(nodeEditor.get_parent(),CinemaPlayer)
 	
@@ -99,21 +106,26 @@ func setEditorVariable(editorGraph:Control,CinemaPlayer:CinematicPlayer):
 	#set dicImportVar and dicImportTypeVar make sure creator of vars (Import Data)
 	var auxListVarName:Array[String]=editorGraph.getVarsName()
 	for Key:String in dicVarData.keys():
+		
 		if auxListVarName.find(Key) != -1 and dicVarType.has(Key):
 			CinemaPlayer.dicImportVar.set(Key,dicVarData[Key])
 			CinemaPlayer.dicImportTypeVar.set(Key,dicVarType[Key])
+		
 		else:
 			CinemaPlayer.dicImportVar.erase(Key)
 			CinemaPlayer.dicImportTypeVar.erase(Key)
+	
 	CinemaPlayer.notify_property_list_changed()
 
 
 
 func LoadNode() -> Array[Node]:
 	var auxListNode:Array[Node]
+	
 	for packedNode:PackedScene in listPackedNodes:
 		var node:Node=packedNode.instantiate()
 		auxListNode.append(node)
+	
 	return auxListNode
 
 #endregion

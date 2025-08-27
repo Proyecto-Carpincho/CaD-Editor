@@ -20,3 +20,4 @@ res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Method Path Node/Wait S
 res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Wait Signal Node.gd
 res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd
 res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Graph Node CaD.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/DataCinematic.gd

@@ -45,7 +45,9 @@ func _input(event: InputEvent) -> void:
 func Copy(auxLisNode,internalCall:bool) -> void:
 	clipboard.clear()
 	for nodo:CinematicNode in auxLisNode:
-		clipboard.append(nodo.duplicate())
+		nodo.get_children(true)
+		var dupNode:CinematicNode = nodo.duplicate()
+		clipboard.append(dupNode)
 	if not internalCall:
 		setConsoleEditor("Copy!")
 

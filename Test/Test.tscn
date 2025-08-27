@@ -1,9 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://baeyhnogdfcld"]
+[gd_scene load_steps=22 format=3 uid="uid://baeyhnogdfcld"]
 
 [ext_resource type="Script" uid="uid://cccm0ewpn34bo" path="res://test.gd" id="1_q1uvj"]
 [ext_resource type="Script" uid="uid://gtbcpq6kgg1m" path="res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd" id="3_ivycn"]
+[ext_resource type="Script" uid="uid://mleh47c8xsts" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Chooser Node.gd" id="4_q1uvj"]
 [ext_resource type="Script" uid="uid://bx7v140bbfrm8" path="res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/DataCinematic.gd" id="5_aq4fw"]
+[ext_resource type="Script" uid="uid://cek4xq5baa7w1" path="res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/ID.gd" id="5_q1uvj"]
 [ext_resource type="Script" uid="uid://dx50qld6qpi0q" path="res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd" id="6_c4vo5"]
+[ext_resource type="Script" uid="uid://b86fvqq4dpw2b" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Choice Node.gd" id="6_qs82m"]
 [ext_resource type="Texture2D" uid="uid://b6lv3bye4gn2x" path="res://icon.svg" id="7_q1uvj"]
 
 [sub_resource type="Animation" id="Animation_r6p7k"]
@@ -183,7 +186,7 @@ _data = {
 &"Test 3.5": SubResource("Animation_ctmup")
 }
 
-[sub_resource type="PackedScene" id="PackedScene_aq4fw"]
+[sub_resource type="PackedScene" id="PackedScene_qs82m"]
 _bundled = {
 "conn_count": 0,
 "conns": PackedInt32Array(),
@@ -196,22 +199,48 @@ _bundled = {
 "version": 3
 }
 
-[sub_resource type="PackedScene" id="PackedScene_ivycn"]
+[sub_resource type="PackedScene" id="PackedScene_c4vo5"]
 _bundled = {
 "conn_count": 0,
 "conns": PackedInt32Array(),
 "editable_instances": [],
-"names": PackedStringArray("End Node", "self_modulate", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "position_offset", "title", "ignore_invalid_connection_type", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "GraphNode", "VBoxContainer"),
+"names": PackedStringArray("End Node", "self_modulate", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "position_offset", "selected", "title", "ignore_invalid_connection_type", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "GraphNode", "VBoxContainer"),
 "node_count": 2,
 "node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 20, 0, -1, 19, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 9, 12, 1, 13, 10, 14, 11, 15, 12, 16, 1, 17, 13, 18, 11, 19, 9, 0, 0, 0, 21, 21, -1, 1, 2, 14, 0),
-"variants": [Color(1, 0, 0.160784, 1), 0, 800.0, 320.0, 850.0, 375.0, 1, Vector2(800, 320), "End", true, Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), 2],
+"nodes": PackedInt32Array(-1, -1, 21, 0, -1, 20, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 8, 12, 8, 13, 1, 14, 10, 15, 11, 16, 12, 17, 1, 18, 13, 19, 11, 20, 8, 0, 0, 0, 22, 22, -1, 1, 2, 14, 0),
+"variants": [Color(1, 0, 0.160784, 1), 0, 800.0, 320.0, 850.0, 375.0, 1, Vector2(800, 320), true, "End", Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), 2],
+"version": 3
+}
+
+[sub_resource type="PackedScene" id="PackedScene_vwb7u"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Choise 1", "custom_minimum_size", "layout_mode", "offset_right", "offset_bottom", "mouse_filter", "title", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "slot/1/left_enabled", "slot/1/left_type", "slot/1/left_color", "slot/1/left_icon", "slot/1/right_enabled", "slot/1/right_type", "slot/1/right_color", "slot/1/right_icon", "slot/1/draw_stylebox", "slot/2/left_enabled", "slot/2/left_type", "slot/2/left_color", "slot/2/left_icon", "slot/2/right_enabled", "slot/2/right_type", "slot/2/right_color", "slot/2/right_icon", "slot/2/draw_stylebox", "script", "creatorName", "GraphNode", "Self Name", "text", "RichTextLabel", "HSeparator", "Creator Name"),
+"node_count": 4,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 36, 0, -1, 35, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 1, 9, 7, 10, 8, 11, 6, 12, 1, 13, 7, 14, 8, 15, 9, 16, 6, 17, 1, 18, 7, 19, 8, 20, 9, 21, 1, 22, 10, 23, 8, 24, 9, 25, 6, 26, 1, 27, 7, 28, 8, 29, 6, 30, 1, 31, 7, 32, 8, 33, 9, 34, 11, 35, 12, 0, 0, 0, 39, 37, -1, 3, 1, 13, 2, 14, 38, 15, 0, 0, 0, 40, 40, -1, 2, 1, 16, 2, 14, 0, 0, 0, 39, 41, -1, 3, 1, 13, 2, 14, 38, 17, 0),
+"variants": [Vector2(200, 0), 0, 200.0, 189.0, 1, "Choice Node", false, Color(1, 1, 1, 1), null, true, Color(1, 0, 0, 1), ExtResource("6_qs82m"), "_GraphNode_117387", Vector2(0, 50), 2, "Name: Choise 1", Vector2(0, 30), "Creator ID: _GraphNode_117387"],
+"version": 3
+}
+
+[sub_resource type="PackedScene" id="PackedScene_cqdos"]
+_bundled = {
+"conn_count": 6,
+"conns": PackedInt32Array(8, 0, 63, 62, 2, 0, 0, 9, 0, 63, 64, 2, 0, 0, 11, 0, 66, 65, 2, 0, 0, 18, 12, 63, 67, 2, 0, 0, 19, 12, 63, 68, 2, 0, 0, 23, 12, 63, 69, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("_GraphNode_117387", "custom_minimum_size", "offset_left", "offset_top", "offset_right", "offset_bottom", "mouse_filter", "position_offset", "title", "ignore_invalid_connection_type", "slot/0/left_enabled", "slot/0/left_type", "slot/0/left_color", "slot/0/left_icon", "slot/0/right_enabled", "slot/0/right_type", "slot/0/right_color", "slot/0/right_icon", "slot/0/draw_stylebox", "script", "listChoice", "nameComprobation", "metadata/_custom_type_script", "GraphNode", "TabContainer", "layout_mode", "tab_alignment", "current_tab", "List", "visible", "metadata/_tab_index", "ScrollContainer", "VBoxContainer", "size_flags_horizontal", "@RichTextLabel@118378", "bbcode_enabled", "text", "horizontal_alignment", "vertical_alignment", "RichTextLabel", "Create", "HSeparator2", "HSeparator", "HBoxContainer", "Button Create", "Button", "Button Delete", "OptionNode", "selected", "item_count", "popup/item_0/text", "popup/item_0/id", "OptionButton", "ID", "New ID", "LineEdit", "placeholder_text", "caret_blink", "caret_blink_interval", "Cancel", "Actual ID", "Change", "_ButtonCreate_Pressed", "pressed", "_ButtonDelete_Pressed", "_Selected_OptionNode", "item_selected", "_Pressed_NewID", "_Pressed_CancelNewID", "_Pressed_ChangeID"),
+"node_count": 24,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 23, 0, -1, 22, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 8, 11, 9, 12, 10, 13, 11, 14, 12, 15, 9, 16, 13, 17, 11, 18, 8, 19, 14, 20, 15, 21, 16, 22, 17, 0, 0, 0, 24, 24, -1, 4, 1, 18, 25, 19, 26, 5, 27, 5, 0, 1, 0, 31, 28, -1, 4, 29, 12, 1, 20, 25, 19, 30, 9, 0, 2, 0, 32, 32, -1, 2, 25, 19, 33, 21, 0, 3, 0, 39, 34, -1, 6, 1, 22, 25, 19, 35, 8, 36, 23, 37, 5, 38, 5, 0, 1, 0, 32, 40, -1, 2, 25, 19, 30, 5, 0, 5, 0, 42, 41, -1, 2, 1, 24, 25, 19, 0, 5, 0, 43, 43, -1, 1, 25, 19, 0, 7, 0, 45, 44, -1, 3, 25, 19, 33, 21, 36, 25, 0, 7, 0, 45, 46, -1, 3, 25, 19, 33, 21, 36, 26, 0, 5, 0, 42, 42, -1, 2, 1, 27, 25, 19, 0, 5, 0, 52, 47, -1, 6, 1, 28, 25, 19, 48, 9, 49, 5, 50, 29, 51, 9, 0, 1, 0, 32, 53, -1, 4, 29, 12, 25, 19, 19, 30, 30, 19, 0, 12, 0, 32, 54, -1, 2, 29, 12, 25, 19, 0, 13, 0, 42, 41, -1, 2, 1, 31, 25, 19, 0, 13, 0, 55, 55, -1, 4, 25, 19, 56, 32, 57, 8, 58, 33, 0, 13, 0, 42, 42, -1, 2, 1, 27, 25, 19, 0, 13, 0, 43, 43, -1, 1, 25, 19, 0, 17, 0, 45, 54, -1, 3, 25, 19, 33, 21, 36, 34, 0, 17, 0, 45, 59, -1, 3, 1, 35, 25, 19, 36, 36, 0, 12, 0, 32, 60, -1, 1, 25, 19, 0, 20, 0, 39, 39, -1, 4, 1, 37, 25, 19, 36, 16, 38, 5, 0, 20, 0, 42, 41, -1, 2, 1, 38, 25, 19, 0, 20, 0, 45, 61, -1, 2, 25, 19, 36, 39, 0),
+"variants": [Vector2(250, 200), 480.0, 400.0, 730.0, 600.0, 1, Vector2(480, 400), "Chooser Node", true, 0, Color(1, 0, 0, 1), null, false, Color(1, 1, 1, 1), ExtResource("4_q1uvj"), Array[String](["Choise 1"]), "_GraphNode_117387", "uid://beaxfln0pm5av", Vector2(215, 150), 2, Vector2(0, 110), 3, Vector2(0, 30), "[pulse freq=5 color=#00ff84 ease=-1][color=#00ffea]Choise   -1[/color] [/pulse]", Vector2(0, 10), "Create", "Delete", Vector2(0, 20), Vector2(0, 40), "Choise   -1", ExtResource("5_q1uvj"), Vector2(0, 16), "New ID", 0.5, "set new ID", Vector2(83, 0), "Cancel", Vector2(0, 60), Vector2(0, 15), "Change ID"],
 "version": 3
 }
 
 [sub_resource type="Resource" id="Resource_q1uvj"]
 script = ExtResource("6_c4vo5")
-listPackedNodes = Array[PackedScene]([SubResource("PackedScene_aq4fw"), SubResource("PackedScene_ivycn")])
+listPackedNodes = Array[PackedScene]([SubResource("PackedScene_qs82m"), SubResource("PackedScene_c4vo5"), SubResource("PackedScene_vwb7u"), SubResource("PackedScene_cqdos")])
 listConnections = Array[Dictionary]([])
 dicVarData = Dictionary[String, Variant]({})
 dicVarType = Dictionary[String, int]({})
@@ -263,4 +292,4 @@ offset_left = 990.0
 offset_right = 1154.0
 offset_bottom = 38.0
 theme_override_font_sizes/normal_font_size = 26
-text = "FPS = 111.0"
+text = "FPS = 136.0"

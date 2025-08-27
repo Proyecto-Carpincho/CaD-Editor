@@ -69,6 +69,8 @@ func StartAction()->void:
 	if not (listMethod.size() != 0 or listMethod.size() -1 >= indexNode):
 		var errorTextNode:String = "There is no path list, or there is an error in the index"
 		PushErrorLog(errorTextNode)
+		EmitNextNodeSignal()
+		return
 	
 	var methodPath:NodePath = cinematicData.listNodePaths[indexNode]
 	var ParametersList:Array

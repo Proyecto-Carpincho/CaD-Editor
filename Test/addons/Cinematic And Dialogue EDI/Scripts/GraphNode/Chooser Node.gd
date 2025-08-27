@@ -6,6 +6,16 @@ extends CinematicNode
 @onready var Parent:Node = get_parent()
 var ChoiseNode:PackedScene=preload("res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Choice Node.tscn")
 @export var listChoice:Array[String]
+@export var nameComprobation:String
+
+func _ready() -> void:
+	if nameComprobation != name and is_inside_tree():
+		nameComprobation = name
+		listChoice.clear()
+		for richtext:RichTextLabel in ListVBox.get_children():
+			richtext.queue_free()
+		setNewID(name,false)
+	
 
 
 func _process(delta: float) -> void:
@@ -92,7 +102,9 @@ func setNewID(newName:String, ChangeName:bool=true)->void:
 		return
 	if ChangeName:
 		name = newName
+		nameComprobation = name
 		if name != newName:
+			
 			CinematicEditor.setLogConsole("That ID already exists for another node",CinematicEditor.CONSOLE_ENUM.WARNING,3)
 	
 	get_node("TabContainer/ID/Actual ID/RichTextLabel").text = name

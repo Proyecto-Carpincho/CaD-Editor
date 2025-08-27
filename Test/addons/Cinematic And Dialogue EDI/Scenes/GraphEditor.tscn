@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://csb2gc6i5atx2"]
+[gd_scene load_steps=12 format=3 uid="uid://csb2gc6i5atx2"]
 
 [ext_resource type="Script" uid="uid://cxwyxcr8unhsv" path="res://addons/Cinematic And Dialogue EDI/Scripts/Graph Editor.gd" id="1_d4qq3"]
 [ext_resource type="Script" uid="uid://b6bq5atl5hc2p" path="res://addons/Cinematic And Dialogue EDI/Scripts/Sub Nodes/CreateNode.gd" id="1_ed3fd"]
@@ -11,6 +11,14 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45oo2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgosd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l7x70"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42pd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hrfc4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3olqy"]
 
 [node name="GraphEditor" type="Control"]
 layout_mode = 3
@@ -32,7 +40,7 @@ right_disconnects = true
 connection_lines_curvature = 0.4
 connection_lines_thickness = 7.5
 
-[node name="ConsolaTest" type="RichTextLabel" parent="GraphEdit"]
+[node name="ConsolaText" type="RichTextLabel" parent="GraphEdit"]
 layout_mode = 1
 offset_left = 14.0
 offset_top = 28.0
@@ -194,6 +202,22 @@ slot/0/draw_stylebox = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GraphEdit/End Node"]
 layout_mode = 2
+
+[node name="LogText" type="RichTextLabel" parent="GraphEdit"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 25
+theme_override_styles/fill = SubResource("StyleBoxEmpty_l7x70")
+theme_override_styles/background = SubResource("StyleBoxEmpty_42pd0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hrfc4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3olqy")
+bbcode_enabled = true
 
 [connection signal="connection_request" from="GraphEdit" to="." method="Conection_Request"]
 [connection signal="disconnection_request" from="GraphEdit" to="." method="Disconect_Recuest"]

@@ -28,7 +28,7 @@ func NodeIsSelected(emisor:Node) ->bool:
 	if pluginEditor:
 		return pluginEditor.Interface().find(emisor) != -1
 	return false
-#region
+#region InputEditor
 func _input(event: InputEvent) -> void:
 	if editorGraph:
 		var auxLisNode:Array[CinematicNode]=editorGraph.NodeIsSelected()
@@ -47,17 +47,17 @@ func Copy(auxLisNode,internalCall:bool) -> void:
 	for nodo:CinematicNode in auxLisNode:
 		clipboard.append(nodo.duplicate())
 	if not internalCall:
-		setTextInEditor("Copy!")
+		setConsoleEditor("Copy!")
 
 func Cut(auxLisNode) -> void:
 	Copy(auxLisNode, true)
 	Delete(auxLisNode)
-	setTextInEditor("Cut!")
+	setConsoleEditor("Cut!")
 
 func Delete(auxLisNode) -> void:
 	for node:CinematicNode in auxLisNode:
 		node.queue_free()
-	setTextInEditor("Delete!")
+	setConsoleEditor("Delete!")
 
 func Paste(auxLisNode) -> void:
 	var newclipboard:Array[CinematicNode]
@@ -67,12 +67,22 @@ func Paste(auxLisNode) -> void:
 		dupNode.position_offset += Vector2(25,10)
 		newclipboard.append(dupNode.duplicate())
 	clipboard=newclipboard
-	setTextInEditor("Paste!")
-
-func setTextInEditor(text):
-	editorGraph.setText(text)
-
+	setConsoleEditor("Paste!")
 #endregion
+
+#region Text in Editor
+func setConsoleEditor(text):
+	if editorGraph:
+		editorGraph.setText(text)
+
+enum CONSOLE_ENUM {COMMENTARY,WARNING,ERROR}
+func setLogConsole(text:String,log:CONSOLE_ENUM,waitTime:float)->void:
+	if editorGraph:
+		editorGraph.logConsole(text,log)
+		await get_tree().create_timer(waitTime).timeout
+		editorGraph.logConsole("",CONSOLE_ENUM.COMMENTARY)
+#endregion
+
 signal Timeout(creator:String)
 func AwaitTime(time:float,creator:String):
 	await get_tree().create_timer(time).timeout

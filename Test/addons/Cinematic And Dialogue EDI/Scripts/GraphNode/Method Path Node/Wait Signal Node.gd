@@ -18,10 +18,25 @@ func _process(delta: float) -> void:
 		setNodePathsOptions()
 
 func StartAction()->void:
-	var methodPath:NodePath = cinematicData.listNodePaths[indexNode]
-	print("A",SignalName)
-	await Signal(CinematicEditor.getNode(methodPath),SignalName)
-	print("v")
+	if listMethod.size() != 0 or listMethod.size() -1 >= indexNode:
+		var methodPath:NodePath = cinematicData.listNodePaths[indexNode]
+		var nodeToWait:Node = CinematicEditor.getNode(methodPath)
+		
+		if nodeToWait.has_signal(SignalName):
+			await Signal(nodeToWait,SignalName)
+		else:
+			var errorTextSignal:String = "The signal \""+ SignalName +"\"" + " does not exist in the node \""+ nodeToWait.name + "\""
+			if CinematicEditor.editorGraph:
+				CinematicEditor.setLogConsole(errorTextSignal, CinematicEditor.CONSOLE_ENUM.ERROR, 3)
+			else:
+				push_error(errorTextSignal)
+	
+	else:
+		var errorTextNode:String = "There is no path list, or there is an error in the index"
+		if CinematicEditor.editorGraph:
+			CinematicEditor.setLogConsole(errorTextNode, CinematicEditor.CONSOLE_ENUM.ERROR, 3)
+		else:
+			push_error(errorTextNode)
 	
 	EmitNextNodeSignal()
 

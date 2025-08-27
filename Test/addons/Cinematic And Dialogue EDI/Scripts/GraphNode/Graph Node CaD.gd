@@ -37,3 +37,9 @@ func setCinematicProperty()->Dictionary:
 func setCinematicData()->void:
 	if Engine.is_editor_hint() and getGraph():
 		cinematicData=CinematicEditor.creatorOfUi.allDataCinematic
+
+func PushErrorLog(error:String)->void:
+	if CinematicEditor.editorGraph:
+		CinematicEditor.setLogConsole(error, CinematicEditor.CONSOLE_ENUM.ERROR, 3)
+	else:
+		push_error(error)

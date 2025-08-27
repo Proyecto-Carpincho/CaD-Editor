@@ -67,12 +67,15 @@ func _OptionLocation_Selected(index: int) -> void:
 
 func LoadCVS(file_path: String) -> Array:
 	if not FileAccess.file_exists(file_path):
+		if file_path.is_empty():
+			CinematicEditor.setLogConsole("The file path is empty",  CinematicEditor.CONSOLE_ENUM.ERROR  ,3.0)
+		else:
+			CinematicEditor.setLogConsole(("This file no exist, file path:\""+ file_path+" \""),  CinematicEditor.CONSOLE_ENUM.ERROR  ,3.0)
 		return []
 	# Read a CSV file line by line, splitting on commas
 	var result:Array = []
 	var file := FileAccess.open(file_path, FileAccess.READ)
 	if file == null:
-		push_error("The file was not found, FileName: " + file_path)
 		return result
 
 	while not file.eof_reached():

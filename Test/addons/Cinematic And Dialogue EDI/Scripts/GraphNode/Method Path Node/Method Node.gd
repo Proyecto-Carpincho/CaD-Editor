@@ -66,19 +66,25 @@ func setSlotData(Var:Variant,Slot:int)->void:
 	SlotData.set(Slot,Var)
 
 func StartAction()->void:
+	if not (listMethod.size() != 0 or listMethod.size() -1 >= indexNode):
+		var errorTextNode:String = "There is no path list, or there is an error in the index"
+		PushErrorLog(errorTextNode)
 	
 	var methodPath:NodePath = cinematicData.listNodePaths[indexNode]
 	var ParametersList:Array
 	
 	for i in range(SlotData.size()):
-		if ExtraParam > i:
-			if SlotData.has(i+1):
-				ParametersList.append(SlotData[i+1])
-			else:
-				push_error("The parameters are not assigned correctly, all the data: ",SlotData)
-				EmitNextNodeSignal()
-				return
+		if ExtraParam < i:
+			continue
+		if not SlotData.has(i+1):
+			var errorTextParameters:String = "The parameters are not assigned correctly, all the data: "+ str(SlotData)
+			PushErrorLog(errorTextParameters)
+			EmitNextNodeSignal()
+			return
+		
+		ParametersList.append(SlotData[i+1])
 	
 	var node:Node=CinematicEditor.getNode(methodPath)
 	node.callv(methodName,ParametersList)
+
 	EmitNextNodeSignal()

@@ -243,7 +243,7 @@ func _exit_tree() -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_EDITOR_PRE_SAVE and  CinematicEditor.NodeIsSelected(self) and CinematicResorse and editorGraph:
 		SaveData()
-		CinematicEditor.setTextInEditor("Save!")
+		CinematicEditor.setConsoleEditor("Save!")
 #endregion
 
 #region StartCinematic

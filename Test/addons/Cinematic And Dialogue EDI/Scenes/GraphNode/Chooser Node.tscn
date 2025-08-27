@@ -1,11 +1,126 @@
-[gd_scene load_steps=2 format=3 uid="uid://cokpo6tfvyqul"]
+[gd_scene load_steps=3 format=3 uid="uid://cokpo6tfvyqul"]
 
-[ext_resource type="Script" uid="uid://beaxfln0pm5av" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Graph Node CaD.gd" id="1_0mas4"]
+[ext_resource type="Script" uid="uid://mleh47c8xsts" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Chooser Node.gd" id="1_0mas4"]
+[ext_resource type="Script" uid="uid://cek4xq5baa7w1" path="res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/ID.gd" id="2_fjnea"]
 
 [node name="Chooser Node" type="GraphNode"]
-offset_right = 9.0
-offset_bottom = 55.0
+custom_minimum_size = Vector2(250, 200)
+offset_right = 249.0
+offset_bottom = 196.0
 title = "Chooser Node"
 ignore_invalid_connection_type = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 0, 0, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
 script = ExtResource("1_0mas4")
 metadata/_custom_type_script = "uid://beaxfln0pm5av"
+
+[node name="TabContainer" type="TabContainer" parent="."]
+custom_minimum_size = Vector2(215, 150)
+layout_mode = 2
+tab_alignment = 1
+current_tab = 2
+
+[node name="List" type="ScrollContainer" parent="TabContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/List"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Create" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Create"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Create"]
+layout_mode = 2
+
+[node name="Button Create" type="Button" parent="TabContainer/Create/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create"
+
+[node name="Button Delete" type="Button" parent="TabContainer/Create/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Create"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="OptionNode" type="OptionButton" parent="TabContainer/Create"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ID" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+script = ExtResource("2_fjnea")
+metadata/_tab_index = 2
+
+[node name="New ID" type="VBoxContainer" parent="TabContainer/ID"]
+visible = false
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/ID/New ID"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/ID/New ID"]
+layout_mode = 2
+placeholder_text = "New ID"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/ID/New ID"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/ID/New ID"]
+layout_mode = 2
+
+[node name="New ID" type="Button" parent="TabContainer/ID/New ID/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "set new ID"
+
+[node name="Cancel" type="Button" parent="TabContainer/ID/New ID/HBoxContainer"]
+custom_minimum_size = Vector2(83, 0)
+layout_mode = 2
+text = "Cancel"
+
+[node name="Actual ID" type="VBoxContainer" parent="TabContainer/ID"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/ID/Actual ID"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "ID Node: Chooser Node"
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/ID/Actual ID"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="Change" type="Button" parent="TabContainer/ID/Actual ID"]
+layout_mode = 2
+text = "Change ID"
+
+[connection signal="pressed" from="TabContainer/Create/HBoxContainer/Button Create" to="." method="_ButtonCreate_Pressed"]
+[connection signal="pressed" from="TabContainer/Create/HBoxContainer/Button Delete" to="." method="_ButtonDelete_Pressed"]
+[connection signal="item_selected" from="TabContainer/Create/OptionNode" to="." method="_Selected_OptionNode"]
+[connection signal="pressed" from="TabContainer/ID/New ID/HBoxContainer/New ID" to="TabContainer/ID" method="_Pressed_NewID"]
+[connection signal="pressed" from="TabContainer/ID/New ID/HBoxContainer/Cancel" to="TabContainer/ID" method="_Pressed_CancelNewID"]
+[connection signal="pressed" from="TabContainer/ID/Actual ID/Change" to="TabContainer/ID" method="_Pressed_ChangeID"]

@@ -25,7 +25,7 @@ func TestDialog(Key:String)->void:
 	await get_tree().create_timer(2).timeout
 	emit_signal("Test1")
 
-func TestmethodPath(Type:String)->void:
+func TestmethodPath(Type:Variant)->void:
 	get_node("RichTextLabel").text = "Method Var: "+Type
 	print(Type)
 

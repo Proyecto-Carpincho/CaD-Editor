@@ -276,6 +276,10 @@ func FindNode(Name:String) -> int:
 func ExeNode(node:CinematicNode,step:int) -> void:
 	node.StartAction()
 	await node.NextNode
+	if node as ChooserNode:
+		for choiseName:String in node.ArrayFlag:
+			ExecutionLine(choiseName,step)
+			print(choiseName)
 	ExecutionLine(node.name,step)
 
 func getListConections(from:String) -> Array[String]:

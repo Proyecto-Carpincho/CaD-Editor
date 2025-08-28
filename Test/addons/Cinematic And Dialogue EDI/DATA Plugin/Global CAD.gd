@@ -44,9 +44,13 @@ func _input(event: InputEvent) -> void:
 
 func Copy(auxLisNode,internalCall:bool) -> void:
 	clipboard.clear()
-	for nodo:CinematicNode in auxLisNode:
-		nodo.get_children(true)
-		var dupNode:CinematicNode = nodo.duplicate()
+	
+	for node:CinematicNode in auxLisNode:
+		var dupNode:CinematicNode 
+		if node.has_method("Duplicating"):
+			dupNode = node.Duplicating()
+		else:
+			dupNode = node.duplicate()
 		clipboard.append(dupNode)
 	if not internalCall:
 		setConsoleEditor("Copy!")
@@ -58,6 +62,8 @@ func Cut(auxLisNode) -> void:
 
 func Delete(auxLisNode) -> void:
 	for node:CinematicNode in auxLisNode:
+		if node.has_method("Erasing"):
+			node.Erasing()
 		node.queue_free()
 	setConsoleEditor("Delete!")
 

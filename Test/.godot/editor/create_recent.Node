@@ -1,10 +1,10 @@
+HSeparator
+Label
 RichTextLabel
 HBoxContainer
 VBoxContainer
-HSeparator
 LineEdit
 Button
-Label
 GraphNode
 CinematicNode
 ScrollContainer

@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://jxim4kbnmp7l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ok8mw"]
+bg_color = Color(0, 0.0117647, 0.0392157, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0, 0.0117647, 0.0392157, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4jxx"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gdt7"]
+bg_color = Color(0, 0.615686, 0.780392, 1)
+border_width_left = 70
+border_color = Color(0, 0.615686, 0.780392, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+expand_margin_top = 6.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8c2ke"]
+bg_color = Color(0, 0.396078, 0.505882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+expand_margin_top = 8.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok8mw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4jxx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gdt7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8c2ke"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6okf"]
+bg_color = Color(0, 0.615686, 0.780392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+GraphNode/styles/panel = SubResource("StyleBoxFlat_ok8mw")
+GraphNode/styles/panel_selected = SubResource("StyleBoxFlat_r4jxx")
+GraphNode/styles/titlebar = SubResource("StyleBoxFlat_5gdt7")
+GraphNode/styles/titlebar_selected = SubResource("StyleBoxFlat_8c2ke")
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_ok8mw")
+RichTextLabel/styles/background = SubResource("StyleBoxEmpty_r4jxx")
+RichTextLabel/styles/fill = SubResource("StyleBoxEmpty_5gdt7")
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_8c2ke")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_s6okf")

@@ -21,3 +21,8 @@ res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Wait 
 res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd
 res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Graph Node CaD.gd
 res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/DataCinematic.gd
+res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Choice Node.tscn
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Chooser Node/Chooser Node theme.tres
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Choice Node/Choice Node theme.tres
+res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Animation Node.tscn

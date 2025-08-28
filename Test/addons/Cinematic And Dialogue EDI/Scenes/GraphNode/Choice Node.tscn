@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://3occolp6qnna"]
+[gd_scene load_steps=3 format=3 uid="uid://3occolp6qnna"]
 
+[ext_resource type="Theme" uid="uid://jxim4kbnmp7l" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Choice Node/Choice Node theme.tres" id="1_2dyky"]
 [ext_resource type="Script" uid="uid://b86fvqq4dpw2b" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Choice Node.gd" id="1_uxi1s"]
 
-[node name="Choice Node" type="GraphNode"]
+[node name="Choice Node " type="GraphNode"]
 custom_minimum_size = Vector2(200, 0)
-offset_right = 200.0
-offset_bottom = 189.0
+offset_right = 236.0
+offset_bottom = 182.0
+theme = ExtResource("1_2dyky")
 title = "Choice Node"
 slot/0/left_enabled = false
 slot/0/left_type = 0
@@ -39,13 +41,16 @@ script = ExtResource("1_uxi1s")
 [node name="Self Name" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("1_2dyky")
 text = "Name:"
 
 [node name="HSeparator" type="HSeparator" parent="."]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
+theme = ExtResource("1_2dyky")
 
 [node name="Creator Name" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("1_2dyky")
 text = "Creator ID: "

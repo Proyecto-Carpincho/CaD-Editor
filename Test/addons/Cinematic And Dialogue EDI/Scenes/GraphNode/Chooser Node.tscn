@@ -9,7 +9,6 @@ custom_minimum_size = Vector2(250, 200)
 offset_right = 249.0
 offset_bottom = 196.0
 theme = ExtResource("2_8a87n")
-selected = true
 title = "Chooser Node"
 ignore_invalid_connection_type = true
 slot/0/left_enabled = false

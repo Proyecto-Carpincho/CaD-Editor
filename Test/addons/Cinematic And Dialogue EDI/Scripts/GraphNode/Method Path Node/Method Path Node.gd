@@ -8,12 +8,17 @@ extends CinematicNode
 var OptionNode:OptionButton
 var OptionMethod:OptionButton
 
+var errorPushed:bool
 func setNodePathsOptions() -> void:
 	setCinematicData()
 	if not cinematicData:
 		return
 	
-	cinematicData.listNodePaths 
+	if cinematicData.listNodePaths == [] and not errorPushed:
+		PushErrorLog("No path is associated with the array. Please assign one in the cinematic player")
+		errorPushed = true
+	
+	errorPushed = false
 	if not OptionNode:
 		push_error("OptionNode is Null")
 		return

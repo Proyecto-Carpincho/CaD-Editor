@@ -93,7 +93,6 @@ func LoadData(nodeEditor:GraphEdit,CinemaPlayer:CinematicPlayer,tree:SceneTree):
 			
 			nodeEditor.add_child(node)
 	
-	await tree.process_frame
 	setEditorVariable(nodeEditor.get_parent(),CinemaPlayer)
 	
 	while listConnections != nodeEditor.connections:

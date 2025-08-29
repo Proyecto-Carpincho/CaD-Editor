@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d0opea2t4j5mm" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd" id="2_oiyto"]
 
 [node name="Method Node" type="GraphNode"]
-custom_minimum_size = Vector2(0, 165)
+custom_minimum_size = Vector2(230, 165)
 offset_right = 223.0
 offset_bottom = 165.0
 theme = ExtResource("2_ls8xr")
@@ -58,6 +58,7 @@ script = ExtResource("2_oiyto")
 SlotData = Dictionary[int, Variant]({
 1: 1
 })
+cinematicData = null
 metadata/_custom_type_script = "uid://beaxfln0pm5av"
 
 [node name="HSeparator" type="HSeparator" parent="."]
@@ -68,7 +69,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("2_ls8xr")
 tab_alignment = 1
@@ -160,6 +160,7 @@ layout_mode = 2
 theme = ExtResource("2_ls8xr")
 
 [node name="View Methods" type="Panel" parent="Create Parm"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(23.77, 0)
 layout_mode = 2

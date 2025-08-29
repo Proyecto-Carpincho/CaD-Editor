@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://1ccxpnjpmttu" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Await Node/Await Node theme.tres" id="2_2bsrh"]
 
 [node name="Await Node" type="GraphNode"]
-custom_minimum_size = Vector2(190, 0)
+custom_minimum_size = Vector2(230, 0)
 offset_right = 189.0
 offset_bottom = 138.0
 theme = ExtResource("2_2bsrh")

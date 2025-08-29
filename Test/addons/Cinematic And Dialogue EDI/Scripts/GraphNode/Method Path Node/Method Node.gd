@@ -1,10 +1,11 @@
 @tool
 extends "res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Path Node.gd"
+class_name MethodNode
 
 @onready var TabCon:TabContainer = get_node("VBoxContainer/TabContainer")
 @onready var Parameter:Node = get_node("Param 1")
 @export var ExtraParam:int=0
-var SlotData:Dictionary[int,Variant]={}
+var SlotData:Dictionary[int,Variant]
 
 func _get_property_list() -> Array[Dictionary]:
 	var properties:Array[Dictionary]
@@ -66,12 +67,6 @@ func setSlotData(Var:Variant,Slot:int)->void:
 	SlotData.set(Slot,Var)
 
 func StartAction()->void:
-	if not (listMethod.size() != 0 or listMethod.size() -1 >= indexNode):
-		var errorTextNode:String = "There is no path list, or there is an error in the index"
-		PushErrorLog(errorTextNode)
-		EmitNextNodeSignal()
-		return
-	
 	var methodPath:NodePath = cinematicData.listNodePaths[indexNode]
 	var ParametersList:Array
 	
@@ -83,7 +78,6 @@ func StartAction()->void:
 			PushErrorLog(errorTextParameters)
 			EmitNextNodeSignal()
 			return
-		
 		ParametersList.append(SlotData[i+1])
 	
 	var node:Node=CinematicEditor.getNode(methodPath)

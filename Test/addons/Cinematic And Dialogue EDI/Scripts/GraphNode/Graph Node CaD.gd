@@ -40,6 +40,6 @@ func setCinematicData()->void:
 
 func PushErrorLog(error:String)->void:
 	if CinematicEditor.editorGraph:
-		CinematicEditor.setLogConsole(error, CinematicEditor.CONSOLE_ENUM.ERROR, 3)
+		CinematicEditor.setLogConsole(error, CinematicEditor.CONSOLE_ENUM.ERROR)
 	else:
 		push_error(error)

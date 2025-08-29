@@ -6,13 +6,16 @@ var pluginEditor:CaDPlugin
 var clipboard:Array[CinematicNode]
 var editorGraph:Control
 var creatorOfUi:Node
+signal sigPanelOFF
 
+var existPanel:bool
 func getNode(path:NodePath) -> Node:
 	if not Engine.is_editor_hint():
 		return get_tree().current_scene.get_node(path)
 	return get_node(path)
 
 func OnPanel(emisor:Node) -> Control:
+	existPanel = true
 	if not creatorOfUi and pluginEditor:
 		creatorOfUi=emisor
 		editorGraph=pluginEditor.OnPanel()
@@ -20,9 +23,15 @@ func OnPanel(emisor:Node) -> Control:
 	return null
 
 func OffPanel() -> void:
+	existPanel = false
 	creatorOfUi=null
 	if pluginEditor:
 		pluginEditor.OffPanel()
+	emit_signal("sigPanelOFF")
+
+
+func isPanel()->bool:
+	return existPanel
 
 func NodeIsSelected(emisor:Node) ->bool:
 	if pluginEditor:
@@ -84,11 +93,9 @@ func setConsoleEditor(text):
 		editorGraph.setText(text)
 
 enum CONSOLE_ENUM {COMMENTARY,WARNING,ERROR}
-func setLogConsole(text:String,log:CONSOLE_ENUM,waitTime:float)->void:
+func setLogConsole(text:String,log:CONSOLE_ENUM)->void:
 	if editorGraph:
 		editorGraph.logConsole(text,log)
-		await get_tree().create_timer(waitTime).timeout
-		editorGraph.logConsole("",CONSOLE_ENUM.COMMENTARY)
 #endregion
 
 signal Timeout(creator:String)

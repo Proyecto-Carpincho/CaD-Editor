@@ -132,7 +132,7 @@ func setNewID(newName:String, ChangeName:bool=true)->void:
 		name = newName
 		nameComprobation = name
 		if name != newName:
-			CinematicEditor.setLogConsole("That ID already exists for another node",CinematicEditor.CONSOLE_ENUM.WARNING,3)
+			CinematicEditor.setLogConsole("That ID already exists for another node",CinematicEditor.CONSOLE_ENUM.WARNING)
 	
 	get_node("TabContainer/ID/Actual ID/RichTextLabel").text = name
 	if listChoice.size() == 0:

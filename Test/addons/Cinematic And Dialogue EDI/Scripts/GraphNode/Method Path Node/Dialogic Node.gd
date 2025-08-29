@@ -68,9 +68,9 @@ func _OptionLocation_Selected(index: int) -> void:
 func LoadCVS(file_path: String) -> Array:
 	if not FileAccess.file_exists(file_path):
 		if file_path.is_empty():
-			CinematicEditor.setLogConsole("The file path is empty",  CinematicEditor.CONSOLE_ENUM.ERROR  ,3.0)
+			PushErrorLog("The file path is empty")
 		else:
-			CinematicEditor.setLogConsole(("This file no exist, file path:\""+ file_path+" \""),  CinematicEditor.CONSOLE_ENUM.ERROR  ,3.0)
+			PushErrorLog("This file no exist, file path:\""+ file_path+" \"")
 		return []
 	# Read a CSV file line by line, splitting on commas
 	var result:Array = []
@@ -84,6 +84,7 @@ func LoadCVS(file_path: String) -> Array:
 		result.append(row)
 
 	file.close()
+	
 	return result
 
 func _KeyEdit_changed(newText: String) -> void:

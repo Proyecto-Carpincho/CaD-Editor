@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://dle2o11meervh" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Rich Normal Text.tres" id="3_srk3a"]
 
 [node name="Import Data" type="GraphNode"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(300, 0)
 offset_right = 278.0
 offset_bottom = 167.0
 theme = ExtResource("1_v32hl")

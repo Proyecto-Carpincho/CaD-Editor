@@ -39,7 +39,7 @@ func HideMenu()->void:
 	await timer.timeout
 	set_visible(false)
 	MouseInside=false
-	set_global_position(Vector2.ZERO)
+	pivot_offset = Vector2.ZERO
 	set_pivot_offset(Vector2(1000,25))
 	get_node("VBoxContainer/ScrollContainer").scroll_vertical = 0
 

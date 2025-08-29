@@ -167,7 +167,10 @@ func _get_property_list() -> Array[Dictionary]:
 		#endregion
 	return property
 @export_group("Autoload Dialogue")
-@export_file("csv") var dialogueFile:String
+@export_file(".csv") var dialogueFile:String:
+	set(a):
+		dialogueFile = a
+		setCinematicData()
 
 func _get(property) -> Variant:
 	if dicImportVar.has(property):
@@ -203,6 +206,9 @@ func _process(delta: float) -> void:
 		errorPushed = false
 		
 		if isCredible and CinematicEditor.NodeIsSelected(self):
+			if CinematicEditor.isPanel():
+				await CinematicEditor.sigPanelOFF
+			await get_tree().process_frame
 			editorGraph=CinematicEditor.OnPanel(self) as Control
 			nodeEditor=editorGraph.get_node("GraphEdit")
 			isCredible = false
@@ -221,6 +227,7 @@ func _process(delta: float) -> void:
 	#Close the menu if it was created and the resource was removed.
 	if not isCredible and not CinematicResorse:
 		CinematicEditor.OffPanel()
+		isCredible = true
 	
 	previousSelected = CinematicEditor.NodeIsSelected(self)
 #endregion
@@ -263,7 +270,9 @@ func ExecutionLine(from:String,step:int) -> void:
 			emit_signal("CinematicEnd")
 		else:
 			
-			var node=listUnpackedNodes[FindNode(nodeName)]
+			var node =listUnpackedNodes[FindNode(nodeName)]
+			if node is MethodNode or node is ChooserNode:
+				StartImport()
 			ExeNode(node,step+1)
 
 func FindNode(Name:String) -> int:
@@ -279,7 +288,6 @@ func ExeNode(node:CinematicNode,step:int) -> void:
 	if node as ChooserNode:
 		for choiseName:String in node.ArrayFlag:
 			ExecutionLine(choiseName,step)
-			print(choiseName)
 	ExecutionLine(node.name,step)
 
 func getListConections(from:String) -> Array[String]:

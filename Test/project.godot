@@ -30,4 +30,4 @@ enabled=PackedStringArray("res://addons/Cinematic And Dialogue EDI/plugin.cfg")
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Prueba - Hoja 1.en.translation", "res://Prueba - Hoja 1.es.translation")
+locale/translations=PackedStringArray("res://Test CSV.en.translation", "res://Test CSV.es.translation")

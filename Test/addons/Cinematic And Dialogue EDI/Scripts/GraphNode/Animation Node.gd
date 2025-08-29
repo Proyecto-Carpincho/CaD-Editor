@@ -29,6 +29,7 @@ func _get_property_list() -> Array[Dictionary]:
 	return property
 
 
+
 func _ready() -> void:
 	setCinematicData()
 	
@@ -47,9 +48,20 @@ func _ready() -> void:
 			if animationName != "":
 				OptionAnimation.select(aniPlayer.get_animation_list().find(animationName))
 
+var PushedError:bool
+var a = true
 func _process(delta: float) -> void:
+	if a:
+		a = false
+		return
 	if getGraph() and cinematicData:
 		if not equalsList():
+			if cinematicData.listAnimationPaths == []:
+				if not PushedError:
+					PushedError = true
+					PushErrorLog("You don’t have any listed Animation player in the cinematic player")
+				return
+			PushedError = false
 			
 			_NodeOption_Selected(0)
 			setAniplayerOptions()

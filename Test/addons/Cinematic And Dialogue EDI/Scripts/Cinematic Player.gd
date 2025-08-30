@@ -306,6 +306,7 @@ func StartImport():
 		if fromNode is ImportData:
 			var auxToIndex:int = FindNode(connection["to_node"])
 			var toNode=listUnpackedNodes[auxToIndex]
+			#IF SHIT
 			if toNode.has_method("setSlotData") and not fromNode.getNameVar().is_empty():
 				toNode.setSlotData(dicImportVar.get(fromNode.getNameVar()),connection["to_port"])
 	await get_tree().process_frame

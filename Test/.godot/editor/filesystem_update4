@@ -1,1 +1,13 @@
+res://Test.tscn
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Choice Node/Choice Node theme.tres
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Animation Node Theme.tres
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Await Node/Await Node theme.tres
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Import Data Theme.tres
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/Method Node theme.tres
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Dialogic Node theme.tres
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Normal theme.tres
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Wait Signal Node/Wait Signal Node theme.tres
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Chooser Node/Chooser Node theme.tres
+res://addons/Cinematic And Dialogue EDI/Resorse/GraphEditor/CreateNode Menu theme.tres
 res://addons/Cinematic And Dialogue EDI/Resorse/GraphEditor/Console Error theme.tres
+res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd

@@ -1,12 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1756498370
+::res://::1756579425
 AutoloadTest.gd::GDScript/GDScript::1363520264154245128::1754434601::0::1::::<>Node<><>0<>1<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::4586308140663598689::1752530384::1756426456::1::::<><><>0<>0<>8a8e9c60622d6c42e62cfac68779beb0<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 Test CSV.csv::Translation/Translation::4119041152428021349::1756422994::1756426732::1::::<><><>0<>0<>d396b05ebc0be1cb8fee8f74be6dd4dc<>res://Test CSV.en.translation<*>res://Test CSV.es.translation::
 Test CSV.en.translation::OptimizedTranslation/OptimizedTranslation::8579160323486490649::1756426732::0::1::::<><><>0<>0<><>::
 Test CSV.es.translation::OptimizedTranslation/OptimizedTranslation::6662273101637505881::1756426732::0::1::::<><><>0<>0<><>::
-test.gd::GDScript::4918121303710341940::1756485653::0::1::::<>Node2D<><>0<>1<><>::
-Test.tscn::PackedScene::2396148607800704025::1756485910::0::1::::<><><>0<>0<><>::uid://cccm0ewpn34bo::::res://test.gd<>uid://gtbcpq6kgg1m::::res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd<>uid://kahpx1hi0dd5::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Dialogic Node theme.tres<>uid://2k3d5wfrwn3n::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Chooser Node/Chooser Node theme.tres<>uid://bx7v140bbfrm8::::res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/DataCinematic.gd<>uid://c842id01mbspf::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Dialogic Node.gd<>uid://mleh47c8xsts::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Chooser Node.gd<>uid://dx50qld6qpi0q::::res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd<>uid://cek4xq5baa7w1::::res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/ID.gd<>uid://b6lv3bye4gn2x::::res://icon.svg<>uid://jxim4kbnmp7l::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Choice Node/Choice Node theme.tres<>uid://dq6pyfp6ll30l::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Normal theme.tres<>uid://b86fvqq4dpw2b::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Choice Node.gd<>uid://dd0ipi65gry1f::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Animation Node Theme.tres<>uid://tq2by8px6e8a::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Animation Node.gd<>uid://4n06vdth0cl3::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Rich text Checkbox.tres<>uid://b0tp5prriicyj::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Wait Signal Node/Wait Signal Node theme.tres<>uid://ntvkggbo4bbs::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Wait Signal Node.gd<>uid://dekv58jqf0vde::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/Method Node theme.tres<>uid://d0opea2t4j5mm::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd<>uid://tu7wuaclbs7c::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Import Data Theme.tres<>uid://dts3d3f24f12c::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Import Data.gd<>uid://dle2o11meervh::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Rich Normal Text.tres
+test.gd::GDScript/GDScript::4918121303710341940::1756485653::0::1::::<>Node2D<><>0<>1<><>::
+Test.tscn::PackedScene::2396148607800704025::1756498842::0::1::::<><><>0<>0<><>::uid://cccm0ewpn34bo::::res://test.gd<>uid://gtbcpq6kgg1m::::res://addons/Cinematic And Dialogue EDI/Scripts/Cinematic Player.gd<>uid://kahpx1hi0dd5::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Dialogic Node theme.tres<>uid://2k3d5wfrwn3n::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Chooser Node/Chooser Node theme.tres<>uid://bx7v140bbfrm8::::res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/DataCinematic.gd<>uid://c842id01mbspf::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Dialogic Node.gd<>uid://mleh47c8xsts::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Chooser Node.gd<>uid://dx50qld6qpi0q::::res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/Cinematic.gd<>uid://cek4xq5baa7w1::::res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/ID.gd<>uid://b6lv3bye4gn2x::::res://icon.svg<>uid://jxim4kbnmp7l::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Choice Node/Choice Node theme.tres<>uid://dq6pyfp6ll30l::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Normal theme.tres<>uid://b86fvqq4dpw2b::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Choice Node.gd<>uid://dd0ipi65gry1f::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Animation Node Theme.tres<>uid://tq2by8px6e8a::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Animation Node.gd<>uid://4n06vdth0cl3::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/Rich text Checkbox.tres<>uid://b0tp5prriicyj::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Wait Signal Node/Wait Signal Node theme.tres<>uid://ntvkggbo4bbs::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Wait Signal Node.gd<>uid://dekv58jqf0vde::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/Method Node theme.tres<>uid://d0opea2t4j5mm::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd<>uid://tu7wuaclbs7c::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Import Data Theme.tres<>uid://dts3d3f24f12c::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Import Data.gd<>uid://dle2o11meervh::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Rich Normal Text.tres
 ::res://addons/::1754171487
 ::res://addons/Cinematic And Dialogue EDI/::1755485124
 plugin.cfg::TextFile/TextFile::-1::1752530384::0::1::::<><><>0<>0<><>::
@@ -15,30 +15,30 @@ Sintaxis.txt::TextFile/TextFile::-1::1755485124::0::1::::<><><>0<>0<><>::
 CAD Plugin.gd::GDScript/GDScript::4310210558743558562::1752530384::0::1::::CaDPlugin<>EditorPlugin<><>0<>1<><>::
 Global CAD.gd::GDScript/GDScript::6097290947524975895::1756421510::0::1::::<>Node<><>0<>1<><>::
 ::res://addons/Cinematic And Dialogue EDI/Resorse/::1756080903
-::res://addons/Cinematic And Dialogue EDI/Resorse/GraphEditor/::1756485364
-Console Error theme.tres::Theme::7241644570778800095::1756485364::0::1::::<><><>0<>0<><>::
-CreateNode Menu theme.tres::Theme::5346783106700151628::1756485360::0::1::::<><><>0<>0<><>::
+::res://addons/Cinematic And Dialogue EDI/Resorse/GraphEditor/::1756498842
+Console Error theme.tres::Theme::7241644570778800095::1756498748::0::1::::<><><>0<>0<><>::
+CreateNode Menu theme.tres::Theme::5346783106700151628::1756498842::0::1::::<><><>0<>0<><>::
 ::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/::1756349320
-::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/::1756485359
-Animation Node Theme.tres::Theme::7421951018143115457::1756485359::0::1::::<><><>0<>0<><>::
+::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Animation Node/::1756498842
+Animation Node Theme.tres::Theme::7421951018143115457::1756498842::0::1::::<><><>0<>0<><>::
 Rich text Checkbox.tres::Theme/Theme::2063887769234308594::1752530384::0::1::::<><><>0<>0<><>::
 Rich text Titile.tres::Theme/Theme::8845941612496146514::1752530384::0::1::::<><><>0<>0<><>::
-::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Await Node/::1756485359
-Await Node theme.tres::Theme::1829202005704474774::1756485359::0::1::::<><><>0<>0<><>::
-::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Choice Node/::1756485359
-Choice Node theme.tres::Theme::679688985243152983::1756485359::0::1::::<><><>0<>0<><>::
-::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Chooser Node/::1756485360
-Chooser Node theme.tres::Theme::1917449598883624793::1756485360::0::1::::<><><>0<>0<><>::
-::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/::1756485360
-Dialogic Node theme.tres::Theme::702341490769955512::1756485360::0::1::::<><><>0<>0<><>::
-Normal theme.tres::Theme::8347233160821369205::1756485360::0::1::::<><><>0<>0<><>::
-::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/::1756485359
-Import Data Theme.tres::Theme::1376858866010880002::1756485359::0::1::::<><><>0<>0<><>::
+::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Await Node/::1756498842
+Await Node theme.tres::Theme::1829202005704474774::1756498842::0::1::::<><><>0<>0<><>::
+::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Choice Node/::1756498842
+Choice Node theme.tres::Theme::679688985243152983::1756498842::0::1::::<><><>0<>0<><>::
+::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Chooser Node/::1756498842
+Chooser Node theme.tres::Theme::1917449598883624793::1756498842::0::1::::<><><>0<>0<><>::
+::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/::1756498842
+Dialogic Node theme.tres::Theme::702341490769955512::1756498842::0::1::::<><><>0<>0<><>::
+Normal theme.tres::Theme::8347233160821369205::1756498842::0::1::::<><><>0<>0<><>::
+::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/::1756498842
+Import Data Theme.tres::Theme::1376858866010880002::1756498842::0::1::::<><><>0<>0<><>::
 Rich Normal Text.tres::Theme/Theme::7941262608356028149::1753126011::0::1::::<><><>0<>0<><>::
-::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/::1756485360
-Method Node theme.tres::Theme::7461991581745723030::1756485360::0::1::::<><><>0<>0<><>::
-::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Wait Signal Node/::1756485360
-Wait Signal Node theme.tres::Theme::4181330095575027937::1756485360::0::1::::<><><>0<>0<><>::
+::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/::1756498842
+Method Node theme.tres::Theme::7461991581745723030::1756498842::0::1::::<><><>0<>0<><>::
+::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Wait Signal Node/::1756498842
+Wait Signal Node theme.tres::Theme::4181330095575027937::1756498842::0::1::::<><><>0<>0<><>::
 ::res://addons/Cinematic And Dialogue EDI/Scenes/::1756436211
 GraphEditor.tscn::PackedScene/PackedScene::6039955157532202133::1756436211::0::1::::<><><>0<>0<><>::uid://cxwyxcr8unhsv::::res://addons/Cinematic And Dialogue EDI/Scripts/Graph Editor.gd<>uid://b6bq5atl5hc2p::::res://addons/Cinematic And Dialogue EDI/Scripts/Sub Nodes/CreateNode.gd<>uid://ciga0brbfoosq::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphEditor/CreateNode Menu theme.tres<>uid://dbf53figxhv2n::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphEditor/Console Error theme.tres
 ::res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/::1756436211
@@ -50,10 +50,10 @@ ID.gd::GDScript/GDScript::5076043272292177446::1756254887::0::1::::<>VBoxContain
 Import Data.tscn::PackedScene/PackedScene::3802405139082970980::1756412646::0::1::::<><><>0<>0<><>::uid://dts3d3f24f12c::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Import Data.gd<>uid://tu7wuaclbs7c::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Import Data Theme.tres<>uid://dle2o11meervh::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Import Data/Rich Normal Text.tres
 ::res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/Method Path Node/::1756485359
 Dialogic Node.tscn::PackedScene/PackedScene::2192009248548150274::1756428784::0::1::::<><><>0<>0<><>::uid://kahpx1hi0dd5::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Dialogic Node theme.tres<>uid://dq6pyfp6ll30l::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Dialogic Node/Normal theme.tres<>uid://c842id01mbspf::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Dialogic Node.gd
-Method Node.tscn::PackedScene::4849584785730416748::1756485359::0::1::::<><><>0<>0<><>::uid://dekv58jqf0vde::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/Method Node theme.tres<>uid://d0opea2t4j5mm::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd
+Method Node.tscn::PackedScene/PackedScene::4849584785730416748::1756485359::0::1::::<><><>0<>0<><>::uid://dekv58jqf0vde::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Method Node/Method Node theme.tres<>uid://d0opea2t4j5mm::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Node.gd
 Wait Signal.tscn::PackedScene/PackedScene::3310870265960106157::1756412307::0::1::::<><><>0<>0<><>::uid://ntvkggbo4bbs::::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Wait Signal Node.gd<>uid://b0tp5prriicyj::::res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Wait Signal Node/Wait Signal Node theme.tres
 ::res://addons/Cinematic And Dialogue EDI/Scripts/::1756485902
-Cinematic Player.gd::GDScript::460421341725134280::1756485902::0::1::::CinematicPlayer<>Node<><>0<>1<><>::
+Cinematic Player.gd::GDScript/GDScript::460421341725134280::1756485902::0::1::::CinematicPlayer<>Node<><>0<>1<><>::
 Graph Editor.gd::GDScript/GDScript::6434099495571460509::1756416119::0::1::::<>Control<><>0<>1<><>::
 ::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/::1756421371
 Animation Node.gd::GDScript/GDScript::1368260530038611578::1756421371::0::1::::<>CinematicNode<><>0<>1<><>::
@@ -64,7 +64,7 @@ Graph Node CaD.gd::GDScript/GDScript::2668582077044129725::1756416059::0::1::::C
 Import Data.gd::GDScript/GDScript::8531715792597733912::1756000098::0::1::::ImportData<>CinematicNode<><>0<>1<><>::
 ::res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/::1756485902
 Dialogic Node.gd::GDScript/GDScript::7150594004852516499::1756421841::0::1::::<>CinematicNode<><>0<>1<><>::
-Method Node.gd::GDScript::8943802371266201044::1756485902::0::1::::MethodNode<>CinematicNode<><>0<>1<><>::
+Method Node.gd::GDScript/GDScript::8943802371266201044::1756485902::0::1::::MethodNode<>CinematicNode<><>0<>1<><>::
 Method Path Node.gd::GDScript/GDScript::6461710026974397907::1756415838::0::1::::<>CinematicNode<><>0<>1<><>::
 Wait Signal Node.gd::GDScript/GDScript::952971383882913952::1756434524::0::1::::<>CinematicNode<><>0<>1<><>::
 ::res://addons/Cinematic And Dialogue EDI/Scripts/Resorse/::1756417954

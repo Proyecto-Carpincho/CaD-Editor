@@ -1,9 +1,9 @@
+CinematicPlayer
 RichTextLabel
 Control
 Button
 VBoxContainer
 HBoxContainer
-CinematicPlayer
 AnimationPlayer
 Node2D
 HSeparator

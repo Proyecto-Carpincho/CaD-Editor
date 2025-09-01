@@ -39,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 right_disconnects = true
 connection_lines_curvature = 0.4
-connection_lines_thickness = 7.5
+connection_lines_thickness = 10.0
 
 [node name="ConsoleText" type="RichTextLabel" parent="GraphEdit"]
 layout_mode = 1

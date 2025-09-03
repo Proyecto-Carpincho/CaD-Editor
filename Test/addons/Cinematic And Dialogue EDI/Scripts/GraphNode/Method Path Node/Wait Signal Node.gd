@@ -1,11 +1,11 @@
 @tool
 extends "res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Method Path Node/Method Path Node.gd"
 
-@export var SignalName:StringName
+@export var signalName:StringName
 
 func _ready() -> void:
 	setCinematicData()
-	OptionNode = get_node("HBoxContainer/VBoxContainer/HBoxContainer/OptionButton")
+	optionNode = get_node("HBoxContainer/VBoxContainer/HBoxContainer/OptionButton")
 
 func _get_property_list() -> Array[Dictionary]:
 	return [setCinematicProperty()]
@@ -18,22 +18,18 @@ func _process(delta: float) -> void:
 		setNodePathsOptions()
 
 func StartAction()->void:
-	
 	var methodPath:NodePath = cinematicData.listNodePaths[indexNode]
 	var nodeToWait:Node = CinematicEditor.getNode(methodPath)
 	
-	if nodeToWait.has_signal(SignalName):
+	if nodeToWait.has_signal(signalName):
+		await Signal(nodeToWait,signalName)
 		
-		await Signal(nodeToWait,SignalName)
 	else:
-		var errorTextSignal:String = "The signal \""+ SignalName +"\"" + " does not exist in the node \""+ nodeToWait.name + "\""
-		if CinematicEditor.editorGraph:
-			CinematicEditor.setLogConsole(errorTextSignal, CinematicEditor.CONSOLE_ENUM.ERROR)
-		else:
-			push_error(errorTextSignal)
-	
+		var errorTextSignal:String = "The signal \""+ signalName +"\"" + " does not exist in the node \""+ nodeToWait.name + "\""
+		PushErrorLog(errorTextSignal)
+
 	EmitNextNodeSignal()
 
 
-func _LineEdit_Change(new_text: String) -> void:
-	SignalName=new_text
+func _LineEdit_Change(newText: String) -> void:
+	signalName=newText

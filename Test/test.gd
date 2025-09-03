@@ -44,18 +44,18 @@ func _on_button_pressed() -> void:
 	var ci = get_node("CinematicPlayer") as CinematicPlayer
 	get_node("Control/HBoxContainer").set_visible(false)
 	ci.dicImportVar["Choise"] = 1
-	await get_tree().process_frame
-	await get_tree().process_frame
-	emit_signal("sigAnimation")
+	for i in range(5):
+		await get_tree().process_frame
+		emit_signal("sigAnimation")
 
 
 func _on_button_2_pressed() -> void:
 	var ci = get_node("CinematicPlayer") as CinematicPlayer
 	get_node("Control/HBoxContainer").set_visible(false)
 	ci.dicImportVar["Choise"] = 2
-	await get_tree().process_frame
-	await get_tree().process_frame
-	emit_signal("sigAnimation")
+	for i in range(5):
+		await get_tree().process_frame
+		emit_signal("sigAnimation")
 
 func _on_button_presseda() -> void:
 	emit_signal("NextDialog")

@@ -9,7 +9,7 @@ var cinematicData:DataCinematic
 
 func StartAction() -> void:
 	push_error("This node no have a Action")
-	emit_signal("NextNode")
+	EmitNextNodeSignal()
 
 func getGraph() -> Control:
 	if not get_parent():
@@ -18,8 +18,8 @@ func getGraph() -> Control:
 	var auxParent:Node=get_parent().get_parent()
 	return  auxParent if get_parent() is GraphEdit else null
 
-func Timeout(TimerCreator:String):
-	if TimerCreator == name:
+func Timeout(timerCreator:String):
+	if timerCreator == name:
 		emit_signal("NextNode")
 
 func EmitNextNodeSignal():

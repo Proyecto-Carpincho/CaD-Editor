@@ -2,12 +2,12 @@
 extends CinematicNode
 class_name ImportData
 
-@onready var OtherType:VBoxContainer= get_node("HBoxContainer/VBoxContainer/Other type")
-@onready var NormalType:VBoxContainer= get_node("HBoxContainer/VBoxContainer/Normal Type")
-@onready var RichType:RichTextLabel=get_node("HBoxContainer/VBoxContainer/Other type/Rich Type")
-@onready var SpinType:SpinBox=get_node("HBoxContainer/VBoxContainer/Other type/SpinType")
-@onready var OptionType:OptionButton=get_node("HBoxContainer/OptionType")
-@onready var LineName:LineEdit=get_node("HBoxContainer/VBoxContainer/LineEdit")
+@onready var otherType:VBoxContainer= get_node("HBoxContainer/VBoxContainer/Other type")
+@onready var normalType:VBoxContainer= get_node("HBoxContainer/VBoxContainer/Normal Type")
+@onready var richType:RichTextLabel=get_node("HBoxContainer/VBoxContainer/Other type/Rich Type")
+@onready var spinType:SpinBox=get_node("HBoxContainer/VBoxContainer/Other type/SpinType")
+@onready var optionType:OptionButton=get_node("HBoxContainer/OptionType")
+@onready var lineName:LineEdit=get_node("HBoxContainer/VBoxContainer/LineEdit")
 @export var numType:int=TYPE_INT
 @export var varName:String
 const type:Array[String] = [
@@ -52,26 +52,27 @@ const type:Array[String] = [
 ]
 
 func _ready() -> void:
-	SpinType.set_value(numType)
+	spinType.set_value(numType)
 	_SpinType_valueChange(numType)
-	LineName.set_text(varName)
+	lineName.set_text(varName)
 
 func _OptionType_Selected(index: int) -> void:
-	OtherType.set_visible(index == 5)
-	NormalType.set_visible(index != 5)
+	otherType.set_visible(index == 5)
+	normalType.set_visible(index != 5)
 	if index != 5:
-		numType=OptionType.get_item_id(index)
+		numType=optionType.get_item_id(index)
+		spinType.value = numType 
 	else:
-		numType=get_node("HBoxContainer/VBoxContainer/Other type/SpinType").value
+		numType = spinType.value
 	setVar()
 
 func _SpinType_valueChange(value: float) -> void:
 	numType=value
-	RichType.set_text("[wave]Type: "+type[value]+"[/wave]")
+	richType.set_text("[wave]Type: "+type[value]+"[/wave]")
 	setVar()
 
-func _LineEdit_Changed(new_text: String) -> void:
-	varName=new_text
+func _LineEdit_Changed(newText: String) -> void:
+	varName=newText
 	setVar()
 
 func setVar()->void:

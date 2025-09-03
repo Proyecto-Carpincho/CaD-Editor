@@ -10,10 +10,10 @@ var indexNode:int
 
 
 
-@onready var OptionPlayer:OptionButton=get_node("TabContainer/Node/OptionMenu/OptionNode")
-@onready var OptionAnimation:OptionButton=get_node("TabContainer/Animation/OptionMenu/OptionAnimation")
-@onready var WaitPre:CheckBox=get_node("TabContainer/Awaits/Wait PreAnimation/Await")
-@onready var WaitAni:CheckBox=get_node("TabContainer/Awaits/Wait Ani/Await")
+@onready var optionPlayer:OptionButton=get_node("TabContainer/Node/OptionMenu/OptionNode")
+@onready var optionAnimation:OptionButton=get_node("TabContainer/Animation/OptionMenu/OptionAnimation")
+@onready var waitPre:CheckBox=get_node("TabContainer/Awaits/Wait PreAnimation/Await")
+@onready var waitAni:CheckBox=get_node("TabContainer/Awaits/Wait Ani/Await")
 
 func _get_property_list() -> Array[Dictionary]:
 	var property:Array[Dictionary]
@@ -33,8 +33,8 @@ func _get_property_list() -> Array[Dictionary]:
 func _ready() -> void:
 	setCinematicData()
 	
-	WaitPre.button_pressed=waitPreAnimation
-	WaitAni.button_pressed=waitNextAnimation
+	waitPre.button_pressed=waitPreAnimation
+	waitAni.button_pressed=waitNextAnimation
 	if cinematicData:
 		if aniPlayer != null and cinematicData.listAnimationPaths != []:
 			if not aniPlayer.is_inside_tree():
@@ -42,56 +42,56 @@ func _ready() -> void:
 			var aniIndex:int=cinematicData.listAnimationPaths.find(aniPlayer.get_path())
 			aniIndex=aniIndex if aniIndex!=-1 else 0
 			setAniplayerOptions()
-			OptionPlayer.select(aniIndex)
+			optionPlayer.select(aniIndex)
 			_NodeOption_Selected(aniIndex)
 			setAnimationOptions()
 			if animationName != "":
-				OptionAnimation.select(aniPlayer.get_animation_list().find(animationName))
+				optionAnimation.select(aniPlayer.get_animation_list().find(animationName))
 
-var PushedError:bool
-var a = true
+var pushedError:bool
+var firstFrame = true
 func _process(delta: float) -> void:
-	if a:
-		a = false
+	if firstFrame:
+		firstFrame = false
 		return
 	if getGraph() and cinematicData:
 		if not equalsList():
 			if cinematicData.listAnimationPaths == []:
-				if not PushedError:
-					PushedError = true
+				if not pushedError:
+					pushedError = true
 					PushErrorLog("You don’t have any listed Animation player in the cinematic player")
 				return
-			PushedError = false
+			pushedError = false
 			
 			_NodeOption_Selected(0)
 			setAniplayerOptions()
 			setAnimationOptions()
 		
-		if aniPlayer and cinematicData.listAnimationPaths and OptionAnimation.get_item_count() != aniPlayer.get_animation_list().size():
+		if aniPlayer and cinematicData.listAnimationPaths and optionAnimation.get_item_count() != aniPlayer.get_animation_list().size():
 			_NodeOption_Selected(cinematicData.listAnimationPaths.find(aniPlayer.get_path()))
 		
 
 func equalsList() -> bool:
-	var list = OptionPlayer.item_count
+	var list = optionPlayer.item_count
 	if cinematicData.listAnimationPaths.size() == list:
 		for i in range(cinematicData.listAnimationPaths.size()):
 			var path:NodePath  = cinematicData.listAnimationPaths[i]
-			if OptionPlayer.get_item_text(i) != path.get_name(path.get_name_count() - 1):
+			if optionPlayer.get_item_text(i) != path.get_name(path.get_name_count() - 1):
 				return false
 	else:
 		return false
 	return true
 
 func setAniplayerOptions() -> void:
-	OptionPlayer.clear()
+	optionPlayer.clear()
 	for path:NodePath in cinematicData.listAnimationPaths:
 		if not path.is_empty():
-			OptionPlayer.add_item(path.get_name(path.get_name_count() - 1))
+			optionPlayer.add_item(path.get_name(path.get_name_count() - 1))
 
 func setAnimationOptions() -> void:
-	OptionAnimation.clear()
+	optionAnimation.clear()
 	for animation:String in aniPlayer.get_animation_list():
-		OptionAnimation.add_item(animation)
+		optionAnimation.add_item(animation)
 
 #region connected methods
 func _NodeOption_Selected(index: int) -> void:
@@ -103,10 +103,10 @@ func _NodeOption_Selected(index: int) -> void:
 func _Animation_Selected(index: int) -> void:
 	animationName = aniPlayer.get_animation_list()[index]
 
-func _WaitPre_toggled(toggled_on: bool) -> void:
+func _waitPre_toggled(toggled_on: bool) -> void:
 	waitPreAnimation=toggled_on
 
-func _WaitAni_toggled(toggled_on: bool) -> void:
+func _waitAni_toggled(toggled_on: bool) -> void:
 	waitNextAnimation=toggled_on
 #endregion
 

@@ -55,9 +55,7 @@ slot/4/right_color = Color(1, 1, 1, 1)
 slot/4/right_icon = null
 slot/4/draw_stylebox = true
 script = ExtResource("2_oiyto")
-SlotData = Dictionary[int, Variant]({
-1: 1
-})
+slotData = Dictionary[int, Variant]({})
 cinematicData = null
 metadata/_custom_type_script = "uid://beaxfln0pm5av"
 

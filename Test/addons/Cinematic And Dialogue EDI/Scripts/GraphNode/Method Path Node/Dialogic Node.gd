@@ -19,11 +19,11 @@ func _ready() -> void:
 		get_node("KeyContainer/Key/Text/KeyEdit").text = keyName
 	
 	if cinematicData:
-		labelAutoload.text = "Autoload Node: "+cinematicData.DialogAutoload
-		labelSignal.text = "Signal: "+cinematicData.DialogSignal
-		labelMethod.text = "Method: "+cinematicData.DialogMethod
-	OptionNode = get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer/OptionNode")
-	OptionMethod = get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer2/OptionMethod")
+		labelAutoload.text = "Autoload Node: "+cinematicData.dialogAutoload
+		labelSignal.text = "Signal: "+cinematicData.dialogSignal
+		labelMethod.text = "Method: "+cinematicData.dialogMethod
+	optionNode = get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer/OptionNode")
+	optionMethod = get_node("NodeContainer/Node To Exe/DialogicNode/Node/Node Method/HBoxContainer2/OptionMethod")
 	setNodePathsOptions()
 
 func _process(_delta: float) -> void:
@@ -34,14 +34,14 @@ func _process(_delta: float) -> void:
 		setNodePathsOptions()
 	
 	if cinematicData:
-		if labelAutoload.text.replace("Autoload Node: ","") != cinematicData.DialogAutoload:
-			labelAutoload.text = "Autoload Node: "+cinematicData.DialogAutoload
+		if labelAutoload.text.replace("Autoload Node: ","") != cinematicData.dialogAutoload:
+			labelAutoload.text = "Autoload Node: "+cinematicData.dialogAutoload
 		
-		if labelSignal.text.replace("Signal: ","") != cinematicData.DialogSignal:
-			labelSignal.text = "Signal: "+cinematicData.DialogSignal
+		if labelSignal.text.replace("Signal: ","") != cinematicData.dialogSignal:
+			labelSignal.text = "Signal: "+cinematicData.dialogSignal
 		
-		if labelMethod.text.replace("Method: ","") != cinematicData.DialogMethod:
-			labelMethod.text = "Method: "+cinematicData.DialogMethod
+		if labelMethod.text.replace("Method: ","") != cinematicData.dialogMethod:
+			labelMethod.text = "Method: "+cinematicData.dialogMethod
 
 
 func _ButtonKey_Pressed() -> void:
@@ -88,7 +88,7 @@ func LoadCVS(file_path: String) -> Array:
 	return result
 
 func _KeyEdit_changed(newText: String) -> void:
-	for line:Array in LoadCVS(cinematicData.DialogFile):
+	for line:Array in LoadCVS(cinematicData.dialogFile):
 		if line.size() <= 2:
 			continue
 		if line[0] == newText:
@@ -103,12 +103,18 @@ func StartAction()->void:
 	var methodPath:NodePath = cinematicData.listNodePaths[indexNode]
 	match typeNode:
 		0:#Autoload
-			var auxAutoload:Node=CinematicEditor.getNode("/root/"+cinematicData.DialogAutoload)
-			auxAutoload.call(cinematicData.DialogMethod,keyName)
+			var auxAutoload:Node=CinematicEditor.getNode("/root/"+cinematicData.dialogAutoload)
+			auxAutoload.call(cinematicData.dialogMethod,keyName)
 			if waitSignal:
-				await Signal(auxAutoload,cinematicData.DialogSignal)
+				await Signal(auxAutoload,cinematicData.dialogSignal)
 		1:#Nodes
-			CinematicEditor.getNode(methodPath).call(methodName,keyName)
+			var node = CinematicEditor.getNode(methodPath)
+			
+			node.call(methodName,keyName)
 			if waitSignal:
-				await Signal(CinematicEditor.getNode(methodPath),get_node("NodeContainer/Node To Exe/DialogicNode/Signals/Line Signal").text)
+				var signalOfNode:String = get_node("NodeContainer/Node To Exe/DialogicNode/Signals/Line Signal").text
+				if node.has_signal(signalOfNode):
+					await Signal(node,signalOfNode)
+				else:
+					push_error("No exist the signal: \"", signalOfNode, "\" in node: ",node.name)
 	EmitNextNodeSignal()

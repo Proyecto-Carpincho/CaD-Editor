@@ -71,10 +71,10 @@ func setCinematicData():
 		allDataCinematic.listAnimationPaths = getAbolutePaths(AnimationPlayers,true)
 		allDataCinematic.listNodePaths = getAbolutePaths(NodePaths)
 		
-		allDataCinematic.DialogAutoload = auxAutoload
-		allDataCinematic.DialogMethod = methodName
-		allDataCinematic.DialogFile = dialogueFile
-		allDataCinematic.DialogSignal = SignalName
+		allDataCinematic.dialogAutoload = auxAutoload
+		allDataCinematic.dialogMethod = methodName
+		allDataCinematic.dialogFile = dialogueFile
+		allDataCinematic.dialogSignal = SignalName
 		
 		OneTime=true
 
@@ -285,9 +285,11 @@ func FindNode(Name:String) -> int:
 func ExeNode(node:CinematicNode,step:int) -> void:
 	node.StartAction()
 	await node.NextNode
+	
 	if node as ChooserNode:
-		for choiseName:String in node.ArrayFlag:
+		for choiseName:String in node.arrayFlag:
 			ExecutionLine(choiseName,step)
+	
 	ExecutionLine(node.name,step)
 
 func getListConections(from:String) -> Array[String]:

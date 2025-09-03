@@ -9,12 +9,12 @@ var listAnimationPaths:Array[NodePath]
 
 #region Autoload
 ## Señal de espera para un dialogo de un autoload
-var DialogSignal:String
+var dialogSignal:String
 ## Nombre del autoload para ejecutar un dialogo
-var DialogAutoload:String
+var dialogAutoload:String
 ## Metodo del autoload para ejecutar dialogo
-var DialogMethod:String
+var dialogMethod:String
 #endregion Autoload
 
 ## Ruta del CVS para buscar el dialogo
-var DialogFile:String
+var dialogFile:String

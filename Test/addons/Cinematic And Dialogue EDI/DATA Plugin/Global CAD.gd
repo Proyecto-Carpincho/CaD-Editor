@@ -77,13 +77,13 @@ func Delete(auxLisNode) -> void:
 	setConsoleEditor("Delete!")
 
 func Paste(auxLisNode) -> void:
-	var newclipboard:Array[CinematicNode]
+	var newClipboard:Array[CinematicNode]
 	for node:CinematicNode in auxLisNode:
 		var dupNode:=node.duplicate()
 		editorGraph.get_node("GraphEdit").add_child(dupNode)
 		dupNode.position_offset += Vector2(25,10)
-		newclipboard.append(dupNode.duplicate())
-	clipboard=newclipboard
+		newClipboard.append(dupNode.duplicate())
+	clipboard=newClipboard
 	setConsoleEditor("Paste!")
 #endregion
 

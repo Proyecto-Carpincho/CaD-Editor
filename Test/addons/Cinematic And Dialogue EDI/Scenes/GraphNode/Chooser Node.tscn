@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mleh47c8xsts" path="res://addons/Cinematic And Dialogue EDI/Scripts/GraphNode/Chooser Node.gd" id="1_0mas4"]
 [ext_resource type="Theme" uid="uid://2k3d5wfrwn3n" path="res://addons/Cinematic And Dialogue EDI/Resorse/GraphNode/Chooser Node/Chooser Node theme.tres" id="2_8a87n"]
-[ext_resource type="Script" uid="uid://cek4xq5baa7w1" path="res://addons/Cinematic And Dialogue EDI/Scenes/GraphNode/ID.gd" id="2_fjnea"]
+[ext_resource type="Script" uid="uid://cek4xq5baa7w1" path="res://addons/Cinematic And Dialogue EDI/Scripts/Sub Nodes/ID.gd" id="2_fjnea"]
 
 [node name="Chooser Node" type="GraphNode"]
 custom_minimum_size = Vector2(250, 200)

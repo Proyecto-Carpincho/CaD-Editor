@@ -97,6 +97,7 @@ func _KeyEdit_changed(newText: String) -> void:
 			return
 	
 	get_node("KeyContainer/Key/Text/RichText Display").text = "Invalid Key"
+	keyName = newText
 
 func StartAction()->void:
 	

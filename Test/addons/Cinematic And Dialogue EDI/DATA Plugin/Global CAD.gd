@@ -23,6 +23,7 @@ func OnPanel(emisor:Node) -> Control:
 	return null
 
 func OffPanel() -> void:
+	clipboard.clear()
 	existPanel = false
 	creatorOfUi=null
 	if pluginEditor:

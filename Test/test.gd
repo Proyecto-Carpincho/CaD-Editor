@@ -3,10 +3,9 @@ extends Node2D
 
 signal NextDialog
 signal sigAnimation
-var A:int
 
 func _process(_delta: float) -> void:
-	get_node("Fps").text = "FPS = "+ str(Engine.get_frames_per_second())
+	get_node("Fps").text = "FPS: "+ str(Engine.get_frames_per_second())
 	if Input.is_action_just_pressed("ui_up"):
 		var cine =get_node("CinematicPlayer")
 		cine.StartCinematic()
@@ -17,6 +16,8 @@ func _ready() -> void:
 
 func DialogTest(key:String)->void:
 	match key:
+		"Fin":
+			pass
 		"Cinema2":
 			get_node("Control/HBoxContainer").set_visible(true)
 		_:
@@ -33,6 +34,10 @@ func DialogTest(key:String)->void:
 			elif "Cinema1" == key:
 				get_node("Dialog/RichTextLabel2").position = Vector2(269,40)
 			get_node("Dialog/RichTextLabel2").text = tr(key)
+		"Fin":
+			get_node("Dialog/RichTextLabel").text = ""
+			get_node("Dialog/RichTextLabel2").text = ""
+		
 		_:
 			get_node("Dialog/RichTextLabel").text = tr(key)
 
@@ -43,8 +48,8 @@ func EndCinematic()->void:
 func _on_button_pressed() -> void:
 	var ci = get_node("CinematicPlayer") as CinematicPlayer
 	get_node("Control/HBoxContainer").set_visible(false)
-	ci.dicImportVar["Choise"] = 1
-	for i in range(5):
+	ci.dicImportVar["Choise"] = 2
+	for i in range(1):
 		await get_tree().process_frame
 		emit_signal("sigAnimation")
 
@@ -52,8 +57,8 @@ func _on_button_pressed() -> void:
 func _on_button_2_pressed() -> void:
 	var ci = get_node("CinematicPlayer") as CinematicPlayer
 	get_node("Control/HBoxContainer").set_visible(false)
-	ci.dicImportVar["Choise"] = 2
-	for i in range(5):
+	ci.dicImportVar["Choise"] = 1
+	for i in range(1):
 		await get_tree().process_frame
 		emit_signal("sigAnimation")
 

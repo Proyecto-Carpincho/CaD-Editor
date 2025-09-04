@@ -5,7 +5,7 @@ class_name CinematicPlayer
 
 #region Variables and Signals
 signal CinematicEnd
-@export var CinematicResorse:Cinematic
+@export var CinematicResource:Cinematic
 #region EXPORT GRUOP Path
 @export_group("Paths")
 
@@ -83,9 +83,9 @@ var OneTime:bool
 var MetholdEnum:String
 func _get_property_list() -> Array[Dictionary]:
 	var property:Array[Dictionary]
-	if not CinematicResorse:
+	if not CinematicResource:
 		return property
-	CinematicResorse.LoadVariables(self)
+	CinematicResource.LoadVariables(self)
 	
 	property.append({
 		"name":"allDataCinematic",
@@ -192,6 +192,8 @@ func _ready() -> void:
 	if not is_inside_tree():
 		await tree_entered
 	setCinematicData()
+	if not Engine.is_editor_hint():
+		LazyLoad()
 
 var isCredible:bool = true 
 var previousSelected:bool
@@ -201,7 +203,7 @@ func _process(delta: float) -> void:
 		#CinematicEditor.NodeIsSelected(self) == true then errorPushed = not CinematicEditor.NodeIsSelected(self) else errorPushed = errorPushed
 		errorPushed =  not CinematicEditor.NodeIsSelected(self) if CinematicEditor.NodeIsSelected(self) else errorPushed
 	
-	if Engine.is_editor_hint() and CinematicResorse:
+	if Engine.is_editor_hint() and CinematicResource:
 		
 		errorPushed = false
 		
@@ -220,12 +222,12 @@ func _process(delta: float) -> void:
 			CinematicEditor.OffPanel()
 			isCredible = true
 	
-	elif not CinematicResorse and not errorPushed:
+	elif not CinematicResource and not errorPushed:
 		errorPushed = true
 		push_error("The node \"", name, "\" It doesn't have the \"Cinematic\" resource, please create it.")
 	
 	#Close the menu if it was created and the resource was removed.
-	if not isCredible and not CinematicResorse:
+	if not isCredible and not CinematicResource:
 		CinematicEditor.OffPanel()
 		isCredible = true
 	
@@ -235,20 +237,20 @@ func _process(delta: float) -> void:
 #region Save And Load
 func SaveData() -> void:
 	if editorGraph:
-		CinematicResorse.SaveData(dicImportTypeVar,dicImportVar,nodeEditor.get_children(),nodeEditor.connections)
+		CinematicResource.SaveData(dicImportTypeVar,dicImportVar,nodeEditor.get_children(),nodeEditor.connections)
 
 func LoadData() -> void:
-	CinematicResorse.LoadData(nodeEditor,self,get_tree())
+	CinematicResource.LoadData(nodeEditor,self,get_tree())
 
 func _exit_tree() -> void:
-	if not isCredible and Engine.is_editor_hint() and CinematicResorse and previousSelected:
+	if not isCredible and Engine.is_editor_hint() and CinematicResource and previousSelected:
 		SaveData()
 		CinematicEditor.OffPanel()
 		isCredible = true
 		OneTime=true
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_EDITOR_PRE_SAVE and  CinematicEditor.NodeIsSelected(self) and CinematicResorse and editorGraph:
+	if what == NOTIFICATION_EDITOR_PRE_SAVE and  CinematicEditor.NodeIsSelected(self) and CinematicResource and editorGraph:
 		SaveData()
 		CinematicEditor.setConsoleEditor("Save!")
 #endregion
@@ -256,8 +258,9 @@ func _notification(what: int) -> void:
 #region StartCinematic
 signal EndImport
 func StartCinematic() -> void:
-	LazyLoad()
-	CinematicResorse.LoadVariables(self)
+	if Engine.is_editor_hint():
+		LazyLoad()
+	CinematicResource.LoadVariables(self)
 	setCinematicData()
 	StartImport()
 	await EndImport
@@ -293,7 +296,7 @@ func ExeNode(node:CinematicNode,step:int) -> void:
 	ExecutionLine(node.name,step)
 
 func getListConections(from:String) -> Array[String]:
-	var auxConecctions:Array[Dictionary] = CinematicResorse.listConnections.duplicate(true)
+	var auxConecctions:Array[Dictionary] = CinematicResource.listConnections.duplicate(true)
 	var allToNodes:Array[String]
 	for connection:Dictionary in auxConecctions:
 		if connection["from_node"] == from:
@@ -301,7 +304,7 @@ func getListConections(from:String) -> Array[String]:
 	return allToNodes
 
 func StartImport():
-	var auxConecctions:Array[Dictionary] = CinematicResorse.listConnections.duplicate(true)
+	var auxConecctions:Array[Dictionary] = CinematicResource.listConnections.duplicate(true)
 	for connection in auxConecctions:
 		var auxFromIndex:int = FindNode(connection["from_node"])
 		var fromNode=listUnpackedNodes[auxFromIndex]
@@ -316,5 +319,5 @@ func StartImport():
 
 var listUnpackedNodes:Array[Node]
 func LazyLoad():
-	listUnpackedNodes = CinematicResorse.LoadNode()
+	listUnpackedNodes = CinematicResource.LoadNode()
 #endregion

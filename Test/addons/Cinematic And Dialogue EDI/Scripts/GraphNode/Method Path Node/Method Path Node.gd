@@ -10,6 +10,7 @@ var optionMethod:OptionButton
 
 var errorPushed:bool
 func setNodePathsOptions() -> void:
+	print("Cambio de opciones")
 	setCinematicData()
 	if not cinematicData:
 		return
@@ -22,7 +23,6 @@ func setNodePathsOptions() -> void:
 	if not optionNode:
 		push_error("optionNode is Null")
 		return
-	
 	optionNode.clear()
 	for path:NodePath in cinematicData.listNodePaths:
 		var node=CinematicEditor.getNode(path)
@@ -78,16 +78,18 @@ func SetMetholsOptions() -> void:
 		listMethod.append(method["name"])
 	
 	if optionMethod.get_item_count() > 0:
-		if methodName == "" or not listMethod.find(methodName):
+		if methodName.is_empty() or listMethod.find(methodName) == -1:
 			optionMethod.select(0)
-			_optionMethod_Selected(0)
+			_OptionMethod_Selected(0)
 		
 		else:
+			print(listMethod.find(methodName),methodName)
 			optionMethod.select(listMethod.find(methodName))
-			_optionMethod_Selected(listMethod.find(methodName))
+			_OptionMethod_Selected(listMethod.find(methodName))
 
-func _optionMethod_Selected(index:int) -> void:
+func _OptionMethod_Selected(index:int) -> void:
 	if listMethod==[]:
 		return
 	
 	methodName = listMethod[index]
+	print(listMethod[index])

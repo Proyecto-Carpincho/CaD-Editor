@@ -42,6 +42,7 @@
 >[!WARNING]
 > Please do not download the "Test" file, as it is where I modify and update the plugin. It is almost 100% unstable and unusable.
 
+[**CaD 1.1    --Stable**](https://github.com/Proyecto-Carpincho/CaD-Editor/releases/tag/StableVersions)
 [**CaD 1.0    --Stable**](https://github.com/Proyecto-Carpincho/CaD-Editor/releases/tag/StableVersions)
 
 ## Credits
